@@ -1,0 +1,1156 @@
+<title>Cyclone Pattern Book</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --panel: #dee0db;
+  --panel-2: #d2d5cf;
+  --surface: #f3f4f1;
+  --surface-2: #e8eae5;
+  --ink: #171a17;
+  --ink-2: #43483f;
+  --muted: #6d7369;
+  --line: #c3c7bf;
+  --line-soft: #d6d9d2;
+  --amber: #a8560f;
+  --pad-off: #cbcfc7;
+  --pad-off-edge: #b6bbb1;
+  --on: #d4761d;
+  --acc: #ce2f26;
+  --flam: #7b5ac6;
+  --roll: #188e7c;
+  --pg1: #ce2f26;
+  --pg2: #b6820c;
+  --pg3: #2e8b4e;
+  --pg4: #2a6db2;
+  --shadow: 0 1px 0 rgba(23,26,23,.06), 0 2px 8px rgba(23,26,23,.05);
+  --focus: #2a6db2;
+}
+:root:not([data-theme="light"]) {
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --panel: #1a1c1b;
+    --panel-2: #131514;
+    --surface: #232624;
+    --surface-2: #2c302d;
+    --ink: #e8eae5;
+    --ink-2: #b9bfb6;
+    --muted: #8b9289;
+    --line: #383d39;
+    --line-soft: #2e322f;
+    --amber: #e0913c;
+    --pad-off: #303430;
+    --pad-off-edge: #3d423d;
+    --on: #e08733;
+    --acc: #e8483d;
+    --flam: #9d80e0;
+    --roll: #2bb39c;
+    --pg1: #e8483d;
+    --pg2: #d5a223;
+    --pg3: #45ab68;
+    --pg4: #4a8fd4;
+    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 2px 10px rgba(0,0,0,.35);
+    --focus: #6ba7e8;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --panel: #1a1c1b;
+  --panel-2: #131514;
+  --surface: #232624;
+  --surface-2: #2c302d;
+  --ink: #e8eae5;
+  --ink-2: #b9bfb6;
+  --muted: #8b9289;
+  --line: #383d39;
+  --line-soft: #2e322f;
+  --amber: #e0913c;
+  --pad-off: #303430;
+  --pad-off-edge: #3d423d;
+  --on: #e08733;
+  --acc: #e8483d;
+  --flam: #9d80e0;
+  --roll: #2bb39c;
+  --pg1: #e8483d;
+  --pg2: #d5a223;
+  --pg3: #45ab68;
+  --pg4: #4a8fd4;
+  --shadow: 0 1px 0 rgba(0,0,0,.3), 0 2px 10px rgba(0,0,0,.35);
+  --focus: #6ba7e8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.eyebrow {
+  font-family: "Saira Condensed", ui-sans-serif, sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px 28px;
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+}
+.masthead h1 {
+  font-family: "Saira Condensed", ui-sans-serif, sans-serif;
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: .95;
+  text-wrap: balance;
+}
+.masthead h1 span { color: var(--amber); }
+.masthead .blurb {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+.masthead-text { display: flex; flex-direction: column; gap: 6px; }
+.stats {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.stat { display: flex; flex-direction: column; gap: 1px; }
+.stat b {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ---------- shell ---------- */
+.shell {
+  display: grid;
+  grid-template-columns: 292px minmax(0, 1fr);
+  align-items: start;
+  gap: 0;
+}
+@media (max-width: 940px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .rail { position: static; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+/* ---------- rail ---------- */
+.rail {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 18px 20px 26px;
+  border-right: 1px solid var(--line);
+  background: var(--panel-2);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.machine-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.machine-switch button {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 9px 6px 8px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.machine-switch button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--panel-2);
+  border-color: var(--ink);
+}
+.machine-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: -10px 0 0;
+}
+
+.matrix { display: flex; flex-direction: column; gap: 10px; }
+.matrix-page { display: flex; flex-direction: column; gap: 5px; }
+.matrix-page-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.slots { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+.slot {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--pad-off-edge);
+  border-radius: 2px;
+  background: var(--pad-off);
+  color: var(--ink-2);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  transition: transform .08s ease;
+}
+.slot:hover { transform: translateY(-1px); }
+.slot[aria-current="true"] {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+  color: var(--panel-2);
+  background: var(--ink);
+}
+.slot[data-done="1"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 1px 1px auto;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--roll);
+}
+.slot.dim { opacity: .28; }
+
+.rail-field { display: flex; flex-direction: column; gap: 6px; }
+.rail-field select,
+.rail-field input {
+  font: inherit;
+  font-size: 13.5px;
+  padding: 7px 8px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.legend { display: flex; flex-direction: column; gap: 6px; }
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.legend-row code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-left: auto;
+}
+.chip-pad {
+  width: 13px; height: 13px;
+  border-radius: 2px;
+  border: 1px solid var(--pad-off-edge);
+  background: var(--pad-off);
+  flex: none;
+}
+
+/* ---------- main ---------- */
+.main { padding: 22px 26px 60px; min-width: 0; }
+
+.pattern-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.pattern-slot {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .04em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  color: #fff;
+  background: var(--pg1);
+}
+.pattern-head h2 {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 44px);
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  line-height: .92;
+  margin: 0;
+  text-wrap: balance;
+}
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: auto;
+}
+.spec {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--ink-2);
+  background: var(--surface);
+  white-space: nowrap;
+}
+.spec b { color: var(--ink); font-weight: 600; }
+.note {
+  margin: 14px 0 0;
+  max-width: 64ch;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+.note em { color: var(--ink); font-style: italic; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 12px;
+}
+.toolbar .eyebrow { margin-right: 2px; }
+.tbtn {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tbtn[aria-pressed="true"] { background: var(--ink); color: var(--panel-2); border-color: var(--ink); }
+.tbtn.ghost { background: transparent; }
+.spacer { margin-left: auto; }
+
+/* ---------- step grid ---------- */
+.gridwrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 138px repeat(4, max-content);
+  gap: 0;
+  min-width: max-content;
+}
+.grid.iso { grid-template-columns: 138px repeat(4, max-content); }
+.ruler-label { border-bottom: 1px solid var(--line); }
+.ruler-group {
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line-soft);
+  padding: 7px 9px 5px;
+}
+.ruler-group .eyebrow { display: flex; align-items: center; gap: 6px; font-size: 10px; }
+.vlabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--surface-2);
+}
+.vlabel b {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .04em;
+}
+.vlabel span { font-size: 11.5px; color: var(--muted); line-height: 1.25; }
+.vlabel.is-acc b { color: var(--acc); }
+.cells {
+  display: flex;
+  gap: 3px;
+  padding: 6px 9px;
+  border-bottom: 1px solid var(--line-soft);
+  border-left: 1px solid var(--line-soft);
+}
+.pad {
+  width: 15px;
+  height: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--pad-off-edge);
+  background: var(--pad-off);
+  flex: none;
+  position: relative;
+}
+.grid.iso .pad { width: 26px; height: 40px; }
+.pad[data-beat="1"] { border-top-width: 3px; }
+.pad[data-s="x"] { background: var(--on); border-color: var(--on); }
+.pad[data-s="X"] { background: var(--acc); border-color: var(--acc); }
+.pad[data-s="f"] { background: var(--flam); border-color: var(--flam); }
+.pad[data-s="F"] { background: var(--flam); border-color: var(--acc); box-shadow: inset 0 0 0 2px var(--acc); }
+.pad[data-s="r"] { background: var(--roll); border-color: var(--roll); }
+.pad[data-s="R"] { background: var(--roll); border-color: var(--acc); box-shadow: inset 0 0 0 2px var(--acc); }
+.pad-num {
+  position: absolute;
+  inset: auto 0 -15px 0;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.grid.iso .cells { padding-bottom: 22px; }
+
+.textview {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  white-space: pre;
+}
+
+.isolate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 14px 0 0;
+}
+.vchip {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 9px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.vchip[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: #fff; }
+
+/* ---------- settings ---------- */
+.panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+  align-items: start;
+}
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  padding: 15px 17px 17px;
+}
+.panel h3 {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 11px;
+}
+table { border-collapse: collapse; width: 100%; }
+th, td {
+  text-align: left;
+  padding: 6px 8px 6px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13px;
+  vertical-align: top;
+}
+th {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+td.num, th.num {
+  font-family: "IBM Plex Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  padding-right: 0;
+}
+tr:last-child td { border-bottom: 0; }
+.kv { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
+
+.howto { margin: 0; padding-left: 1.1em; color: var(--ink-2); font-size: 14px; }
+.howto li { margin-bottom: 7px; }
+.howto b { color: var(--ink); }
+.howto kbd {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+
+.done-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 6px 11px 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink-2);
+}
+.done-toggle input { accent-color: var(--roll); width: 14px; height: 14px; margin: 0; }
+.done-toggle[data-on="1"] { border-color: var(--roll); color: var(--roll); }
+.sync {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+button:focus-visible, select:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+.foot {
+  margin: 34px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 72ch;
+}
+.foot code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+</style>
+
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="eyebrow">Cyclone Analogic &#183; RezOSDrum</p>
+    <h1>Pattern Book<br><span>Drum Drone &amp; Beat Bot</span></h1>
+    <p class="blurb">128 patterns for two empty machines. Every one is 64 steps on the
+      16th-note scale, written for the voices that machine actually has, using its own
+      accents, Global Accent lane, flam and roll modifiers.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>128</b><span class="eyebrow">Patterns</span></div>
+    <div class="stat"><b>64</b><span class="eyebrow">Steps each</span></div>
+    <div class="stat"><b id="stat-done">0</b><span class="eyebrow">Punched in</span></div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="machine-switch" role="group" aria-label="Machine">
+      <button type="button" data-machine="TT-606" aria-pressed="true">TT-606</button>
+      <button type="button" data-machine="TT-78" aria-pressed="false">TT-78</button>
+    </div>
+    <p class="machine-sub" id="machine-sub"></p>
+
+    <div class="rail-field">
+      <label class="eyebrow" for="family">Filter by family</label>
+      <select id="family"><option value="">All families</option></select>
+    </div>
+
+    <div class="matrix" id="matrix"></div>
+
+    <div class="legend" id="legend">
+      <p class="eyebrow" style="margin:0">Step colours</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="pattern-head">
+      <span class="pattern-slot" id="p-slot">P01</span>
+      <h2 id="p-name">&#8212;</h2>
+      <div class="specs" id="p-specs"></div>
+    </div>
+    <p class="note" id="p-note"></p>
+
+    <div class="toolbar">
+      <span class="eyebrow">View</span>
+      <button type="button" class="tbtn" id="view-pads" aria-pressed="true">Pads</button>
+      <button type="button" class="tbtn" id="view-text" aria-pressed="false">Text</button>
+      <span class="spacer"></span>
+      <label class="done-toggle" id="done-wrap">
+        <input type="checkbox" id="done"> Punched in
+      </label>
+      <span class="sync" id="sync"></span>
+    </div>
+
+    <div class="gridwrap" id="gridwrap"><div class="grid" id="grid"></div></div>
+    <pre class="textview" id="textview" hidden></pre>
+
+    <div class="isolate" id="isolate"></div>
+
+    <div class="panels">
+      <section class="panel" id="panel-voice">
+        <h3>Voice settings for this pattern</h3>
+        <div id="voice-settings"></div>
+      </section>
+      <section class="panel">
+        <h3>Entering it on the machine</h3>
+        <ol class="howto">
+          <li>Mode switch to <b>Pattern Write</b>, sequencer stopped. Clear the slot with
+            <kbd>CLEAR</kbd>+<kbd>#</kbd> &#8212; it resets to an empty 16-step pattern.</li>
+          <li>Set the length to 64: <kbd>FUNC</kbd>+<kbd>LENGTH</kbd>, <kbd>PAGE</kbd> to the
+            fourth page, then <kbd>16</kbd>.</li>
+          <li>Start the sequencer. Set the <b>Track/Instrument</b> switch to one voice and punch
+            its 64 steps &#8212; use <b>Isolate</b> above to show that voice alone, four groups of 16,
+            one group per <kbd>PAGE</kbd> press.</li>
+          <li>Accents: <kbd>ACCENT</kbd> then the steps. Flam and roll the same way with
+            <kbd>FLAM</kbd> and <kbd>ROLL</kbd>, or hold the modifier and press the steps.</li>
+          <li>The <b>ACC*</b> row is the Global Accent lane &#8212; <kbd>FUNC</kbd>+<kbd>ACCENT</kbd>,
+            then those steps. It accents every voice that has a hit there.</li>
+          <li>Voice settings on the left are Tone / Nuance / Inst Select positions. The CC number
+            beside each one sets it over MIDI instead.</li>
+        </ol>
+      </section>
+    </div>
+
+    <p class="foot">Note numbers and CC assignments are from the RezOSDrum v1.0 MIDI
+      implementation charts. Velocity &#8805; 112 is read as an accented strike, so these patterns
+      play with their accents intact straight from a DAW &#8212; the matching MIDI files are in
+      <code>out/midi/</code>. Twelve TT-606 and thirteen TT-78 patterns repeat all four bars
+      on purpose: motorik, EBM and the polyrhythm studies, where the phasing is the point.</p>
+  </main>
+</div>
+
+<script type="application/json" id="bank-data">{"TT-606":{"order":["BD","SD","LT","HT","CY","OH","CH","RS","CP"],"voices":{"BD":{"amount_cc":23,"name":"Bass Drum","note":36,"select_cc":null,"shape_cc":22,"tone_cc":20},"CH":{"amount_cc":71,"name":"Closed Hi-hat","note":42,"select_cc":72,"shape_cc":70,"tone_cc":68},"CP":{"amount_cc":87,"name":"Hand Clap","note":39,"select_cc":null,"shape_cc":86,"tone_cc":84},"CY":{"amount_cc":55,"name":"Cymbal","note":51,"select_cc":56,"shape_cc":54,"tone_cc":52},"HT":{"amount_cc":47,"name":"High Tom","note":48,"select_cc":null,"shape_cc":46,"tone_cc":44},"LT":{"amount_cc":39,"name":"Low Tom","note":43,"select_cc":null,"shape_cc":38,"tone_cc":36},"OH":{"amount_cc":63,"name":"Open Hi-hat","note":46,"select_cc":64,"shape_cc":62,"tone_cc":60},"RS":{"amount_cc":79,"name":"Rim Shot","note":37,"select_cc":null,"shape_cc":78,"tone_cc":76},"SD":{"amount_cc":31,"name":"Snare Drum","note":38,"select_cc":null,"shape_cc":30,"tone_cc":28}},"patterns":[{"slot":1,"name":"House","family":"Four-to-the-floor","tempo":124,"notes":"Textbook 4/4 house: offbeat open hat, clap on the backbeat, rim ghost lifting into the next bar.","shuffle":null,"flam_time":32,"kit":{"CH":{"sel":1,"tone":64},"CP":{"amount":40,"shape":6,"tone":60},"OH":{"sel":2,"tone":70}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x.......x.x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"....x.......x.....x.x.......x.......x.......x.......x.......f...","GA":"x...............x...............x...............x...............","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","RS":"..............x...............x...............x...............x."}},{"slot":2,"name":"Deep House","family":"Four-to-the-floor","tempo":120,"notes":"Softer hats, one clap per bar, kick tuned long and round.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":30,"shape":8,"tone":40},"CH":{"amount":52,"sel":3,"shape":12,"tone":44},"OH":{"sel":4,"tone":52}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","CH":"x..xx..xx..xx..xx..xx..xx..xx..xx..xx..xx..xx.xxx..xx..xx..xx..r","CP":"....x...............x..........x....x...............f...........","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","RS":"......x.....x.........x.....x.x.......x.....x.........x.....x..."}},{"slot":3,"name":"Tech House","family":"Four-to-the-floor","tempo":126,"notes":"Sixteenth hats with a pushed kick on the last step.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":2,"tone":78},"OH":{"sel":1,"tone":66}},"lanes":{"BD":"x...x...x...x..xx...x...x...x..xx...x...x...x..xx...x...x...x.xx","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","CP":"....x.......x.......x.......x.......x.......x.......x.......x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","RS":"..x.......x.......x.......x.......x.......x.......x.......x....."}},{"slot":4,"name":"Techno","family":"Four-to-the-floor","tempo":132,"notes":"Deliberately strict \u2014 no bar-to-bar variation. Let the Tone knobs do the moving.","shuffle":null,"flam_time":null,"kit":{"CH":{"amount":20,"sel":0,"shape":2,"tone":90},"CY":{"sel":1,"tone":30}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"............x...............x...............x...............x...","RS":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":5,"name":"Hard Techno","family":"Four-to-the-floor","tempo":145,"notes":"Everything accented, kick tuned short and clicky, snare slam into the turnaround.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":96,"shape":30,"tone":20},"CH":{"sel":5,"tone":110},"CY":{"sel":3,"tone":100}},"lanes":{"BD":"X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X.x.","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","CY":"x.......x.......x.......x.......x.......x.......x.......x.......","GA":"X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","SD":"..............X...............X...............X.............fxxr"}},{"slot":6,"name":"Minimal","family":"Four-to-the-floor","tempo":128,"notes":"Almost nothing. Space is the instrument.","shuffle":null,"flam_time":null,"kit":{"CH":{"amount":24,"sel":1,"shape":20,"tone":50},"RS":{"tone":70}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"..x.....x.........x.....x.........x.....x.........x.....x.......","CP":"............x...............x...............x...............x...","GA":"x...............x...............x...............x...............","RS":"......x...............x...............x...............x........."}},{"slot":7,"name":"Dub Techno","family":"Four-to-the-floor","tempo":122,"notes":"Long, soft open hat as the only bright thing in the pattern.","shuffle":null,"flam_time":null,"kit":{"CH":{"amount":64,"sel":4,"shape":16,"tone":34},"OH":{"amount":80,"sel":5,"shape":22,"tone":40}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x.......x...","CH":"..x...x...x...x...x...x...x...r...x...r...x...x...x...x...x...x.","CP":"....x...............x...............x.............x.x...........","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","OH":"..............x...............x...............x...............x.","RS":"........x...............x...............x...............x......."}},{"slot":8,"name":"Tribal Techno","family":"Four-to-the-floor","tempo":130,"notes":"Toms carry the groove; the three-against-four rim keeps it rolling.","shuffle":null,"flam_time":null,"kit":{"HT":{"amount":48,"shape":10,"tone":80},"LT":{"amount":48,"shape":10,"tone":44}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x.......x...","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HT":"....x.......x.......x..x....x.......x.......x.......x...X.x.x...","LT":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x.Xxx","OH":"......x...............x...............x...........x...x.........","RS":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x..."}},{"slot":9,"name":"Detroit Techno","family":"Four-to-the-floor","tempo":134,"notes":"Stuttering hat figure, cymbal wash on the downbeat.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":2,"tone":84},"CP":{"amount":56,"shape":4,"tone":72},"CY":{"sel":2,"tone":62}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CH":"x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xx","CP":"....x.......x.......x.......x.......x.......x.......x...x...x...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"..........x...............x...............x...............x.....","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":10,"name":"Acid Techno","family":"Four-to-the-floor","tempo":138,"notes":"The classic 606-under-a-303 pattern. Global accent alternates strong/stronger.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":3,"tone":96},"SD":{"amount":70,"shape":14,"tone":88}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","CY":"x.......x.......x.......x.......x.......x.......x.......x...x...","GA":"x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","RS":".....x.....x.........x.....x.........x.....x....x....x.....x....","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":11,"name":"Hardgroove","family":"Four-to-the-floor","tempo":136,"notes":"Dense percussive layers with an accent lane in threes against the four.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":4,"tone":100},"RS":{"amount":60,"shape":8,"tone":90}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","CP":"....x.......x.......x.......x.......x.......x.......x.......f...","GA":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","HT":"..........x............x..x...............x.............X.x.x...","LT":"......x.....x.........x.....x.........x.....x.........x.....xXxx","OH":"..x.......x.......x...x...x.......x.......x.......x...x...x.....","RS":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..xx.x"}},{"slot":12,"name":"Schranz","family":"Four-to-the-floor","tempo":150,"notes":"Distorted-kick territory: double kick figure, cymbal on every beat.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":110,"shape":31,"tone":12},"CY":{"sel":3,"tone":118}},"lanes":{"BD":"X..xX..xX..xX..xX..xX..xX..xX.xxX..xX..xX..xX..xX..xX..xX..xX..x","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxx","CY":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","GA":"X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...","OH":"......x...........x...x...............x...............x.........","SD":"..............X...............X...............X.............xxxr"}},{"slot":13,"name":"Trance","family":"Four-to-the-floor","tempo":138,"notes":"Big offbeat hat, rolling sixteenths, fills every fourth bar.","shuffle":null,"flam_time":null,"kit":{"CY":{"sel":1,"tone":74},"OH":{"sel":3,"tone":90}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","CP":"....x.......x.......x.......x.......x.......x.......x.......f...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","RS":"...........x...............x...............x...............x...."}},{"slot":14,"name":"Psy","family":"Four-to-the-floor","tempo":145,"notes":"Rolling triplet-feel tom underneath a rigid kick. Strict on purpose.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":5,"tone":104},"LT":{"amount":20,"shape":6,"tone":30}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","CY":"x.......x.......x.......x.......x.......x.......x.......x.......","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","LT":".x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x","OH":"......x.......x.......x.......x.......x.......x.......x.......x."}},{"slot":15,"name":"Hardcore","family":"Four-to-the-floor","tempo":165,"notes":"Fast and blunt. Cymbal eighths give it the rave sheen.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":120,"shape":31,"tone":8},"SD":{"tone":100}},"lanes":{"BD":"X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X.x.","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","CY":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","GA":"X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...","HT":"..........x.x..........x..x.x.............x.x...........X.x.x...","LT":".............................................................Xxx","OH":"..............x...............x...............x...........x...x.","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":16,"name":"Industrial Techno","family":"Four-to-the-floor","tempo":128,"notes":"Snare on the half-bar, kick limping slightly off the grid.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":88,"shape":26,"tone":24},"CY":{"sel":3,"tone":20},"SD":{"amount":100,"shape":28,"tone":30}},"lanes":{"BD":"x...x...x..x.x..x...x...x..x.x..x...x...x..x.x..x...x...x..x.x..","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x...............x...............x...............x...............","GA":"x.......X.......x.......X.......x.......X.......x.......X.......","HT":"........................................................X.x.x...","LT":"..x.........x.....x.........x.....x.........x.....x.........xXxx","RS":".....x.....x.........x.....x.........x.....x.........x.....x....","SD":"........X...............X...............X...............X......."}},{"slot":17,"name":"Electro","family":"Breaks & electro","tempo":128,"notes":"Syncopated electro kick, straight backbeat, eighth hats.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":2,"tone":88},"SD":{"amount":44,"shape":10,"tone":76}},"lanes":{"BD":"x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"....x...............x...............x...............f...........","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..x.......x.......x.......x.......x.......x.......x.......x.....","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":18,"name":"Miami Bass","family":"Breaks & electro","tempo":132,"notes":"808-style bass pattern with clap doubling the snare.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":24,"shape":4,"tone":18},"CH":{"sel":1,"tone":92}},"lanes":{"BD":"x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..xx.","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","CP":"....x.......x.......x..x....x.......x.......x...x...x.......f...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","OH":"..............x...........x...x...............x...........x...x.","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":19,"name":"Breakbeat","family":"Breaks & electro","tempo":136,"notes":"Loose funk break skeleton, snare doing the talking.","shuffle":null,"flam_time":null,"kit":{"SD":{"amount":60,"shape":12,"tone":70}},"lanes":{"BD":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"......x...............x...............x...........x...x.........","RS":"..........x...............x...............x...............x.....","SD":"....x..x..x.x.......x..x..x.x.......x..x..x.x.......x..x..x.xxxr"}},{"slot":20,"name":"Big Beat","family":"Breaks & electro","tempo":118,"notes":"Heavy, slightly slow, snare hit hard.","shuffle":null,"flam_time":null,"kit":{"CY":{"sel":2,"tone":54},"SD":{"amount":82,"shape":18,"tone":62}},"lanes":{"BD":"x...x..x..x.x...x...x..x..x.x.x.x...x..x..x.x...x...x..x..x.x...","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x...............x...............x...............x...............","GA":"x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...","HT":"...........x...........x...x...............x............X.xxx...","LT":".............................................................Xxx","OH":"..x.......x.......x.......x.......x.......x.......x.......x.....","SD":"....X.......X.......X.......X.......X.......X.......X.......xxxr"}},{"slot":21,"name":"Boom Bap","family":"Breaks & electro","tempo":90,"notes":"Slow, dusty, flammed snare in the turnaround.","shuffle":null,"flam_time":20,"kit":{"CH":{"sel":3,"tone":48},"SD":{"amount":74,"shape":20,"tone":58}},"lanes":{"BD":"x.....x...x.....x.....x...x.....x.....x...x.....x.....x...x...x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..............x...........x...x...............x...............x.","RS":"..........x...............x...............x........x......x.....","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":22,"name":"Trip-Hop","family":"Breaks & electro","tempo":84,"notes":"Half-speed feel, snare dragged late in the bar.","shuffle":null,"flam_time":40,"kit":{"CY":{"sel":0,"tone":28},"SD":{"amount":90,"shape":24,"tone":44}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.............x.","CH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","RS":"........x...............x...x...........x...............x.......","SD":"....x.........x.....x.....x...x.....x.........x.....x.......xxxr"}},{"slot":23,"name":"Jungle","family":"Breaks & electro","tempo":165,"notes":"Chopped-break placement at jungle tempo; sixteenth hats hold it together.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":4,"tone":96},"SD":{"amount":66,"shape":14,"tone":84}},"lanes":{"BD":"x.......x.x.....x.......x.x.....x.......x.x.....x.......x.x.....","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr","CY":"x...............x...............x...............x...........x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..x.......x.......x...x...x.......x.......x.......x.......x.....","RS":"......x.....x.........x.....x.........x.....x.........x.....x...","SD":"....x......x........x......x........x......x........x......xxxxr"}},{"slot":24,"name":"Drum & Bass","family":"Breaks & electro","tempo":172,"notes":"Two-step: the whole point is the space between kick and snare.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":2,"tone":100},"SD":{"tone":90}},"lanes":{"BD":"x.........x.....x.........x...x.x.........x.....x.........x.....","CH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..............x...........x...x...............x...............x.","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":25,"name":"Halftime","family":"Breaks & electro","tempo":172,"notes":"Fast hats, half-time backbone. Huge and slow-feeling.","shuffle":null,"flam_time":null,"kit":{"SD":{"amount":88,"shape":22,"tone":66}},"lanes":{"BD":"x...............x.............x.x...............x.............x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"......x...............x...............x...............x.........","RS":"..........x...x...........x...x...........x...x...........x...x.","SD":"........x...............x.x.............x...............x...xxxr"}},{"slot":26,"name":"Funk Break","family":"Breaks & electro","tempo":104,"notes":"Sixteenth-note hat shuffle under a busy snare.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":1,"tone":58},"SD":{"amount":56,"shape":16,"tone":68}},"lanes":{"BD":"x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..x..x.","CH":"x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xx","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..x...............x...............x...............x.............","SD":"....x..x..x.x..x....x.xx..x.x..x....x..x..x.x..x....x..x..x.fxxr"}},{"slot":27,"name":"Amen Feel","family":"Breaks & electro","tempo":168,"notes":"Ghost-snare density approximating the classic break.","shuffle":null,"flam_time":null,"kit":{"SD":{"amount":72,"shape":18,"tone":78}},"lanes":{"BD":"x.......x.......x.......x.....x.x.......x.......x.......x.......","CH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","RS":"...........x............x..x...............x.......x.......x....","SD":"....x..x.x..x..x....x..x.x..x..x....x..x.x..x..x....x..x.x..xxxr"}},{"slot":28,"name":"Broken Beat","family":"Breaks & electro","tempo":126,"notes":"Everything slightly displaced \u2014 West London swing.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":3,"tone":72}},"lanes":{"BD":"x....x..x...x..xx....x..x...x..xx....x..x...x..xx....x..x...x..x","CH":"x.x.xx.x.xx.x.x.x.x.xx.x.xx.x.r.x.x.xx.x.xx.x.r.x.x.xx.x.xx.x.x.","CP":"............x...............x...............x...............x...","GA":"x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..","OH":"..x.......x.......x.......x.......x.......x.......x.......x.....","RS":"......x...............x...............x...............x.........","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":29,"name":"Footwork","family":"Breaks & electro","tempo":160,"notes":"Triplet-feel kick against a straight rim sixteenth pulse.","shuffle":null,"flam_time":null,"kit":{"CP":{"tone":80},"RS":{"amount":40,"shape":6,"tone":96}},"lanes":{"BD":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..xx","CH":"..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x.","CP":"....x.......x.......x.......x.......x.......x.......x.......x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","RS":"x.x.x.x.x.x.x.x.x.x.x.xxx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x."}},{"slot":30,"name":"Ghetto House","family":"Breaks & electro","tempo":138,"notes":"Offbeat claps, relentless hats.","shuffle":null,"flam_time":null,"kit":{"CP":{"amount":50,"shape":8,"tone":90}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","CP":"..x...x...x...x...x...x...x...x...x...x...x...x...xx..x...x...x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"............x...............x...............x...............x...","SD":"..............X...............X...............X.............xxxr"}},{"slot":31,"name":"Baltimore Club","family":"Breaks & electro","tempo":132,"notes":"The Think-break bounce, stripped to a 606.","shuffle":null,"flam_time":null,"kit":{"CP":{"tone":84}},"lanes":{"BD":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..x","GA":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","OH":"..............x...............x...............x...............x.","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr"}},{"slot":32,"name":"UK Garage","family":"Breaks & electro","tempo":132,"notes":"Two-step garage with shuffle dialled in on CC18.","shuffle":42,"flam_time":null,"kit":{"CH":{"sel":2,"tone":80},"SD":{"tone":86}},"lanes":{"BD":"x.....x...x.....x.....x...x.....x.....x...x.....x.....x...x.....","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"............x...............x...............x...............x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..x.......x.......x.......x.......x.......x.......x.......x.....","RS":"......x.....x.........x.....x.........x.....x.........x.....x...","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr"}},{"slot":33,"name":"606 Rock","family":"Machine rock & wave","tempo":120,"notes":"The original TR-606 Rock 1 idea, developed over four bars.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":0,"tone":64},"CY":{"sel":0,"tone":60}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.....x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..............x...........x...x...............x...............x.","SD":"....x.......x.......x.....x.x.......x.......x.......x.......fxxr"}},{"slot":34,"name":"Post-Punk","family":"Machine rock & wave","tempo":148,"notes":"Driving and hard-hit, cymbal marking the half bars.","shuffle":null,"flam_time":null,"kit":{"SD":{"amount":64,"shape":12,"tone":72}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x.......x.......x.......x.......x.......x.......x.......x...x...","GA":"x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...","HT":"..........x............x..x...............x.............X.x.x...","LT":".............................................................Xxx","SD":"....X.......X.......X.......X.......X.......X.......X.......xxxr"}},{"slot":35,"name":"EBM","family":"Machine rock & wave","tempo":126,"notes":"Eighth-note kick engine. Strict, because EBM does not swing.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":40,"shape":12,"tone":28},"SD":{"tone":80}},"lanes":{"BD":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","CH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","CY":"x...............x...............x...............x...............","GA":"x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...","RS":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","SD":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":36,"name":"Coldwave","family":"Machine rock & wave","tempo":112,"notes":"Sparse, dry, a little sad.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":4,"tone":40},"CY":{"sel":0,"tone":34}},"lanes":{"BD":"x.......x...x...x.......x...x...x.......x...x...x.......x...x...","CH":"..x...x...x...x...x...x...x...r...x...r...x...x...x...x...x...x.","CY":"x...............x...............x...............x...........x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","RS":"x...............x...............x...............x...............","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":37,"name":"Synth-Pop","family":"Machine rock & wave","tempo":118,"notes":"Clap doubling the snare \u2014 the 80s move.","shuffle":null,"flam_time":null,"kit":{"CP":{"amount":48,"shape":6,"tone":70}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"....x.......x.......x.......x.......x.......x.......x.......x...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..............x...............x...............x...............x.","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":38,"name":"Italo","family":"Machine rock & wave","tempo":122,"notes":"Tom answer phrase in the second half of each bar.","shuffle":null,"flam_time":null,"kit":{"HT":{"tone":92},"OH":{"sel":2,"tone":78}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","CP":"....x.......x.......x.......x.......x.......x.......x.......x...","CY":"x...............x...............x...............x...........x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"..........x.x.............x.x.............x.x...........X.x.x...","LT":".............................................................Xxx","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":39,"name":"Freestyle","family":"Machine rock & wave","tempo":116,"notes":"Electro-latin freestyle kick with tom answers.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":1,"tone":86}},"lanes":{"BD":"x.....x.x.......x.....x.x.......x.....x.x.......x.....x.x.......","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr","CP":"....x.......x.......x.......x.......x.......x.......xx......f...","GA":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","HT":"..........x............x..x...............x.............X.x.x...","LT":"............x..........x....x...............x...............xXxx","SD":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":40,"name":"New Beat","family":"Machine rock & wave","tempo":108,"notes":"Slow, stiff, heavy. Belgian tempo.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":60,"shape":18,"tone":22}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","CY":"x.......x.......x.......x.......x.......x.......x.......x.......","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","RS":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","SD":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":41,"name":"Dark Pulse","family":"Machine rock & wave","tempo":96,"notes":"Barely a beat. Good bed for drones.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":5,"tone":22},"CY":{"amount":96,"sel":0,"shape":26,"tone":18}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CH":"....x.......x.......x.......x.......x.......x.......x.......x...","CY":"x...............x...............x...............x...............","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","RS":"..x.......x.......x.......x.......x.......x.......x.......x....."}},{"slot":42,"name":"IDM Glitch","family":"Machine rock & wave","tempo":140,"notes":"Deliberately unstable. Rolls and flams used as glitches.","shuffle":null,"flam_time":8,"kit":{"CH":{"amount":70,"sel":3,"shape":30,"tone":108},"SD":{"amount":86,"shape":28,"tone":94}},"lanes":{"BD":"x..x.....x..x...x..x.....x..x.x.x..x.....x..x...x..x.....x..x...","CH":"x.xx..x.xx.x..xxx.xx..x.xx.x..xxx.xx..x.xx.x..rxx.xx..x.xx.x..xr","GA":"x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....","HT":".........x.............x.x...............x..............Xxx.x...","LT":".............................................................Xxx","RS":"..x....x..x.......x....x..x.......x....x..x.......x....x..x.....","SD":"....x..x....x.x.....x..x..x.x.x.....x..x....x.x.....x..x....fxxr"}},{"slot":43,"name":"Braindance","family":"Machine rock & wave","tempo":130,"notes":"Warp-era wonk: displaced kick, chattering hats.","shuffle":null,"flam_time":16,"kit":{"CH":{"sel":2,"tone":94},"LT":{"amount":64,"shape":20,"tone":36}},"lanes":{"BD":"x....x..x...x...x....x..x...x...x....x..x...x...x....x..x...x...","CH":"x.x.xx.xx.x.xx.xx.x.xx.xx.r.xx.xx.x.xx.xx.r.xx.xx.x.xx.xx.x.xx.x","CY":"x...............x...............x...............x...........x...","GA":"x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..","HT":"........................................................X.x.x...","LT":"...........x...............x...............x...............x.Xxx","OH":"......x...............x...............x...........x...x.........","SD":"....x.....x.x.......x.....x.x.......x.....x.x.......x.....x.xxxr"}},{"slot":44,"name":"Cut-Up","family":"Machine rock & wave","tempo":150,"notes":"Fast, chopped, almost arrhythmic \u2014 but it loops.","shuffle":null,"flam_time":6,"kit":{"SD":{"amount":90,"shape":31,"tone":100}},"lanes":{"BD":"x.x.....x.x.....x.x.....x.x...x.x.x.....x.x.....x.x.....x.x.....","CH":"xx.xx.xx.xx.xx.xxx.xx.xx.xx.xx.xxx.xx.xx.xr.xx.xxx.xx.xx.xx.xx.r","GA":"x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....","HT":"....x.......x.......x.......x.......x.......x.......x...X.x.x...","LT":".............................................................Xxx","RS":".......x.......x.......x.......x.......x.......x.......x.......x","SD":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..xxxxr"}},{"slot":45,"name":"Motorik","family":"Machine rock & wave","tempo":142,"notes":"Neu! pulse. Strict so it hypnotises.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":1,"tone":70}},"lanes":{"BD":"x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..............x...............x...............x...............x.","SD":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":46,"name":"Shoegaze Drive","family":"Machine rock & wave","tempo":130,"notes":"Washy cymbal every half bar, snare pushing sixteenths.","shuffle":null,"flam_time":null,"kit":{"CY":{"amount":84,"sel":2,"shape":22,"tone":46}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x.......x.......x.......x.......x.......x.......x.......x.......","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":".............................................................Xxx","OH":"..x...............x...........x...x...............x.............","SD":"....x..x....x..x....x..x....x..x....x..x....x..x....x..x....xxxr"}},{"slot":47,"name":"Noise Industrial","family":"Machine rock & wave","tempo":100,"notes":"All extremes on the nuance settings. Abrasive by design.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":118,"shape":31,"tone":14},"CY":{"sel":3,"tone":14},"SD":{"amount":110,"shape":30,"tone":24}},"lanes":{"BD":"X..x..X...x.X...X..x..X...x.X...X..x..X...x.X...X..x..X...x.X.x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CY":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","GA":"X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...","HT":"........................................................X.x.x...","LT":"..x.......x.......x....x..x.......x.......x.......x.......x..Xxx","SD":"....X.......X.......X.......X.......X.......X.......X.......X..."}},{"slot":48,"name":"Power Pulse","family":"Machine rock & wave","tempo":88,"notes":"Two enormous hits per bar. Everything else is decoration.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":120,"shape":28,"tone":10},"CY":{"sel":3,"tone":10}},"lanes":{"BD":"X.......X.......X.......X.......X.......X.......X.......X.......","CY":"X.......X.......X.......X.......X.......X.......X.......X.......","GA":"X.......X.......X.......X.......X.......X.......X.......X.......","LT":"....x.......x.......x.......x.......x.......x.......x.......x...","RS":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":49,"name":"16th Shuffle","family":"Grooves & polyrhythm","tempo":108,"notes":"Shuffle amount pushed past half \u2014 swung sixteenths.","shuffle":64,"flam_time":null,"kit":{"CH":{"sel":1,"tone":62}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.......xx","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..x.......x.......x.......x.......x.......x.......x...x...x.....","RS":"......x.....x.........x.....x.........x.....x.........x.....x...","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr"}},{"slot":50,"name":"Swung Boom Bap","family":"Grooves & polyrhythm","tempo":88,"notes":"Heavy swing plus flams \u2014 the drunkest pattern in the bank.","shuffle":76,"flam_time":24,"kit":{"CH":{"sel":4,"tone":44},"SD":{"amount":78,"shape":22,"tone":54}},"lanes":{"BD":"x.....x...x.....x.....x...x...x.x.....x...x.....x.....x...x...x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","RS":"..........x..........x....x...............x.......x.......x.....","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr"}},{"slot":51,"name":"Dembow","family":"Grooves & polyrhythm","tempo":96,"notes":"The boom-ch-boom-chick, with rim on the offbeats.","shuffle":null,"flam_time":null,"kit":{"RS":{"tone":84},"SD":{"tone":74}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"....x.......x.......x.......x.......x.......x.......x.......f...","GA":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","RS":"..x...x...x...x...x.x.x...x...x...x...x...x...x...x..xx...x...x.","SD":"...x..x....x..x....x..x....x..x....x..x....x..x....x..x....xxxxr"}},{"slot":52,"name":"Reggaeton","family":"Grooves & polyrhythm","tempo":94,"notes":"Clap doubling the dembow snare for weight.","shuffle":null,"flam_time":null,"kit":{"CP":{"amount":46,"shape":8,"tone":78}},"lanes":{"BD":"x.......x.......x.......x.....x.x.......x.......x.......x.......","CH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","CP":"...x..x....x..x...xx..x....x..x....x..x....x..x....x..x....x..x.","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","OH":"..............x...............x...............x...........x...x.","SD":"...x..x....x..x....x..x...xx..x....x..x....x..x....x..x....xxxxr"}},{"slot":53,"name":"Baile Funk","family":"Grooves & polyrhythm","tempo":130,"notes":"Tamborz\u00e3o-flavoured tom answer under a bouncing kick.","shuffle":null,"flam_time":null,"kit":{"LT":{"amount":58,"shape":14,"tone":40}},"lanes":{"BD":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x....x..x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","CP":"....x.......x.......x.......x.......x.......x.......x.......x...","GA":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","HT":"........................................................X.x.x...","LT":"..x.x...x.x.......x.x...x.x.......x.x...x.x.......x.x...x.x..Xxx","SD":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":54,"name":"Afro House","family":"Grooves & polyrhythm","tempo":122,"notes":"Layered percussion in threes over a straight four.","shuffle":null,"flam_time":null,"kit":{"HT":{"tone":86},"LT":{"tone":42},"RS":{"tone":88}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HT":"....x..x....x..x....x..x....x..x....x..x....x..x....x..xX.x.x..x","LT":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x.Xxx","OH":"..x.......x.......x.......x.......x.......x.......x...x...x.....","RS":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x"}},{"slot":55,"name":"6/8 Feel","family":"Grooves & polyrhythm","tempo":116,"notes":"Twelve-feel bell pattern mapped onto the 16-step grid.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":2,"tone":66}},"lanes":{"BD":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.x.","CH":"x..x..x..x..x..xx..x..x..x..x..xx..x..r..x..x..xx..x..x..x..x..x","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HT":"...x.....x.....x...x.....x.....x...x.....x.....x...x....Xxx.x..x","LT":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x.Xxx","RS":"....x.....x........xx.....x.........x.....x.........x.....f....."}},{"slot":56,"name":"Cumbia Machine","family":"Grooves & polyrhythm","tempo":100,"notes":"Cumbia's limping guiro figure translated to rim and tom.","shuffle":null,"flam_time":null,"kit":{"LT":{"tone":38},"RS":{"tone":92}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"........................................................X.x.x...","LT":"..x.....x.....x...x.....x.....x...x.....x.....x...x.....x....Xxx","RS":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","SD":"....x.......x.......x.....x.x.......x.......x.......x.......x..."}},{"slot":57,"name":"Samba Electro","family":"Grooves & polyrhythm","tempo":132,"notes":"Surdo-ish kick with a busy caixa-style snare.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":3,"tone":90},"SD":{"tone":82}},"lanes":{"BD":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxx","GA":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","HT":"........................................................X.x.x...","LT":"....x.......x.......x.......x.......x.......x.......x.......xXxx","RS":"x.x.x.x.x.x.x.x.x.x.x.x.x.xxx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","SD":"..x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.fxxr"}},{"slot":58,"name":"Bossa Electro","family":"Grooves & polyrhythm","tempo":128,"notes":"Clave-like rim over a soft two-feel. Strict to keep it polite.","shuffle":null,"flam_time":null,"kit":{"RS":{"amount":40,"shape":10,"tone":76}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","CH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","OH":"..............x...............x...............x...............x.","RS":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x.","SD":"............x...............x...............x...............x..."}},{"slot":59,"name":"Disco","family":"Grooves & polyrhythm","tempo":120,"notes":"Open hat on every offbeat, clap on the backbeat, tom pickups.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":0,"tone":68},"OH":{"sel":1,"tone":74}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","CP":"....x.......x.......x.......x..x....x.......x.......x.......x...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HT":"..........x.x.............x.x.............x.x...........X.x.x...","LT":".............................................................Xxx","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":60,"name":"Boogie","family":"Grooves & polyrhythm","tempo":112,"notes":"Slinky early-80s kick with a touch of shuffle.","shuffle":36,"flam_time":null,"kit":{"CH":{"sel":2,"tone":72}},"lanes":{"BD":"x...x.....x.x...x...x.....x.x.x.x...x.....x.x...x...x.....x.x...","CH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr","CP":"............x...............x.x.............x...............xx..","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..x.......x.......x.......x.......x.......x.......x...x...x.....","RS":"......x.....x.........x.....x.........x.....x.........x.....f...","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":61,"name":"Nu-Disco","family":"Grooves & polyrhythm","tempo":118,"notes":"Disco frame, softer tone settings, stuttered hats.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":1,"tone":60},"CP":{"amount":36,"shape":4,"tone":64}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CH":"x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xxx.xxx.xr","CP":"....x.......x.....x.x.......x.......x.......x.......x.......x...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","OH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","RS":"..........x...............x...............x...............x.x..."}},{"slot":62,"name":"Ambient Sparse","family":"Grooves & polyrhythm","tempo":76,"notes":"Four events per bar. Long cymbal decay does the work.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":44,"shape":20,"tone":34},"CY":{"amount":100,"sel":0,"shape":24,"tone":12}},"lanes":{"BD":"x...............x...............x...............x...............","CH":"............x...............x...............x...............x...","CY":"x...............x...............x...............x...............","GA":"x...............x...............x...............x...............","RS":"........x...............x...............x...............x......."}},{"slot":63,"name":"Polyrhythm 5","family":"Grooves & polyrhythm","tempo":124,"notes":"Rim in fives, tom in sevens, kick in fours. Phases across the 64 steps.","shuffle":null,"flam_time":null,"kit":{"LT":{"tone":40},"RS":{"tone":86}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","CY":"x...............x...............x...............x...............","GA":"x....x....x....xx....x....x....xx....x....x....xx....x....x....x","LT":"x......x......x.x......x......x.x......x......x.x......x......x.","RS":"x....x....x....xx....x....x....xx....x....x....xx....x....x....x"}},{"slot":64,"name":"Drone Pulse","family":"Grooves & polyrhythm","tempo":70,"notes":"Slowest pattern in the bank. Meant to sit under a long drone.","shuffle":null,"flam_time":null,"kit":{"CH":{"sel":5,"tone":16},"CY":{"amount":110,"sel":1,"shape":28,"tone":8}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CH":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","CY":"x...............x...............x...............x...............","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","LT":"..........x...............x...............x...............x.....","RS":"....x.......x.......x.......x.......x.......x.......x.......x..."}}]},"TT-78":{"order":["BD","SD","HH","CY","TB","CB","CL","MA","GS","GL","LC","HC","LB","HB"],"voices":{"BD":{"amount_cc":23,"name":"Bass Drum","note":36,"select_cc":null,"shape_cc":22,"tone_cc":20},"CB":{"amount_cc":55,"name":"Cowbell","note":56,"select_cc":null,"shape_cc":54,"tone_cc":53},"CL":{"amount_cc":55,"name":"Clave","note":75,"select_cc":null,"shape_cc":54,"tone_cc":52},"CY":{"amount_cc":63,"name":"Cymbal","note":51,"select_cc":null,"shape_cc":62,"tone_cc":60},"GL":{"amount_cc":87,"name":"Guiro (long)","note":74,"select_cc":null,"shape_cc":86,"tone_cc":85},"GS":{"amount_cc":87,"name":"Guiro (short)","note":73,"select_cc":null,"shape_cc":86,"tone_cc":85},"HB":{"amount_cc":47,"name":"High Bongo","note":60,"select_cc":null,"shape_cc":46,"tone_cc":45},"HC":{"amount_cc":47,"name":"High Conga","note":63,"select_cc":null,"shape_cc":46,"tone_cc":44},"HH":{"amount_cc":71,"name":"Hi-hat","note":42,"select_cc":null,"shape_cc":70,"tone_cc":68},"LB":{"amount_cc":39,"name":"Low Bongo","note":61,"select_cc":null,"shape_cc":38,"tone_cc":37},"LC":{"amount_cc":39,"name":"Low Conga","note":64,"select_cc":null,"shape_cc":38,"tone_cc":36},"MA":{"amount_cc":79,"name":"Maracas","note":70,"select_cc":null,"shape_cc":78,"tone_cc":76},"SD":{"amount_cc":31,"name":"Snare Drum","note":38,"select_cc":null,"shape_cc":30,"tone_cc":28},"TB":{"amount_cc":87,"name":"Tambourine","note":54,"select_cc":null,"shape_cc":86,"tone_cc":84}},"patterns":[{"slot":1,"name":"Rock 1","family":"CR-78 heritage","tempo":120,"notes":"The plain preset, given four bars of life and a conga fill.","shuffle":null,"flam_time":null,"kit":{"CY":{"tone":60},"HH":{"tone":64}},"lanes":{"BD":"x.......x.......x.......x.....x.x.......x.......x.......x.......","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"...........................................................Xf...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.","LB":".............................................................Xf.","LC":"...............................................................F","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":2,"name":"Rock 2","family":"CR-78 heritage","tempo":128,"notes":"Busier hat and an extra kick before the backbeat.","shuffle":null,"flam_time":null,"kit":{"HH":{"amount":30,"shape":6,"tone":72}},"lanes":{"BD":"x.......x...x...x.......x...x...x.......x...x...x.......x...x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"...................................................x.......Xx...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr","LB":".............................................................Xx.","LC":"...............................................................X","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"..............x...............x...............x...............x."}},{"slot":3,"name":"Disco 1","family":"CR-78 heritage","tempo":120,"notes":"Tambourine on the offbeats is the whole disco trick.","shuffle":null,"flam_time":null,"kit":{"HH":{"tone":76},"TB":{"amount":44,"shape":8,"tone":80}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CY":"x...............x...............x...............x...........x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x."}},{"slot":4,"name":"Disco 2","family":"CR-78 heritage","tempo":124,"notes":"Cowbell answering the tambourine.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":88},"TB":{"tone":84}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CB":"..x.......x.......x.......x.x.....x.......x.....x.x.......x.....","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"...........................................................Xf...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","LB":".............................................................Xx.","LC":"...................................................x...........X","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":5,"name":"Slow Rock","family":"CR-78 heritage","tempo":76,"notes":"Twelve-feel ballad. Hat in threes.","shuffle":null,"flam_time":null,"kit":{"HH":{"amount":60,"shape":14,"tone":48}},"lanes":{"BD":"x.....x.........x.....x.........x.....x.........x.....x.......x.","CY":"x...............x...............x...............x...............","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HH":"x..x..x..x..x..xx..x..r..x..x..xx..x..r..x..x..xx..x..x..x..x..r","SD":"........x...............x...............x...............x...xxxr"}},{"slot":6,"name":"Foxtrot","family":"CR-78 heritage","tempo":104,"notes":"Stiff ballroom four. Strict, as the original was.","shuffle":null,"flam_time":null,"kit":{"CL":{"tone":72}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CL":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","SD":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":7,"name":"Swing","family":"CR-78 heritage","tempo":132,"notes":"Ride-style cymbal in triplet feel with shuffle at 80.","shuffle":80,"flam_time":null,"kit":{"CY":{"amount":50,"shape":12,"tone":54}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CY":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x..x..x..x..x..xx..x..r..x..x..xx..x..r..x..x..xx..x..x..x..x..x","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":8,"name":"Shuffle","family":"CR-78 heritage","tempo":116,"notes":"Swung eighths, tambourine on the skips.","shuffle":72,"flam_time":null,"kit":{"HH":{"tone":58}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....xx","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x."}},{"slot":9,"name":"Waltz Feel","family":"CR-78 heritage","tempo":108,"notes":"Three-feel mapped onto 16 steps so it phases nicely over 64.","shuffle":null,"flam_time":null,"kit":{"HH":{"tone":52}},"lanes":{"BD":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","CY":"x...............x...............x...............x...............","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HB":"........................................................X.x.....","HC":"...........................................................Xx...","HH":"x..x..x..x..x..xx..x..x..x..x..xx..x..r..x..x..xx..x..x..x..x..x","LB":".....................................................x.......Xf.","LC":"...............................................................X","SD":"...x.....x.....x...x.....xx....x...x.....x.....x...x.....x.....x"}},{"slot":10,"name":"Bossa Nova","family":"CR-78 heritage","tempo":128,"notes":"Clave over maracas sixteenths. Strict to stay authentic.","shuffle":null,"flam_time":null,"kit":{"CL":{"amount":38,"shape":10,"tone":76},"MA":{"amount":26,"shape":6,"tone":60}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","CL":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","SD":"............x...............x...............x...............x..."}},{"slot":11,"name":"Samba","family":"CR-78 heritage","tempo":136,"notes":"Surdo kick, caixa snare, agog\u00f4-style cowbell.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":92},"LC":{"amount":48,"shape":12,"tone":40}},"lanes":{"BD":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x....x..xx","CB":"....x.......x.......x..x....x.......x.......x......xx.......f...","GA":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","GS":"..x.......x.....x.x.......x.......x.......x.......x.......x.....","HB":"...................................................x....X.f.....","HC":"...........................................................Xx...","LB":".............................................................Xx.","LC":"......x.x.....x.......x.x.....x.......x.x.....x.......x.x.x...xX","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx","SD":"..x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.f.x."}},{"slot":12,"name":"Cha-Cha","family":"CR-78 heritage","tempo":124,"notes":"Cowbell eighths, congas trading the offbeats.","shuffle":null,"flam_time":null,"kit":{"CB":{"amount":30,"shape":4,"tone":96}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CB":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.xxx.x.","CL":"..x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..f.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"..x.......x.......x.......x.......x.......x.......x.......xXx...","LB":".............................................................Xf.","LC":"......x.......x.......x.......x.......x.......x.....x.x.......xX","MA":"..x...x...x...x...x...x...x...r...x...x...x...r...x...x...x...x."}},{"slot":13,"name":"Rhumba","family":"CR-78 heritage","tempo":112,"notes":"Rhumba clave with a tumbao conga underneath.","shuffle":null,"flam_time":null,"kit":{"CL":{"tone":70},"MA":{"tone":56}},"lanes":{"BD":"x.....x...x.....x.....x...x...x.x.....x...x.....x.....x...x.....","CL":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.xx..","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"........................................................X.f.....","HC":"....x.......x.......x....x..x.......x.......x.......x.....xXf...","LB":".............................................................Xx.","LC":"......x.x.....x.......x.x.....x.......x.x.....x....x..x.x.....xX","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."}},{"slot":14,"name":"Tango","family":"CR-78 heritage","tempo":116,"notes":"Dotted tango accent figure. Deliberately rigid.","shuffle":null,"flam_time":null,"kit":{"CL":{"tone":82}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CL":"x...x...x..x....x...x...x..x....x...x...x..x....x...x...x..x....","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","SD":"..............x...............x...............x...............x."}},{"slot":15,"name":"Beguine","family":"CR-78 heritage","tempo":108,"notes":"Soft two-feel with bongo colour.","shuffle":null,"flam_time":null,"kit":{"MA":{"amount":34,"shape":8,"tone":52}},"lanes":{"BD":"x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx","CL":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"........................................................X.f.....","HC":"....x.......x.......x.......x.......x.......x.......x......Xx..f","LB":"..x.......x.......x.......x....x..x.......x......xx.......x..Xx.","LC":"...............................................................X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr"}},{"slot":16,"name":"Mambo","family":"CR-78 heritage","tempo":140,"notes":"Bell pattern plus tumbao. The busiest of the presets.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":100},"HC":{"tone":90}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CB":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","CL":"..x.x...x..x..x...xxx...x..x..x...x.x...x..x..x...x.x...x..x..x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"..................................................x.....X.f.....","HC":"....x..x....x..x....x..x....x..x....x..x....x..x....x..x...Xx..x","LB":".............................................................Xx.","LC":"......x.x.....x.......x.x.....x.......x.x.....x.x.....x.x.....xX","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."}},{"slot":17,"name":"Songo","family":"Latin & Afro","tempo":104,"notes":"Songo's snare-and-conga conversation.","shuffle":null,"flam_time":null,"kit":{"LC":{"amount":52,"shape":14,"tone":38},"SD":{"tone":70}},"lanes":{"BD":"x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx","CL":"x..x..x...x.x...x..x..x...xxx...x..x..x...x.x...x..x..x...x.f...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"......................................................x.X.x.....","HC":"....x.......x.......x.......x.x.....x.......x.......x......Xx...","HH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","LB":".............................................................Xx.","LC":"......x.x.....x.......x.x.....x.......x.x.....x.......x.x.....xX","SD":"...x.......x.......x.......x.......x.......x.......x.......xxxxr"}},{"slot":18,"name":"Guaguanco","family":"Latin & Afro","tempo":100,"notes":"Three congas in dialogue over clave.","shuffle":null,"flam_time":null,"kit":{"HC":{"tone":88},"LC":{"tone":36}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.....x.","CL":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"........................................................X.x.....","HC":"..x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....xXx...","LB":"....x.......x.......x.......x.......x.......x.....x.x.......xXx.","LC":"......x.x.....x.......x.x.....x.......x.x.....x.......xxx.....xX","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."}},{"slot":19,"name":"Bomba","family":"Latin & Afro","tempo":108,"notes":"Sic\u00e1-flavoured bomba figure.","shuffle":null,"flam_time":null,"kit":{"MA":{"tone":64}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CL":"x.....x.......x.x.....x.......x.x.....x.......x.x.....x.......x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"..x.x...x..x..x...x.x..xx..x..x...x.x...x..x..x...x.x...x..Xx.x.","LB":".....................................................x.......Xx.","LC":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x..F","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr"}},{"slot":20,"name":"Plena","family":"Latin & Afro","tempo":112,"notes":"Guiro on the offbeats, panderos as snare.","shuffle":null,"flam_time":null,"kit":{"GS":{"amount":40,"shape":10,"tone":74}},"lanes":{"BD":"x.....x.x.......x.....x.x.......x.....x.x.......x.....x.x.....x.","CL":"..x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..f.","GA":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","GS":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","HB":"........................................................X.x.....","HC":"...........................................................Xx...","LB":".............................................................Xf.","LC":".........................................................x.....F","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.","SD":"....x..x....x..x....x..x....x..x....x..x....x..x....x..x....fxxr"}},{"slot":21,"name":"Merengue","family":"Latin & Afro","tempo":144,"notes":"Fast tambora-style snare, g\u00fcira running eighths.","shuffle":null,"flam_time":null,"kit":{"SD":{"amount":60,"shape":16,"tone":84}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CB":"....x.......x.......x.......x.......x.......x.......x.......x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","GS":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxx","SD":"..x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.xxxr"}},{"slot":22,"name":"Cumbia","family":"Latin & Afro","tempo":96,"notes":"Long and short guiro strokes doing the cumbia limp.","shuffle":null,"flam_time":null,"kit":{"GL":{"tone":66},"GS":{"tone":78}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","GL":"..x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.","GS":"x..x..x..x..x..xx..x..x..xx.x..xx..x..x..x..x..xx..x..x..x..x..x","HB":"........................................................Xxx.....","HC":"...........................................................Xxf..","LB":".............................................................Xx.","LC":"......x.......x.......x..x....x.......x.......x.......x.......xX","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","SD":"....x.......x.......x.....x.x.......x.......x.......x.......f..."}},{"slot":23,"name":"Salsa","family":"Latin & Afro","tempo":132,"notes":"Full salsa engine: bell, clave, tumbao, maracas.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":98},"LC":{"tone":40}},"lanes":{"BD":"x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.......xx","CB":"x..x..x.x..x..x.x..x..x.x..xx.x.x..x..x.x..x..x.x..x..x.x..x..x.","CL":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","GS":"..............x...............x...............x.....x.........x.","HB":"........................................................X.x.....","HC":"....x..x....x..x....x..xx...x..x....x..x....x..x....x..x...Xx..f","LB":".............................................................Xf.","LC":"......x.x.....x.......x.x.....x.......x.x.....x.......x.x....xxX","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x."}},{"slot":24,"name":"Afrobeat","family":"Latin & Afro","tempo":116,"notes":"Tony Allen displacement \u2014 nothing lands where you expect.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":86},"HH":{"tone":70}},"lanes":{"BD":"x...x.....x.x...x...x.....x.x...x...x.....x.x...x...x.....x.x...","CB":"..x...x...x...x...x.x.x...x...x...x...x...x...x...x...x...x...x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.f.....","HC":"...........................................................Xx...","HH":"x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xxx.xxx.xr","LB":".............................................................Xx.","LC":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..xX","SD":"....x.......x.......x.....x.x.......x.......x.......x.......fxxr","TB":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":25,"name":"Highlife","family":"Latin & Afro","tempo":124,"notes":"Bell in threes against the four.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":92}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.","CB":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..f","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"..x.......x.......x.....x.x.......x.......x.......x.......xXx...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.","LB":".............................................................Xf.","LC":"...............................................................X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr","SD":"....x..x....x..x....x..x....x..x....x..x....x..x....x..x....f..x"}},{"slot":26,"name":"Soukous","family":"Latin & Afro","tempo":140,"notes":"Fast, bright, congas chattering.","shuffle":null,"flam_time":null,"kit":{"HC":{"tone":94},"HH":{"tone":82}},"lanes":{"BD":"x..x..x.x..x..x.x..x..xxx..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","GA":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","HB":"........................................................X.x.....","HC":"..x.x.....x.x.....x.x.....x.x.x...x.x.....x.x.....x.x.....xXx..x","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","LB":"................................................x............Xx.","LC":"......x.......x.......x.......x.......x.......x.......x.....x.xX","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":27,"name":"Bembe 6/8","family":"Latin & Afro","tempo":112,"notes":"Standard 12/8 bell pattern. Strict \u2014 the phasing is the interest.","shuffle":null,"flam_time":null,"kit":{"CB":{"amount":32,"shape":6,"tone":90}},"lanes":{"BD":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","CB":"x..x.x.x..x.x.x.x..x.x.x..x.x.x.x..x.x.x..x.x.x.x..x.x.x..x.x.x.","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HC":"...x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x","LC":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x.","MA":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x"}},{"slot":28,"name":"Calypso","family":"Latin & Afro","tempo":120,"notes":"Two-feel calypso with bongo accents.","shuffle":null,"flam_time":null,"kit":{"TB":{"tone":78}},"lanes":{"BD":"x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx","CL":"..x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x.","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"..x.......x.......x.......x.......x.......x.......x.....X.x.....","HC":"..........................................................xXx...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.","LB":".............................................................Xx.","LC":".......................................................x.......X","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr","TB":"..x...x...x...x...x...x...x...x...x...r...x...x...x...x...x...x."}},{"slot":29,"name":"One Drop","family":"Latin & Afro","tempo":72,"notes":"Reggae one drop: nothing on beat 1, everything on beat 3.","shuffle":null,"flam_time":null,"kit":{"HH":{"tone":46},"SD":{"amount":78,"shape":20,"tone":62}},"lanes":{"BD":"........x...............x...............x...............x.....x.","CY":"x...............x...............x...............x...............","GA":"........X...............X...............X...............X.......","HH":"..x...x...x...x...x...x...x...r...x...x...r...x...x...x...x...x.","SD":"........X...............X...............X...............X...fxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":30,"name":"Steppers","family":"Latin & Afro","tempo":76,"notes":"Four-to-the-floor reggae. Kick tuned deep.","shuffle":null,"flam_time":null,"kit":{"BD":{"amount":40,"shape":10,"tone":34}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","SD":"........x...............x.x.............x...............x...xxxr","TB":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x."}},{"slot":31,"name":"Dub","family":"Latin & Afro","tempo":70,"notes":"Almost empty, long decays. Leave room for the delay.","shuffle":null,"flam_time":null,"kit":{"CY":{"amount":100,"shape":26,"tone":24},"SD":{"amount":96,"shape":24,"tone":44}},"lanes":{"BD":"........x...............x...............x...............x.......","CY":"x...............x...............x...............x...............","GA":"........x...............x...............x...............x.......","HB":"............x...............x...............x...............x...","HH":"..x.......x.......x.......x.......x.......x.......x.......x.....","SD":"........x...............x...............x...............x......."}},{"slot":32,"name":"Nyabinghi","family":"Latin & Afro","tempo":84,"notes":"Hand-drum three-feel, no hats at all.","shuffle":null,"flam_time":null,"kit":{"HC":{"tone":84},"LC":{"tone":36}},"lanes":{"BD":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.x.","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HB":"........................................................X.x.....","HC":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x.Xx..x","LB":"................................................x............Xx.","LC":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..xX","SD":"...x.....x.....x...x.....xx....x...x.....x.....x...x.....x.....x","TB":"....x.....x.........x.....x.........x.....r.........x.....x....."}},{"slot":33,"name":"Motorik 78","family":"Electronic","tempo":140,"notes":"Neu! pulse on the Beat Bot. Strict.","shuffle":null,"flam_time":null,"kit":{"HH":{"tone":74}},"lanes":{"BD":"x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","SD":"....x.......x.......x.......x.......x.......x.......x.......x...","TB":"..............x...............x...............x...............x."}},{"slot":34,"name":"Italo 78","family":"Electronic","tempo":122,"notes":"Cowbell answer phrase in the back half of the bar.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":94},"TB":{"tone":82}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.","CB":"..........x.x.............x.x.............x.x.............x.f...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.f.....","HC":"...........................................................Xx...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr","LB":"...........................................................x.Xx.","LC":"...............................................................X","SD":"....x.......x.......x.....x.x.......x.......x.......x.......fxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":35,"name":"Synth-Pop 78","family":"Electronic","tempo":118,"notes":"Tambourine doubling the snare \u2014 the CR-78 pop sound.","shuffle":null,"flam_time":null,"kit":{"TB":{"amount":40,"shape":6,"tone":76}},"lanes":{"BD":"x.......x.......x.......x.....x.x.......x.......x.......x.......","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr","TB":"....x.......x.......x.......x.......x.......x.......x.......x..."}},{"slot":36,"name":"City Pop","family":"Electronic","tempo":112,"notes":"Slinky kick, a touch of shuffle, bright tambourine.","shuffle":24,"flam_time":null,"kit":{"HH":{"amount":36,"shape":8,"tone":68}},"lanes":{"BD":"x...x.....x.x...x...x.....x.x...x...x.....x.x...x...x.....x.x...","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"...................................................x....X.x.....","HC":"..........x.........x.....x...............x...............xXx...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","LB":"...........................................................x.Xx.","LC":"...............................................................X","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":37,"name":"Boogie 78","family":"Electronic","tempo":110,"notes":"Early-80s boogie with cowbell punctuation.","shuffle":36,"flam_time":null,"kit":{"CB":{"tone":90}},"lanes":{"BD":"x...x.....x.x...x...x.....x.x.x.x...x.....x.x...x...x.....x.x...","CB":"..x.......x.......x.......x.......x.......x.......x.......x.....","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr","TB":"..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x."}},{"slot":38,"name":"Nu-Disco 78","family":"Electronic","tempo":118,"notes":"Stuttered hats plus maraca sixteenths.","shuffle":null,"flam_time":null,"kit":{"HH":{"tone":62},"MA":{"amount":28,"shape":6,"tone":54}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"........................................................X.x.....","HC":"...........................................................Xx...","HH":"x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xr","LB":".............................................................Xx.","LC":"..............................................................xF","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxx","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":39,"name":"House 78","family":"Electronic","tempo":124,"notes":"House frame using tambourine where an open hat would go.","shuffle":null,"flam_time":null,"kit":{"CL":{"tone":84},"HH":{"tone":78}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","CL":"..............x...............x...............x...............x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":40,"name":"Deep House 78","family":"Electronic","tempo":120,"notes":"Soft and shuffly, bongo filling the gaps.","shuffle":null,"flam_time":null,"kit":{"HH":{"amount":56,"shape":12,"tone":44},"MA":{"tone":48}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"......x.....x.........x..x..x.........x.....x.........x.X.x.x...","HC":"..........................................................xXx...","HH":"x..xx..xx..xx..xx..xx..xx..xx..xx..xx..xx.xxx..xx..xx..xx..xx..r","LB":".............................................................Xx.","LC":"...................................................x...........X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr","SD":"....x...............x.....x.........x...............x..........."}},{"slot":41,"name":"Downtempo","family":"Electronic","tempo":90,"notes":"Unhurried. Cymbal set long.","shuffle":null,"flam_time":null,"kit":{"CY":{"amount":88,"shape":22,"tone":32},"HH":{"tone":52}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x...............","CY":"x...............x...............x...............x...........x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":"..........x...............x...............x............xX.x.....","HC":"...........................................................Xx..f","HH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","LB":".............................................................Xx.","LC":"...............................................................X","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.","SD":"....x.......x.......x.....x.x.......x.......x.......x.......xxxr"}},{"slot":42,"name":"Trip-Hop 78","family":"Electronic","tempo":84,"notes":"Late snare, flams in the fill bar.","shuffle":null,"flam_time":40,"kit":{"SD":{"amount":92,"shape":24,"tone":46}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.............x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"..x...x...x...x...x...x...x...r...x...x...x...r...x...x...x...x.","SD":"....x.........x.....x.........x.....x.........x.....x.......fxxr","TB":"........x...............x...............x...............x......."}},{"slot":43,"name":"Lo-Fi","family":"Electronic","tempo":82,"notes":"Swung, soft, slightly late. Tone controls rolled down.","shuffle":68,"flam_time":28,"kit":{"HH":{"amount":66,"shape":16,"tone":40},"SD":{"amount":74,"shape":20,"tone":50}},"lanes":{"BD":"x.....x...x.....x.....x...x...x.x.....x...x.....x.....x...x...x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.","MA":"..x...x...x...x...x...x...x...x...x...r...x...x...x...x...x...x.","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr"}},{"slot":44,"name":"Balearic","family":"Electronic","tempo":106,"notes":"Sunset tempo, guiro scrape as the hook.","shuffle":null,"flam_time":null,"kit":{"GS":{"tone":70},"MA":{"tone":58}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...","CY":"x...............x...............x...............x...............","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","GS":"..x.......x.......xx......x.......x.......x.......x.......f.....","HB":"........................................................X.x.....","HC":"...........................................................Xx...","HH":"..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.","LB":".............................................................Xx.","LC":"...............................................................X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr","SD":"............x...............x...............x...............x..."}},{"slot":45,"name":"Cosmic Disco","family":"Electronic","tempo":116,"notes":"Cowbell in threes over a straight four \u2014 the accent lane follows the bell.","shuffle":null,"flam_time":null,"kit":{"CB":{"amount":40,"shape":8,"tone":96}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.","CB":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","CY":"x...............x...............x...............x...............","GA":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","HB":"........................................................X.x.....","HC":"...........................................................Xx...","HH":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr","LB":".....................................................x.......Xf.","LC":".................................................x.............F","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"..x...x...x...x...x...x...x...x...x...r...x...x...x...x...x...x."}},{"slot":46,"name":"Krautrock Shuffle","family":"Electronic","tempo":132,"notes":"Motorik with the shuffle knob at 44 \u2014 it lopes.","shuffle":44,"flam_time":null,"kit":{"MA":{"tone":62}},"lanes":{"BD":"x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.....x.x.","CY":"x...............x...............x...............x...............","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxr","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":47,"name":"Ambient Pop","family":"Electronic","tempo":88,"notes":"Four gentle events per bar.","shuffle":null,"flam_time":null,"kit":{"CY":{"amount":104,"shape":28,"tone":20}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CY":"x...............x...............x...............x...............","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"..........x...............x...............x...............x.....","HH":"............x...............x...............x...............x...","TB":"....x...............x...............x...............x..........."}},{"slot":48,"name":"Minimal 78","family":"Electronic","tempo":126,"notes":"Sparse to the point of rudeness. Strict.","shuffle":null,"flam_time":null,"kit":{"CL":{"tone":80},"HH":{"amount":30,"shape":18,"tone":56}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CL":"......x...............x...............x...............x.........","GA":"x...............x...............x...............x...............","HH":"..x.....x.........x.....x.........x.....x.........x.....x.......","MA":"............x...............x...............x...............x..."}},{"slot":49,"name":"Conga Workout","family":"Percussion & polyrhythm","tempo":108,"notes":"All four hand drums, each on its own figure, tuned apart.","shuffle":null,"flam_time":null,"kit":{"HB":{"tone":100},"HC":{"tone":86},"LB":{"tone":44},"LC":{"tone":34}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.....x.","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"......x.......x.......x.......x.......x.......x.......x.X.x...x.","HC":"..x.x...x..x..x...x.x...x..x.xx...x.x...x..x..x...xxx...x..Xx.x.","LB":"....x.......x.......x.......x.......x.......x.......x.......xXx.","LC":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x..X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx"}},{"slot":50,"name":"Bongo Cascara","family":"Percussion & polyrhythm","tempo":116,"notes":"Cascara on the bongos with clave underneath.","shuffle":null,"flam_time":null,"kit":{"HB":{"tone":102},"LB":{"amount":34,"shape":8,"tone":46}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....xx","CL":"x..x..x...x.x...x..x.xx...x.x...x..x..x...x.x...x..x..x...x.x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x.X.x...x.","HC":"...........................................................Xx...","LB":"x.xx.x.xx.x.xx.xx.xx.x.xx.x.xx.xx.xx.x.xx.x.xx.xx.xx.x.xx.x.xXxx","LC":"......................................................x........X","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."}},{"slot":51,"name":"Clave & Maracas","family":"Percussion & polyrhythm","tempo":104,"notes":"Two voices and a kick. A study in restraint.","shuffle":null,"flam_time":null,"kit":{"CL":{"amount":24,"shape":4,"tone":78},"MA":{"amount":28,"shape":6,"tone":56}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CL":"x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","GS":"..............x...............x...............x...............x.","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}},{"slot":52,"name":"Guiro Groove","family":"Percussion & polyrhythm","tempo":100,"notes":"Long and short guiro traded against each other.","shuffle":null,"flam_time":null,"kit":{"GL":{"tone":62},"GS":{"amount":44,"shape":10,"tone":82}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","CB":"....x.......x.......x.......x.......x.......x.......x.......x...","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","GL":"..x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.","GS":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","HB":"........................................................X.x.....","HC":"...........................................................Xx...","LB":".............................................................Xx.","LC":"...............................................................X","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."}},{"slot":53,"name":"Tambourine Pulse","family":"Percussion & polyrhythm","tempo":122,"notes":"Sixteenth tambourine with accents wandering by bar.","shuffle":null,"flam_time":null,"kit":{"TB":{"amount":48,"shape":12,"tone":86}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HH":"..x...x...x...x...x...x...x...r...x...x...x...r...x...x...x...x.","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr","TB":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr"}},{"slot":54,"name":"Cowbell Drive","family":"Percussion & polyrhythm","tempo":130,"notes":"More cowbell. Non-negotiable.","shuffle":null,"flam_time":null,"kit":{"CB":{"amount":36,"shape":6,"tone":104}},"lanes":{"BD":"x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.","CB":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.xxx.","GA":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","HB":".....................................................x..X.x.....","HC":"..........x.............x.x...............x...............xXx...","LB":".............................................................Xf.","LC":".....................................................x.........X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr","SD":"....x.......x.......x.......x.......x.......x.......x.......fxxr"}},{"slot":55,"name":"Dembow 78","family":"Percussion & polyrhythm","tempo":96,"notes":"Dembow with the tambourine on the offbeats.","shuffle":null,"flam_time":null,"kit":{"SD":{"tone":72},"TB":{"tone":80}},"lanes":{"BD":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.......xx","CB":"....x.......x.......x.......x.......x.......x.......x.......f...","GA":"x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.","SD":"...x..x....x..x....x..x....x..x....x..x....x..x....x..x....xfxxr","TB":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."}},{"slot":56,"name":"Reggaeton 78","family":"Percussion & polyrhythm","tempo":94,"notes":"Maracas smoothing out the dembow.","shuffle":null,"flam_time":null,"kit":{"MA":{"tone":52}},"lanes":{"BD":"x.......x.......x.......x.....x.x.......x.......x.......x.....x.","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","GS":"..............x...............x...............x...............x.","HB":"....................................................x...X.f.....","HC":"....................................................x......Xx...","HH":"..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x.","LB":"..................................................x..........Xx.","LC":"...............................................................X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr","SD":"...x..x....x..x....x..x...xx..x....x..x....x..x....x..x....xxxxr"}},{"slot":57,"name":"Baile 78","family":"Percussion & polyrhythm","tempo":128,"notes":"Tamborz\u00e3o figure on the congas.","shuffle":null,"flam_time":null,"kit":{"LC":{"amount":56,"shape":14,"tone":38}},"lanes":{"BD":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..xx","GA":"x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.","HB":"........................................................X.x.....","HC":"......x.......x...x...x.......x.......x.......x.....x.x....Xx.f.","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.","LB":".............................................................Xx.","LC":"..x.x...x.x.......x.x...x.x.......x.x...x.x.......x.x...x.x....X","SD":"....x.......x.......x.......x.......x.......x.......x.......f..."}},{"slot":58,"name":"Afro House 78","family":"Percussion & polyrhythm","tempo":122,"notes":"Threes stacked over a straight four.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":88},"LC":{"tone":40}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x.......x...","CB":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x.xx..x..x..x","GA":"x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...","HB":"........................................................X.f.....","HC":"....x..x....x..x....x.xx....x..x....x..x....x..x....x..x...Xx..x","HH":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.","LB":".............................................................Xx.","LC":"..x..x..x..x..x...x..x.xx..x..x...x..x..x..x..x...x..x..x..xx.xF","TB":"..x.......x.......x.......x.......x.......x.......x.......x....."}},{"slot":59,"name":"Broken 78","family":"Percussion & polyrhythm","tempo":126,"notes":"Displaced kick, uneven hats.","shuffle":null,"flam_time":null,"kit":{"HH":{"tone":72}},"lanes":{"BD":"x....x..x...x..xx....x..x...x.xxx....x..x...x..xx....x..x...x.xx","GA":"x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..","HB":"......x...............x...............x...............x.X.x.....","HC":"...........................................................Xf...","HH":"x.x.xx.x.xx.x.x.x.x.xx.x.xx.x.x.x.x.xx.x.xr.x.x.x.x.xx.x.xx.x.x.","LB":".............................................................Xx.","LC":"...............................................................X","MA":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr","SD":"....x.......x.......x.......x.......x.......x.......x.......xxxr","TB":"............x...............x...............x...............x..."}},{"slot":60,"name":"Poly 3:4","family":"Percussion & polyrhythm","tempo":118,"notes":"Bell in threes, maracas in fives, kick in fours. Strict so the phasing is clean.","shuffle":null,"flam_time":null,"kit":{"CB":{"tone":92},"MA":{"tone":60}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CB":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","CL":"x.......x.......x.......x.......x.......x.......x.......x.......","GA":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x","HC":"..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x.","MA":"x....x....x....xx....x....x....xx....x....x....xx....x....x....x"}},{"slot":61,"name":"Poly 5","family":"Percussion & polyrhythm","tempo":120,"notes":"Fives against sevens against fours \u2014 a different alignment every bar.","shuffle":null,"flam_time":null,"kit":{"CL":{"tone":74},"LC":{"tone":42}},"lanes":{"BD":"x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...","CL":"x....x....x....xx....x....x....xx....x....x....xx....x....x....x","GA":"x....x....x....xx....x....x....xx....x....x....xx....x....x....x","HH":"..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.","LC":"x......x......x.x......x......x.x......x......x.x......x......x.","TB":"........x...............x...............x...............x......."}},{"slot":62,"name":"Sparse Dub","family":"Percussion & polyrhythm","tempo":68,"notes":"One drop with almost everything removed.","shuffle":null,"flam_time":null,"kit":{"CY":{"amount":108,"shape":28,"tone":18},"SD":{"amount":98,"shape":26,"tone":40}},"lanes":{"BD":"........x...............x...............x...............x.......","CY":"x...............x...............x...............x...............","GA":"........x...............x...............x...............x.......","HB":"..............x...............x...............x...............x.","SD":"........x...............x...............x...............x......."}},{"slot":63,"name":"Drone Pulse 78","family":"Percussion & polyrhythm","tempo":72,"notes":"Slow bed for long chords.","shuffle":null,"flam_time":null,"kit":{"CY":{"amount":112,"shape":30,"tone":14},"MA":{"tone":44}},"lanes":{"BD":"x.......x.......x.......x.......x.......x.......x.......x.......","CL":"....x.......x.......x.......x.......x.......x.......x.......x...","CY":"x...............x...............x...............x...............","GA":"x.......x.......x.......x.......x.......x.......x.......x.......","HB":"..........x...............x...............x...............x.....","MA":"x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x"}},{"slot":64,"name":"Free Percussion","family":"Percussion & polyrhythm","tempo":112,"notes":"Four hand drums interlocking with no obvious downbeat. Flams add hand-drum grace notes.","shuffle":null,"flam_time":18,"kit":{"HB":{"tone":104},"HC":{"tone":82},"LB":{"tone":48},"LC":{"tone":32}},"lanes":{"BD":"x.........x.....x.........x.....x.........x.....x.........x.....","GA":"x.........x.....x.........x.....x.........x.....x.........x.....","GS":"......x...............x...............x...............x.........","HB":"...x....x....x.x...x....x....xxx...x....x....x.x...x....X.x..x.x","HC":"....x.x.....x.......x.x.....x.......x.x.....x.......x.x..x.Xx...","LB":".x...x....x..x...x...x....x..x...x...x....x..x...x...x....x..Xx.","LC":"..x....x..x...x...x....x..x...x...x....x..x...x.x.x....x..x...xF","MA":"x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."}}]}}</script>
+<script>
+(function () {
+  "use strict";
+
+  var BANKS = JSON.parse(document.getElementById("bank-data").textContent);
+  var PAGE_NAMES = ["Red", "Yellow", "Green", "Blue"];
+  var PAGE_VARS = ["--pg1", "--pg2", "--pg3", "--pg4"];
+  var ON = "xXfFrR";
+  var LEGEND = [
+    ["x", "Step on", "press the step"],
+    ["X", "Accented", "ACCENT + step"],
+    ["f", "Flam", "FLAM + step"],
+    ["F", "Flam + accent", "both"],
+    ["r", "Roll", "hold ROLL + step"],
+    ["R", "Roll + accent", "both"],
+    [".", "Step off", ""]
+  ];
+  var MACHINE_SUB = {
+    "TT-606": "Nine voices \u2014 bass, snare, two toms, cymbal, open and closed hats, rim, clap.",
+    "TT-78": "Fourteen voices \u2014 bass, snare, hat, cymbal, tambourine, cowbell, clave, maracas, two guiro strokes, congas and bongos."
+  };
+
+  var state = {
+    machine: "TT-606",
+    slot: 1,
+    family: "",
+    view: "pads",
+    isolate: null,
+    done: {},
+    db: null
+  };
+
+  var el = {
+    matrix: document.getElementById("matrix"),
+    legend: document.getElementById("legend"),
+    family: document.getElementById("family"),
+    machineSub: document.getElementById("machine-sub"),
+    slot: document.getElementById("p-slot"),
+    name: document.getElementById("p-name"),
+    specs: document.getElementById("p-specs"),
+    note: document.getElementById("p-note"),
+    grid: document.getElementById("grid"),
+    gridwrap: document.getElementById("gridwrap"),
+    textview: document.getElementById("textview"),
+    isolate: document.getElementById("isolate"),
+    voiceSettings: document.getElementById("voice-settings"),
+    done: document.getElementById("done"),
+    doneWrap: document.getElementById("done-wrap"),
+    statDone: document.getElementById("stat-done"),
+    sync: document.getElementById("sync"),
+    viewPads: document.getElementById("view-pads"),
+    viewText: document.getElementById("view-text")
+  };
+
+  function bank() { return BANKS[state.machine]; }
+  function pattern() {
+    var list = bank().patterns;
+    for (var i = 0; i < list.length; i++) if (list[i].slot === state.slot) return list[i];
+    return list[0];
+  }
+  function key(machine, slot) { return machine + ":" + slot; }
+  function voiceOrder(b) { return b.order; }
+
+  /* ---------- persistence: db when the viewer has it, else this browser ---------- */
+  var LS_KEY = "cyclone-pattern-book-progress";
+
+  function readLocal() {
+    try {
+      var raw = window.localStorage.getItem(LS_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+  function writeLocal(v) {
+    try { window.localStorage.setItem(LS_KEY, JSON.stringify(v)); } catch (e) {}
+  }
+
+  function setSync(text) { el.sync.textContent = text; }
+
+  function persist() {
+    writeLocal(state.done);
+    if (state.db) {
+      state.db.doc("progress/punched").set({ slots: state.done }).then(function () {
+        setSync("saved");
+      })["catch"](function () {
+        setSync("saved in this browser only");
+      });
+    }
+  }
+
+  if (window.claude && typeof window.claude.use === "function") {
+    window.claude.use("db").then(function (db) {
+      if (!db) return;
+      state.db = db;
+      var doc = db.doc("progress/punched");
+      doc.onSnapshot(function (snap) {
+        var data = snap && (snap.data ? snap.data() : snap);
+        if (data && data.slots) {
+          state.done = data.slots;
+          writeLocal(state.done);
+          renderMatrix();
+          renderDone();
+        }
+        setSync("synced");
+      });
+    })["catch"](function () {});
+  }
+
+  /* ---------- rail ---------- */
+  function renderLegend() {
+    el.legend.innerHTML = '<p class="eyebrow" style="margin:0">Step colours</p>';
+    LEGEND.forEach(function (row) {
+      var div = document.createElement("div");
+      div.className = "legend-row";
+      var pad = document.createElement("span");
+      pad.className = "chip-pad";
+      if (row[0] !== ".") pad.setAttribute("data-s", row[0]);
+      pad.style.height = "13px";
+      var label = document.createElement("span");
+      label.textContent = row[1];
+      var how = document.createElement("code");
+      how.textContent = row[2];
+      div.appendChild(pad);
+      div.appendChild(label);
+      div.appendChild(how);
+      el.legend.appendChild(div);
+    });
+    var padStyle = document.createElement("style");
+    el.legend.querySelectorAll(".chip-pad[data-s]").forEach(function (p) {
+      var s = p.getAttribute("data-s");
+      var map = { x: "--on", X: "--acc", f: "--flam", F: "--flam", r: "--roll", R: "--roll" };
+      p.style.background = "var(" + map[s] + ")";
+      p.style.borderColor = (s === "F" || s === "R") ? "var(--acc)" : "var(" + map[s] + ")";
+      if (s === "F" || s === "R") p.style.boxShadow = "inset 0 0 0 2px var(--acc)";
+    });
+    padStyle.remove();
+  }
+
+  function renderFamilies() {
+    var seen = [];
+    bank().patterns.forEach(function (p) {
+      if (p.family && seen.indexOf(p.family) === -1) seen.push(p.family);
+    });
+    el.family.innerHTML = "";
+    var all = document.createElement("option");
+    all.value = "";
+    all.textContent = "All families (64)";
+    el.family.appendChild(all);
+    seen.forEach(function (f) {
+      var n = bank().patterns.filter(function (p) { return p.family === f; }).length;
+      var o = document.createElement("option");
+      o.value = f;
+      o.textContent = f + " (" + n + ")";
+      el.family.appendChild(o);
+    });
+    el.family.value = state.family;
+  }
+
+  function renderMatrix() {
+    el.matrix.innerHTML = "";
+    for (var page = 0; page < 4; page++) {
+      var wrap = document.createElement("div");
+      wrap.className = "matrix-page";
+      var label = document.createElement("div");
+      label.className = "matrix-page-label";
+      var dot = document.createElement("span");
+      dot.className = "dot";
+      dot.style.background = "var(" + PAGE_VARS[page] + ")";
+      label.appendChild(dot);
+      var lt = document.createElement("span");
+      lt.textContent = "Page " + (page + 1) + " \u00b7 " + PAGE_NAMES[page] +
+        " \u00b7 P" + (page * 16 + 1) + "\u2013P" + (page * 16 + 16);
+      label.appendChild(lt);
+      wrap.appendChild(label);
+
+      var slots = document.createElement("div");
+      slots.className = "slots";
+      for (var i = 1; i <= 16; i++) {
+        var n = page * 16 + i;
+        var p = bank().patterns[n - 1];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "slot";
+        b.textContent = String(n);
+        b.title = "P" + n + " \u2014 " + p.name + " \u00b7 " + p.tempo + " BPM";
+        b.setAttribute("aria-label", "Pattern " + n + ", " + p.name);
+        b.setAttribute("data-slot", String(n));
+        if (n === state.slot) b.setAttribute("aria-current", "true");
+        if (state.done[key(state.machine, n)]) b.setAttribute("data-done", "1");
+        if (state.family && p.family !== state.family) b.className += " dim";
+        b.style.borderColor = n === state.slot ? "" : "var(" + PAGE_VARS[page] + ")";
+        slots.appendChild(b);
+      }
+      wrap.appendChild(slots);
+      el.matrix.appendChild(wrap);
+    }
+  }
+
+  /* ---------- pattern detail ---------- */
+  function renderHead() {
+    var p = pattern();
+    var page = Math.floor((p.slot - 1) / 16);
+    el.slot.textContent = "P" + (p.slot < 10 ? "0" : "") + p.slot;
+    el.slot.style.background = "var(" + PAGE_VARS[page] + ")";
+    el.name.textContent = p.name;
+
+    var specs = [
+      ["Family", p.family],
+      ["Tempo", p.tempo + " BPM"],
+      ["Length", "64 steps"],
+      ["Scale", "16th note"],
+      ["Page", (page + 1) + " \u00b7 " + PAGE_NAMES[page]]
+    ];
+    if (p.shuffle !== null && p.shuffle !== undefined) specs.push(["Shuffle", "CC18 = " + p.shuffle]);
+    if (p.flam_time !== null && p.flam_time !== undefined) specs.push(["Flam time", "CC17 = " + p.flam_time]);
+
+    el.specs.innerHTML = "";
+    specs.forEach(function (s) {
+      var d = document.createElement("span");
+      d.className = "spec";
+      d.innerHTML = s[0] + " <b></b>";
+      d.querySelector("b").textContent = s[1];
+      el.specs.appendChild(d);
+    });
+
+    el.note.textContent = p.notes || "";
+    el.machineSub.textContent = MACHINE_SUB[state.machine];
+  }
+
+  function activeVoices() {
+    var p = pattern();
+    var b = bank();
+    var keys = voiceOrder(b).filter(function (k) {
+      var lane = p.lanes[k];
+      if (!lane) return false;
+      for (var i = 0; i < lane.length; i++) if (ON.indexOf(lane[i]) > -1) return true;
+      return false;
+    });
+    if (p.lanes.GA) {
+      var ga = p.lanes.GA, has = false;
+      for (var i = 0; i < ga.length; i++) if (ON.indexOf(ga[i]) > -1) { has = true; break; }
+      if (has) keys.push("GA");
+    }
+    return keys;
+  }
+
+  function renderGrid() {
+    var p = pattern();
+    var b = bank();
+    var keys = activeVoices();
+    var shown = state.isolate ? keys.filter(function (k) { return k === state.isolate; }) : keys;
+    if (!shown.length) shown = keys;
+
+    el.grid.className = "grid" + (state.isolate ? " iso" : "");
+    el.grid.innerHTML = "";
+
+    var spacer = document.createElement("div");
+    spacer.className = "ruler-label";
+    el.grid.appendChild(spacer);
+    for (var g = 0; g < 4; g++) {
+      var rg = document.createElement("div");
+      rg.className = "ruler-group";
+      var lab = document.createElement("div");
+      lab.className = "eyebrow";
+      var dot = document.createElement("span");
+      dot.className = "dot";
+      dot.style.background = "var(" + PAGE_VARS[g] + ")";
+      lab.appendChild(dot);
+      var t = document.createElement("span");
+      t.textContent = "Bar " + (g + 1) + " \u00b7 steps " + (g * 16 + 1) + "\u2013" + (g * 16 + 16);
+      lab.appendChild(t);
+      rg.appendChild(lab);
+      el.grid.appendChild(rg);
+    }
+
+    shown.forEach(function (k) {
+      var isAcc = k === "GA";
+      var v = isAcc ? { name: "Global Accent lane", note: null } : b.voices[k];
+      var label = document.createElement("div");
+      label.className = "vlabel" + (isAcc ? " is-acc" : "");
+      var bb = document.createElement("b");
+      bb.textContent = isAcc ? "ACC*" : k;
+      var sp = document.createElement("span");
+      sp.textContent = isAcc ? "FUNC+ACCENT" : v.name + " \u00b7 note " + v.note;
+      label.appendChild(bb);
+      label.appendChild(sp);
+      el.grid.appendChild(label);
+
+      var lane = p.lanes[k];
+      for (var g2 = 0; g2 < 4; g2++) {
+        var cells = document.createElement("div");
+        cells.className = "cells";
+        for (var i = 0; i < 16; i++) {
+          var idx = g2 * 16 + i;
+          var ch = lane[idx];
+          var pad = document.createElement("span");
+          pad.className = "pad";
+          if (ON.indexOf(ch) > -1) pad.setAttribute("data-s", ch);
+          if (i % 4 === 0) pad.setAttribute("data-beat", "1");
+          pad.title = "step " + (idx + 1) + (ON.indexOf(ch) > -1 ? " \u00b7 " + ch : " \u00b7 off");
+          if (state.isolate) {
+            var num = document.createElement("span");
+            num.className = "pad-num";
+            num.textContent = String(idx + 1);
+            pad.appendChild(num);
+          }
+          cells.appendChild(pad);
+        }
+        el.grid.appendChild(cells);
+      }
+    });
+  }
+
+  function renderText() {
+    var p = pattern();
+    var keys = activeVoices();
+    var lines = [];
+    lines.push("        page 1 (1-16)    page 2 (17-32)   page 3 (33-48)   page 4 (49-64)");
+    keys.forEach(function (k) {
+      var lane = p.lanes[k];
+      var label = (k === "GA" ? "ACC*" : k);
+      while (label.length < 5) label += " ";
+      var groups = [];
+      for (var g = 0; g < 4; g++) groups.push(lane.slice(g * 16, g * 16 + 16));
+      lines.push("  " + label + " " + groups.join(" "));
+    });
+    el.textview.textContent = lines.join("\n");
+  }
+
+  function renderIsolate() {
+    var keys = activeVoices();
+    var b = bank();
+    el.isolate.innerHTML = "";
+    var lab = document.createElement("span");
+    lab.className = "eyebrow";
+    lab.style.alignSelf = "center";
+    lab.style.marginRight = "4px";
+    lab.textContent = "Isolate one voice";
+    el.isolate.appendChild(lab);
+
+    var all = document.createElement("button");
+    all.type = "button";
+    all.className = "vchip";
+    all.textContent = "All";
+    all.setAttribute("aria-pressed", state.isolate ? "false" : "true");
+    all.addEventListener("click", function () { state.isolate = null; renderBody(); });
+    el.isolate.appendChild(all);
+
+    keys.forEach(function (k) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "vchip";
+      btn.textContent = k === "GA" ? "ACC*" : k + " " + b.voices[k].name;
+      btn.setAttribute("aria-pressed", state.isolate === k ? "true" : "false");
+      btn.addEventListener("click", function () {
+        state.isolate = (state.isolate === k) ? null : k;
+        renderBody();
+      });
+      el.isolate.appendChild(btn);
+    });
+  }
+
+  function renderVoiceSettings() {
+    var p = pattern();
+    var b = bank();
+    var kit = p.kit || {};
+    var names = Object.keys(kit);
+    if (!names.length) {
+      el.voiceSettings.innerHTML =
+        '<p style="margin:0;color:var(--muted);font-size:13.5px">' +
+        'No special voice settings \u2014 leave Tone, Nuance and Inst Select where they are ' +
+        'and let the pattern speak.</p>';
+      return;
+    }
+    names.sort();
+    var rows = ['<table><thead><tr><th>Voice</th><th>Setting</th><th class="num">Value</th>' +
+                '<th class="num">CC</th></tr></thead><tbody>'];
+    names.forEach(function (k) {
+      var v = b.voices[k];
+      var spec = kit[k];
+      var fields = [
+        ["sel", "Inst Select", v.select_cc],
+        ["tone", "Tone", v.tone_cc],
+        ["shape", "Nuance Shape", v.shape_cc],
+        ["amount", "Nuance Amount", v.amount_cc]
+      ].filter(function (f) { return spec[f[0]] !== undefined && f[2]; });
+      fields.forEach(function (f, i) {
+        rows.push("<tr>" +
+          '<td class="kv">' + (i === 0 ? k + " <span style=\"color:var(--muted)\">" + v.name + "</span>" : "") + "</td>" +
+          "<td>" + f[1] + "</td>" +
+          '<td class="num">' + spec[f[0]] + "</td>" +
+          '<td class="num" style="color:var(--muted)">' + f[2] + "</td>" +
+          "</tr>");
+      });
+    });
+    rows.push("</tbody></table>");
+    el.voiceSettings.innerHTML = rows.join("");
+  }
+
+  function renderDone() {
+    var on = !!state.done[key(state.machine, state.slot)];
+    el.done.checked = on;
+    el.doneWrap.setAttribute("data-on", on ? "1" : "0");
+    var total = 0;
+    for (var k in state.done) if (state.done[k]) total++;
+    el.statDone.textContent = String(total);
+  }
+
+  function renderBody() {
+    renderHead();
+    renderGrid();
+    renderText();
+    renderIsolate();
+    renderVoiceSettings();
+    renderDone();
+    el.gridwrap.hidden = state.view !== "pads";
+    el.textview.hidden = state.view !== "text";
+    el.viewPads.setAttribute("aria-pressed", state.view === "pads" ? "true" : "false");
+    el.viewText.setAttribute("aria-pressed", state.view === "text" ? "true" : "false");
+  }
+
+  function renderAll() {
+    renderFamilies();
+    renderMatrix();
+    renderBody();
+  }
+
+  /* ---------- events ---------- */
+  document.querySelectorAll(".machine-switch button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      state.machine = btn.getAttribute("data-machine");
+      state.slot = 1;
+      state.family = "";
+      state.isolate = null;
+      document.querySelectorAll(".machine-switch button").forEach(function (b2) {
+        b2.setAttribute("aria-pressed", b2 === btn ? "true" : "false");
+      });
+      renderAll();
+    });
+  });
+
+  el.matrix.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".slot");
+    if (!b) return;
+    state.slot = parseInt(b.getAttribute("data-slot"), 10);
+    state.isolate = null;
+    renderMatrix();
+    renderBody();
+  });
+
+  el.family.addEventListener("change", function () {
+    state.family = el.family.value;
+    renderMatrix();
+  });
+
+  el.viewPads.addEventListener("click", function () { state.view = "pads"; renderBody(); });
+  el.viewText.addEventListener("click", function () { state.view = "text"; renderBody(); });
+
+  el.done.addEventListener("change", function () {
+    state.done[key(state.machine, state.slot)] = el.done.checked;
+    if (!el.done.checked) delete state.done[key(state.machine, state.slot)];
+    persist();
+    renderMatrix();
+    renderDone();
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if (ev.target.tagName === "SELECT" || ev.target.tagName === "INPUT") return;
+    if (ev.key === "ArrowRight" || ev.key === "ArrowDown") {
+      state.slot = state.slot === 64 ? 1 : state.slot + 1;
+    } else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") {
+      state.slot = state.slot === 1 ? 64 : state.slot - 1;
+    } else { return; }
+    ev.preventDefault();
+    state.isolate = null;
+    renderMatrix();
+    renderBody();
+  });
+
+  state.done = readLocal();
+  setSync("saved in this browser");
+  renderLegend();
+  renderAll();
+})();
+</script>

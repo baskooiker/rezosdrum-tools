@@ -1,0 +1,1856 @@
+{
+ "machine": "TT-606",
+ "patterns": [
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": 32,
+   "kit": {
+    "CH": {
+     "sel": 1,
+     "tone": 64
+    },
+    "CP": {
+     "amount": 40,
+     "shape": 6,
+     "tone": 60
+    },
+    "OH": {
+     "sel": 2,
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x.......x.x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "....x.......x.....x.x.......x.......x.......x.......x.......f...",
+    "GA": "x...............x...............x...............x...............",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "RS": "..............x...............x...............x...............x."
+   },
+   "name": "House",
+   "notes": "Textbook 4/4 house: offbeat open hat, clap on the backbeat, rim ghost lifting into the next bar.",
+   "shuffle": null,
+   "slot": 1,
+   "tempo": 124
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 30,
+     "shape": 8,
+     "tone": 40
+    },
+    "CH": {
+     "amount": 52,
+     "sel": 3,
+     "shape": 12,
+     "tone": 44
+    },
+    "OH": {
+     "sel": 4,
+     "tone": 52
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "CH": "x..xx..xx..xx..xx..xx..xx..xx..xx..xx..xx..xx.xxx..xx..xx..xx..r",
+    "CP": "....x...............x..........x....x...............f...........",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "RS": "......x.....x.........x.....x.x.......x.....x.........x.....x..."
+   },
+   "name": "Deep House",
+   "notes": "Softer hats, one clap per bar, kick tuned long and round.",
+   "shuffle": null,
+   "slot": 2,
+   "tempo": 120
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 78
+    },
+    "OH": {
+     "sel": 1,
+     "tone": 66
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x..xx...x...x...x..xx...x...x...x..xx...x...x...x.xx",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "RS": "..x.......x.......x.......x.......x.......x.......x.......x....."
+   },
+   "name": "Tech House",
+   "notes": "Sixteenth hats with a pushed kick on the last step.",
+   "shuffle": null,
+   "slot": 3,
+   "tempo": 126
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "amount": 20,
+     "sel": 0,
+     "shape": 2,
+     "tone": 90
+    },
+    "CY": {
+     "sel": 1,
+     "tone": 30
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "............x...............x...............x...............x...",
+    "RS": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Techno",
+   "notes": "Deliberately strict \u2014 no bar-to-bar variation. Let the Tone knobs do the moving.",
+   "shuffle": null,
+   "slot": 4,
+   "tempo": 132
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 96,
+     "shape": 30,
+     "tone": 20
+    },
+    "CH": {
+     "sel": 5,
+     "tone": 110
+    },
+    "CY": {
+     "sel": 3,
+     "tone": 100
+    }
+   },
+   "lanes": {
+    "BD": "X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X.x.",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "CY": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GA": "X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "SD": "..............X...............X...............X.............fxxr"
+   },
+   "name": "Hard Techno",
+   "notes": "Everything accented, kick tuned short and clicky, snare slam into the turnaround.",
+   "shuffle": null,
+   "slot": 5,
+   "tempo": 145
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "amount": 24,
+     "sel": 1,
+     "shape": 20,
+     "tone": 50
+    },
+    "RS": {
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "..x.....x.........x.....x.........x.....x.........x.....x.......",
+    "CP": "............x...............x...............x...............x...",
+    "GA": "x...............x...............x...............x...............",
+    "RS": "......x...............x...............x...............x........."
+   },
+   "name": "Minimal",
+   "notes": "Almost nothing. Space is the instrument.",
+   "shuffle": null,
+   "slot": 6,
+   "tempo": 128
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "amount": 64,
+     "sel": 4,
+     "shape": 16,
+     "tone": 34
+    },
+    "OH": {
+     "amount": 80,
+     "sel": 5,
+     "shape": 22,
+     "tone": 40
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x.......x...",
+    "CH": "..x...x...x...x...x...x...x...r...x...r...x...x...x...x...x...x.",
+    "CP": "....x...............x...............x.............x.x...........",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "OH": "..............x...............x...............x...............x.",
+    "RS": "........x...............x...............x...............x......."
+   },
+   "name": "Dub Techno",
+   "notes": "Long, soft open hat as the only bright thing in the pattern.",
+   "shuffle": null,
+   "slot": 7,
+   "tempo": 122
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "HT": {
+     "amount": 48,
+     "shape": 10,
+     "tone": 80
+    },
+    "LT": {
+     "amount": 48,
+     "shape": 10,
+     "tone": 44
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x.......x...",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HT": "....x.......x.......x..x....x.......x.......x.......x...X.x.x...",
+    "LT": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x.Xxx",
+    "OH": "......x...............x...............x...........x...x.........",
+    "RS": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x..."
+   },
+   "name": "Tribal Techno",
+   "notes": "Toms carry the groove; the three-against-four rim keeps it rolling.",
+   "shuffle": null,
+   "slot": 8,
+   "tempo": 130
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 84
+    },
+    "CP": {
+     "amount": 56,
+     "shape": 4,
+     "tone": 72
+    },
+    "CY": {
+     "sel": 2,
+     "tone": 62
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CH": "x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xx",
+    "CP": "....x.......x.......x.......x.......x.......x.......x...x...x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "..........x...............x...............x...............x.....",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Detroit Techno",
+   "notes": "Stuttering hat figure, cymbal wash on the downbeat.",
+   "shuffle": null,
+   "slot": 9,
+   "tempo": 134
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 3,
+     "tone": 96
+    },
+    "SD": {
+     "amount": 70,
+     "shape": 14,
+     "tone": 88
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "CY": "x.......x.......x.......x.......x.......x.......x.......x...x...",
+    "GA": "x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "RS": ".....x.....x.........x.....x.........x.....x....x....x.....x....",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Acid Techno",
+   "notes": "The classic 606-under-a-303 pattern. Global accent alternates strong/stronger.",
+   "shuffle": null,
+   "slot": 10,
+   "tempo": 138
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 4,
+     "tone": 100
+    },
+    "RS": {
+     "amount": 60,
+     "shape": 8,
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......f...",
+    "GA": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "HT": "..........x............x..x...............x.............X.x.x...",
+    "LT": "......x.....x.........x.....x.........x.....x.........x.....xXxx",
+    "OH": "..x.......x.......x...x...x.......x.......x.......x...x...x.....",
+    "RS": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..xx.x"
+   },
+   "name": "Hardgroove",
+   "notes": "Dense percussive layers with an accent lane in threes against the four.",
+   "shuffle": null,
+   "slot": 11,
+   "tempo": 136
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 110,
+     "shape": 31,
+     "tone": 12
+    },
+    "CY": {
+     "sel": 3,
+     "tone": 118
+    }
+   },
+   "lanes": {
+    "BD": "X..xX..xX..xX..xX..xX..xX..xX.xxX..xX..xX..xX..xX..xX..xX..xX..x",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "CY": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "GA": "X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...",
+    "OH": "......x...........x...x...............x...............x.........",
+    "SD": "..............X...............X...............X.............xxxr"
+   },
+   "name": "Schranz",
+   "notes": "Distorted-kick territory: double kick figure, cymbal on every beat.",
+   "shuffle": null,
+   "slot": 12,
+   "tempo": 150
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "sel": 1,
+     "tone": 74
+    },
+    "OH": {
+     "sel": 3,
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......f...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "RS": "...........x...............x...............x...............x...."
+   },
+   "name": "Trance",
+   "notes": "Big offbeat hat, rolling sixteenths, fills every fourth bar.",
+   "shuffle": null,
+   "slot": 13,
+   "tempo": 138
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 5,
+     "tone": 104
+    },
+    "LT": {
+     "amount": 20,
+     "shape": 6,
+     "tone": 30
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "CY": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "LT": ".x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x",
+    "OH": "......x.......x.......x.......x.......x.......x.......x.......x."
+   },
+   "name": "Psy",
+   "notes": "Rolling triplet-feel tom underneath a rigid kick. Strict on purpose.",
+   "shuffle": null,
+   "slot": 14,
+   "tempo": 145
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 120,
+     "shape": 31,
+     "tone": 8
+    },
+    "SD": {
+     "tone": 100
+    }
+   },
+   "lanes": {
+    "BD": "X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X.x.",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "CY": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "GA": "X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...",
+    "HT": "..........x.x..........x..x.x.............x.x...........X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..............x...............x...............x...........x...x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Hardcore",
+   "notes": "Fast and blunt. Cymbal eighths give it the rave sheen.",
+   "shuffle": null,
+   "slot": 15,
+   "tempo": 165
+  },
+  {
+   "family": "Four-to-the-floor",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 88,
+     "shape": 26,
+     "tone": 24
+    },
+    "CY": {
+     "sel": 3,
+     "tone": 20
+    },
+    "SD": {
+     "amount": 100,
+     "shape": 28,
+     "tone": 30
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x..x.x..x...x...x..x.x..x...x...x..x.x..x...x...x..x.x..",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......X.......x.......X.......x.......X.......x.......X.......",
+    "HT": "........................................................X.x.x...",
+    "LT": "..x.........x.....x.........x.....x.........x.....x.........xXxx",
+    "RS": ".....x.....x.........x.....x.........x.....x.........x.....x....",
+    "SD": "........X...............X...............X...............X......."
+   },
+   "name": "Industrial Techno",
+   "notes": "Snare on the half-bar, kick limping slightly off the grid.",
+   "shuffle": null,
+   "slot": 16,
+   "tempo": 128
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 88
+    },
+    "SD": {
+     "amount": 44,
+     "shape": 10,
+     "tone": 76
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "....x...............x...............x...............f...........",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x.......x.......x.......x.......x.......x.......x.......x.....",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Electro",
+   "notes": "Syncopated electro kick, straight backbeat, eighth hats.",
+   "shuffle": null,
+   "slot": 17,
+   "tempo": 128
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 24,
+     "shape": 4,
+     "tone": 18
+    },
+    "CH": {
+     "sel": 1,
+     "tone": 92
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..xx.",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "CP": "....x.......x.......x..x....x.......x.......x...x...x.......f...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "OH": "..............x...........x...x...............x...........x...x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Miami Bass",
+   "notes": "808-style bass pattern with clap doubling the snare.",
+   "shuffle": null,
+   "slot": 18,
+   "tempo": 132
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "SD": {
+     "amount": 60,
+     "shape": 12,
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "......x...............x...............x...........x...x.........",
+    "RS": "..........x...............x...............x...............x.....",
+    "SD": "....x..x..x.x.......x..x..x.x.......x..x..x.x.......x..x..x.xxxr"
+   },
+   "name": "Breakbeat",
+   "notes": "Loose funk break skeleton, snare doing the talking.",
+   "shuffle": null,
+   "slot": 19,
+   "tempo": 136
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "sel": 2,
+     "tone": 54
+    },
+    "SD": {
+     "amount": 82,
+     "shape": 18,
+     "tone": 62
+    }
+   },
+   "lanes": {
+    "BD": "x...x..x..x.x...x...x..x..x.x.x.x...x..x..x.x...x...x..x..x.x...",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...",
+    "HT": "...........x...........x...x...............x............X.xxx...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x.......x.......x.......x.......x.......x.......x.......x.....",
+    "SD": "....X.......X.......X.......X.......X.......X.......X.......xxxr"
+   },
+   "name": "Big Beat",
+   "notes": "Heavy, slightly slow, snare hit hard.",
+   "shuffle": null,
+   "slot": 20,
+   "tempo": 118
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": 20,
+   "kit": {
+    "CH": {
+     "sel": 3,
+     "tone": 48
+    },
+    "SD": {
+     "amount": 74,
+     "shape": 20,
+     "tone": 58
+    }
+   },
+   "lanes": {
+    "BD": "x.....x...x.....x.....x...x.....x.....x...x.....x.....x...x...x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..............x...........x...x...............x...............x.",
+    "RS": "..........x...............x...............x........x......x.....",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Boom Bap",
+   "notes": "Slow, dusty, flammed snare in the turnaround.",
+   "shuffle": null,
+   "slot": 21,
+   "tempo": 90
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": 40,
+   "kit": {
+    "CY": {
+     "sel": 0,
+     "tone": 28
+    },
+    "SD": {
+     "amount": 90,
+     "shape": 24,
+     "tone": 44
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.............x.",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "RS": "........x...............x...x...........x...............x.......",
+    "SD": "....x.........x.....x.....x...x.....x.........x.....x.......xxxr"
+   },
+   "name": "Trip-Hop",
+   "notes": "Half-speed feel, snare dragged late in the bar.",
+   "shuffle": null,
+   "slot": 22,
+   "tempo": 84
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 4,
+     "tone": 96
+    },
+    "SD": {
+     "amount": 66,
+     "shape": 14,
+     "tone": 84
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.x.....x.......x.x.....x.......x.x.....x.......x.x.....",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "CY": "x...............x...............x...............x...........x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x.......x.......x...x...x.......x.......x.......x.......x.....",
+    "RS": "......x.....x.........x.....x.........x.....x.........x.....x...",
+    "SD": "....x......x........x......x........x......x........x......xxxxr"
+   },
+   "name": "Jungle",
+   "notes": "Chopped-break placement at jungle tempo; sixteenth hats hold it together.",
+   "shuffle": null,
+   "slot": 23,
+   "tempo": 165
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 100
+    },
+    "SD": {
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x.........x.....x.........x...x.x.........x.....x.........x.....",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..............x...........x...x...............x...............x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Drum & Bass",
+   "notes": "Two-step: the whole point is the space between kick and snare.",
+   "shuffle": null,
+   "slot": 24,
+   "tempo": 172
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "SD": {
+     "amount": 88,
+     "shape": 22,
+     "tone": 66
+    }
+   },
+   "lanes": {
+    "BD": "x...............x.............x.x...............x.............x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "......x...............x...............x...............x.........",
+    "RS": "..........x...x...........x...x...........x...x...........x...x.",
+    "SD": "........x...............x.x.............x...............x...xxxr"
+   },
+   "name": "Halftime",
+   "notes": "Fast hats, half-time backbone. Huge and slow-feeling.",
+   "shuffle": null,
+   "slot": 25,
+   "tempo": 172
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 1,
+     "tone": 58
+    },
+    "SD": {
+     "amount": 56,
+     "shape": 16,
+     "tone": 68
+    }
+   },
+   "lanes": {
+    "BD": "x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..x..x.",
+    "CH": "x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xx",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..x...............x...............x...............x.............",
+    "SD": "....x..x..x.x..x....x.xx..x.x..x....x..x..x.x..x....x..x..x.fxxr"
+   },
+   "name": "Funk Break",
+   "notes": "Sixteenth-note hat shuffle under a busy snare.",
+   "shuffle": null,
+   "slot": 26,
+   "tempo": 104
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "SD": {
+     "amount": 72,
+     "shape": 18,
+     "tone": 78
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.....x.x.......x.......x.......x.......",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "RS": "...........x............x..x...............x.......x.......x....",
+    "SD": "....x..x.x..x..x....x..x.x..x..x....x..x.x..x..x....x..x.x..xxxr"
+   },
+   "name": "Amen Feel",
+   "notes": "Ghost-snare density approximating the classic break.",
+   "shuffle": null,
+   "slot": 27,
+   "tempo": 168
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 3,
+     "tone": 72
+    }
+   },
+   "lanes": {
+    "BD": "x....x..x...x..xx....x..x...x..xx....x..x...x..xx....x..x...x..x",
+    "CH": "x.x.xx.x.xx.x.x.x.x.xx.x.xx.x.r.x.x.xx.x.xx.x.r.x.x.xx.x.xx.x.x.",
+    "CP": "............x...............x...............x...............x...",
+    "GA": "x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..",
+    "OH": "..x.......x.......x.......x.......x.......x.......x.......x.....",
+    "RS": "......x...............x...............x...............x.........",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Broken Beat",
+   "notes": "Everything slightly displaced \u2014 West London swing.",
+   "shuffle": null,
+   "slot": 28,
+   "tempo": 126
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CP": {
+     "tone": 80
+    },
+    "RS": {
+     "amount": 40,
+     "shape": 6,
+     "tone": 96
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..xx",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x.",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "RS": "x.x.x.x.x.x.x.x.x.x.x.xxx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x."
+   },
+   "name": "Footwork",
+   "notes": "Triplet-feel kick against a straight rim sixteenth pulse.",
+   "shuffle": null,
+   "slot": 29,
+   "tempo": 160
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CP": {
+     "amount": 50,
+     "shape": 8,
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "CP": "..x...x...x...x...x...x...x...x...x...x...x...x...xx..x...x...x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "............x...............x...............x...............x...",
+    "SD": "..............X...............X...............X.............xxxr"
+   },
+   "name": "Ghetto House",
+   "notes": "Offbeat claps, relentless hats.",
+   "shuffle": null,
+   "slot": 30,
+   "tempo": 138
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CP": {
+     "tone": 84
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..x",
+    "GA": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "OH": "..............x...............x...............x...............x.",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr"
+   },
+   "name": "Baltimore Club",
+   "notes": "The Think-break bounce, stripped to a 606.",
+   "shuffle": null,
+   "slot": 31,
+   "tempo": 132
+  },
+  {
+   "family": "Breaks & electro",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 80
+    },
+    "SD": {
+     "tone": 86
+    }
+   },
+   "lanes": {
+    "BD": "x.....x...x.....x.....x...x.....x.....x...x.....x.....x...x.....",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "............x...............x...............x...............x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..x.......x.......x.......x.......x.......x.......x.......x.....",
+    "RS": "......x.....x.........x.....x.........x.....x.........x.....x...",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr"
+   },
+   "name": "UK Garage",
+   "notes": "Two-step garage with shuffle dialled in on CC18.",
+   "shuffle": 42,
+   "slot": 32,
+   "tempo": 132
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 0,
+     "tone": 64
+    },
+    "CY": {
+     "sel": 0,
+     "tone": 60
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.....x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..............x...........x...x...............x...............x.",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......fxxr"
+   },
+   "name": "606 Rock",
+   "notes": "The original TR-606 Rock 1 idea, developed over four bars.",
+   "shuffle": null,
+   "slot": 33,
+   "tempo": 120
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "SD": {
+     "amount": 64,
+     "shape": 12,
+     "tone": 72
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x.......x.......x.......x.......x.......x.......x.......x...x...",
+    "GA": "x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...",
+    "HT": "..........x............x..x...............x.............X.x.x...",
+    "LT": ".............................................................Xxx",
+    "SD": "....X.......X.......X.......X.......X.......X.......X.......xxxr"
+   },
+   "name": "Post-Punk",
+   "notes": "Driving and hard-hit, cymbal marking the half bars.",
+   "shuffle": null,
+   "slot": 34,
+   "tempo": 148
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 40,
+     "shape": 12,
+     "tone": 28
+    },
+    "SD": {
+     "tone": 80
+    }
+   },
+   "lanes": {
+    "BD": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...X...x...X...x...X...x...X...x...X...x...X...x...X...x...X...",
+    "RS": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "EBM",
+   "notes": "Eighth-note kick engine. Strict, because EBM does not swing.",
+   "shuffle": null,
+   "slot": 35,
+   "tempo": 126
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 4,
+     "tone": 40
+    },
+    "CY": {
+     "sel": 0,
+     "tone": 34
+    }
+   },
+   "lanes": {
+    "BD": "x.......x...x...x.......x...x...x.......x...x...x.......x...x...",
+    "CH": "..x...x...x...x...x...x...x...r...x...r...x...x...x...x...x...x.",
+    "CY": "x...............x...............x...............x...........x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "RS": "x...............x...............x...............x...............",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Coldwave",
+   "notes": "Sparse, dry, a little sad.",
+   "shuffle": null,
+   "slot": 36,
+   "tempo": 112
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CP": {
+     "amount": 48,
+     "shape": 6,
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..............x...............x...............x...............x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Synth-Pop",
+   "notes": "Clap doubling the snare \u2014 the 80s move.",
+   "shuffle": null,
+   "slot": 37,
+   "tempo": 118
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "HT": {
+     "tone": 92
+    },
+    "OH": {
+     "sel": 2,
+     "tone": 78
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "CY": "x...............x...............x...............x...........x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "..........x.x.............x.x.............x.x...........X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Italo",
+   "notes": "Tom answer phrase in the second half of each bar.",
+   "shuffle": null,
+   "slot": 38,
+   "tempo": 122
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 1,
+     "tone": 86
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.......x.....x.x.......x.....x.x.......x.....x.x.......",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "CP": "....x.......x.......x.......x.......x.......x.......xx......f...",
+    "GA": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "HT": "..........x............x..x...............x.............X.x.x...",
+    "LT": "............x..........x....x...............x...............xXxx",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Freestyle",
+   "notes": "Electro-latin freestyle kick with tom answers.",
+   "shuffle": null,
+   "slot": 39,
+   "tempo": 116
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 60,
+     "shape": 18,
+     "tone": 22
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "CY": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "RS": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "New Beat",
+   "notes": "Slow, stiff, heavy. Belgian tempo.",
+   "shuffle": null,
+   "slot": 40,
+   "tempo": 108
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 5,
+     "tone": 22
+    },
+    "CY": {
+     "amount": 96,
+     "sel": 0,
+     "shape": 26,
+     "tone": 18
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CH": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "RS": "..x.......x.......x.......x.......x.......x.......x.......x....."
+   },
+   "name": "Dark Pulse",
+   "notes": "Barely a beat. Good bed for drones.",
+   "shuffle": null,
+   "slot": 41,
+   "tempo": 96
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": 8,
+   "kit": {
+    "CH": {
+     "amount": 70,
+     "sel": 3,
+     "shape": 30,
+     "tone": 108
+    },
+    "SD": {
+     "amount": 86,
+     "shape": 28,
+     "tone": 94
+    }
+   },
+   "lanes": {
+    "BD": "x..x.....x..x...x..x.....x..x.x.x..x.....x..x...x..x.....x..x...",
+    "CH": "x.xx..x.xx.x..xxx.xx..x.xx.x..xxx.xx..x.xx.x..rxx.xx..x.xx.x..xr",
+    "GA": "x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....",
+    "HT": ".........x.............x.x...............x..............Xxx.x...",
+    "LT": ".............................................................Xxx",
+    "RS": "..x....x..x.......x....x..x.......x....x..x.......x....x..x.....",
+    "SD": "....x..x....x.x.....x..x..x.x.x.....x..x....x.x.....x..x....fxxr"
+   },
+   "name": "IDM Glitch",
+   "notes": "Deliberately unstable. Rolls and flams used as glitches.",
+   "shuffle": null,
+   "slot": 42,
+   "tempo": 140
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": 16,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 94
+    },
+    "LT": {
+     "amount": 64,
+     "shape": 20,
+     "tone": 36
+    }
+   },
+   "lanes": {
+    "BD": "x....x..x...x...x....x..x...x...x....x..x...x...x....x..x...x...",
+    "CH": "x.x.xx.xx.x.xx.xx.x.xx.xx.r.xx.xx.x.xx.xx.r.xx.xx.x.xx.xx.x.xx.x",
+    "CY": "x...............x...............x...............x...........x...",
+    "GA": "x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..",
+    "HT": "........................................................X.x.x...",
+    "LT": "...........x...............x...............x...............x.Xxx",
+    "OH": "......x...............x...............x...........x...x.........",
+    "SD": "....x.....x.x.......x.....x.x.......x.....x.x.......x.....x.xxxr"
+   },
+   "name": "Braindance",
+   "notes": "Warp-era wonk: displaced kick, chattering hats.",
+   "shuffle": null,
+   "slot": 43,
+   "tempo": 130
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": 6,
+   "kit": {
+    "SD": {
+     "amount": 90,
+     "shape": 31,
+     "tone": 100
+    }
+   },
+   "lanes": {
+    "BD": "x.x.....x.x.....x.x.....x.x...x.x.x.....x.x.....x.x.....x.x.....",
+    "CH": "xx.xx.xx.xx.xx.xxx.xx.xx.xx.xx.xxx.xx.xx.xr.xx.xxx.xx.xx.xx.xx.r",
+    "GA": "x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....",
+    "HT": "....x.......x.......x.......x.......x.......x.......x...X.x.x...",
+    "LT": ".............................................................Xxx",
+    "RS": ".......x.......x.......x.......x.......x.......x.......x.......x",
+    "SD": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..xxxxr"
+   },
+   "name": "Cut-Up",
+   "notes": "Fast, chopped, almost arrhythmic \u2014 but it loops.",
+   "shuffle": null,
+   "slot": 44,
+   "tempo": 150
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 1,
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..............x...............x...............x...............x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Motorik",
+   "notes": "Neu! pulse. Strict so it hypnotises.",
+   "shuffle": null,
+   "slot": 45,
+   "tempo": 142
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 84,
+     "sel": 2,
+     "shape": 22,
+     "tone": 46
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x...............x...........x...x...............x.............",
+    "SD": "....x..x....x..x....x..x....x..x....x..x....x..x....x..x....xxxr"
+   },
+   "name": "Shoegaze Drive",
+   "notes": "Washy cymbal every half bar, snare pushing sixteenths.",
+   "shuffle": null,
+   "slot": 46,
+   "tempo": 130
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 118,
+     "shape": 31,
+     "tone": 14
+    },
+    "CY": {
+     "sel": 3,
+     "tone": 14
+    },
+    "SD": {
+     "amount": 110,
+     "shape": 30,
+     "tone": 24
+    }
+   },
+   "lanes": {
+    "BD": "X..x..X...x.X...X..x..X...x.X...X..x..X...x.X...X..x..X...x.X.x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CY": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "GA": "X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...X...",
+    "HT": "........................................................X.x.x...",
+    "LT": "..x.......x.......x....x..x.......x.......x.......x.......x..Xxx",
+    "SD": "....X.......X.......X.......X.......X.......X.......X.......X..."
+   },
+   "name": "Noise Industrial",
+   "notes": "All extremes on the nuance settings. Abrasive by design.",
+   "shuffle": null,
+   "slot": 47,
+   "tempo": 100
+  },
+  {
+   "family": "Machine rock & wave",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 120,
+     "shape": 28,
+     "tone": 10
+    },
+    "CY": {
+     "sel": 3,
+     "tone": 10
+    }
+   },
+   "lanes": {
+    "BD": "X.......X.......X.......X.......X.......X.......X.......X.......",
+    "CY": "X.......X.......X.......X.......X.......X.......X.......X.......",
+    "GA": "X.......X.......X.......X.......X.......X.......X.......X.......",
+    "LT": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "RS": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Power Pulse",
+   "notes": "Two enormous hits per bar. Everything else is decoration.",
+   "shuffle": null,
+   "slot": 48,
+   "tempo": 88
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 1,
+     "tone": 62
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.......xx",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..x.......x.......x.......x.......x.......x.......x...x...x.....",
+    "RS": "......x.....x.........x.....x.........x.....x.........x.....x...",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr"
+   },
+   "name": "16th Shuffle",
+   "notes": "Shuffle amount pushed past half \u2014 swung sixteenths.",
+   "shuffle": 64,
+   "slot": 49,
+   "tempo": 108
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": 24,
+   "kit": {
+    "CH": {
+     "sel": 4,
+     "tone": 44
+    },
+    "SD": {
+     "amount": 78,
+     "shape": 22,
+     "tone": 54
+    }
+   },
+   "lanes": {
+    "BD": "x.....x...x.....x.....x...x...x.x.....x...x.....x.....x...x...x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "RS": "..........x..........x....x...............x.......x.......x.....",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr"
+   },
+   "name": "Swung Boom Bap",
+   "notes": "Heavy swing plus flams \u2014 the drunkest pattern in the bank.",
+   "shuffle": 76,
+   "slot": 50,
+   "tempo": 88
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "RS": {
+     "tone": 84
+    },
+    "SD": {
+     "tone": 74
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......f...",
+    "GA": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "RS": "..x...x...x...x...x.x.x...x...x...x...x...x...x...x..xx...x...x.",
+    "SD": "...x..x....x..x....x..x....x..x....x..x....x..x....x..x....xxxxr"
+   },
+   "name": "Dembow",
+   "notes": "The boom-ch-boom-chick, with rim on the offbeats.",
+   "shuffle": null,
+   "slot": 51,
+   "tempo": 96
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CP": {
+     "amount": 46,
+     "shape": 8,
+     "tone": 78
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.....x.x.......x.......x.......x.......",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "CP": "...x..x....x..x...xx..x....x..x....x..x....x..x....x..x....x..x.",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "OH": "..............x...............x...............x...........x...x.",
+    "SD": "...x..x....x..x....x..x...xx..x....x..x....x..x....x..x....xxxxr"
+   },
+   "name": "Reggaeton",
+   "notes": "Clap doubling the dembow snare for weight.",
+   "shuffle": null,
+   "slot": 52,
+   "tempo": 94
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "LT": {
+     "amount": 58,
+     "shape": 14,
+     "tone": 40
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x....x..x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "CP": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "GA": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "HT": "........................................................X.x.x...",
+    "LT": "..x.x...x.x.......x.x...x.x.......x.x...x.x.......x.x...x.x..Xxx",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Baile Funk",
+   "notes": "Tamborz\u00e3o-flavoured tom answer under a bouncing kick.",
+   "shuffle": null,
+   "slot": 53,
+   "tempo": 130
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "HT": {
+     "tone": 86
+    },
+    "LT": {
+     "tone": 42
+    },
+    "RS": {
+     "tone": 88
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HT": "....x..x....x..x....x..x....x..x....x..x....x..x....x..xX.x.x..x",
+    "LT": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x.Xxx",
+    "OH": "..x.......x.......x.......x.......x.......x.......x...x...x.....",
+    "RS": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x"
+   },
+   "name": "Afro House",
+   "notes": "Layered percussion in threes over a straight four.",
+   "shuffle": null,
+   "slot": 54,
+   "tempo": 122
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 66
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.x.",
+    "CH": "x..x..x..x..x..xx..x..x..x..x..xx..x..r..x..x..xx..x..x..x..x..x",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HT": "...x.....x.....x...x.....x.....x...x.....x.....x...x....Xxx.x..x",
+    "LT": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x.Xxx",
+    "RS": "....x.....x........xx.....x.........x.....x.........x.....f....."
+   },
+   "name": "6/8 Feel",
+   "notes": "Twelve-feel bell pattern mapped onto the 16-step grid.",
+   "shuffle": null,
+   "slot": 55,
+   "tempo": 116
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "LT": {
+     "tone": 38
+    },
+    "RS": {
+     "tone": 92
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "........................................................X.x.x...",
+    "LT": "..x.....x.....x...x.....x.....x...x.....x.....x...x.....x....Xxx",
+    "RS": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......x..."
+   },
+   "name": "Cumbia Machine",
+   "notes": "Cumbia's limping guiro figure translated to rim and tom.",
+   "shuffle": null,
+   "slot": 56,
+   "tempo": 100
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 3,
+     "tone": 90
+    },
+    "SD": {
+     "tone": 82
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxx",
+    "GA": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "HT": "........................................................X.x.x...",
+    "LT": "....x.......x.......x.......x.......x.......x.......x.......xXxx",
+    "RS": "x.x.x.x.x.x.x.x.x.x.x.x.x.xxx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "..x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.fxxr"
+   },
+   "name": "Samba Electro",
+   "notes": "Surdo-ish kick with a busy caixa-style snare.",
+   "shuffle": null,
+   "slot": 57,
+   "tempo": 132
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "RS": {
+     "amount": 40,
+     "shape": 10,
+     "tone": 76
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "CH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "OH": "..............x...............x...............x...............x.",
+    "RS": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x.",
+    "SD": "............x...............x...............x...............x..."
+   },
+   "name": "Bossa Electro",
+   "notes": "Clave-like rim over a soft two-feel. Strict to keep it polite.",
+   "shuffle": null,
+   "slot": 58,
+   "tempo": 128
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 0,
+     "tone": 68
+    },
+    "OH": {
+     "sel": 1,
+     "tone": 74
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "CP": "....x.......x.......x.......x..x....x.......x.......x.......x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HT": "..........x.x.............x.x.............x.x...........X.x.x...",
+    "LT": ".............................................................Xxx",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Disco",
+   "notes": "Open hat on every offbeat, clap on the backbeat, tom pickups.",
+   "shuffle": null,
+   "slot": 59,
+   "tempo": 120
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 2,
+     "tone": 72
+    }
+   },
+   "lanes": {
+    "BD": "x...x.....x.x...x...x.....x.x.x.x...x.....x.x...x...x.....x.x...",
+    "CH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "CP": "............x...............x.x.............x...............xx..",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..x.......x.......x.......x.......x.......x.......x...x...x.....",
+    "RS": "......x.....x.........x.....x.........x.....x.........x.....f...",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Boogie",
+   "notes": "Slinky early-80s kick with a touch of shuffle.",
+   "shuffle": 36,
+   "slot": 60,
+   "tempo": 112
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 1,
+     "tone": 60
+    },
+    "CP": {
+     "amount": 36,
+     "shape": 4,
+     "tone": 64
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CH": "x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xxx.xxx.xr",
+    "CP": "....x.......x.....x.x.......x.......x.......x.......x.......x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "OH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "RS": "..........x...............x...............x...............x.x..."
+   },
+   "name": "Nu-Disco",
+   "notes": "Disco frame, softer tone settings, stuttered hats.",
+   "shuffle": null,
+   "slot": 61,
+   "tempo": 118
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 44,
+     "shape": 20,
+     "tone": 34
+    },
+    "CY": {
+     "amount": 100,
+     "sel": 0,
+     "shape": 24,
+     "tone": 12
+    }
+   },
+   "lanes": {
+    "BD": "x...............x...............x...............x...............",
+    "CH": "............x...............x...............x...............x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...............x...............x...............x...............",
+    "RS": "........x...............x...............x...............x......."
+   },
+   "name": "Ambient Sparse",
+   "notes": "Four events per bar. Long cymbal decay does the work.",
+   "shuffle": null,
+   "slot": 62,
+   "tempo": 76
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "LT": {
+     "tone": 40
+    },
+    "RS": {
+     "tone": 86
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x....x....x....xx....x....x....xx....x....x....xx....x....x....x",
+    "LT": "x......x......x.x......x......x.x......x......x.x......x......x.",
+    "RS": "x....x....x....xx....x....x....xx....x....x....xx....x....x....x"
+   },
+   "name": "Polyrhythm 5",
+   "notes": "Rim in fives, tom in sevens, kick in fours. Phases across the 64 steps.",
+   "shuffle": null,
+   "slot": 63,
+   "tempo": 124
+  },
+  {
+   "family": "Grooves & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CH": {
+     "sel": 5,
+     "tone": 16
+    },
+    "CY": {
+     "amount": 110,
+     "sel": 1,
+     "shape": 28,
+     "tone": 8
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CH": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "LT": "..........x...............x...............x...............x.....",
+    "RS": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Drone Pulse",
+   "notes": "Slowest pattern in the bank. Meant to sit under a long drone.",
+   "shuffle": null,
+   "slot": 64,
+   "tempo": 70
+  }
+ ],
+ "steps": 64,
+ "time_scale": "16th",
+ "voices": {
+  "BD": {
+   "amount_cc": 23,
+   "name": "Bass Drum",
+   "note": 36,
+   "select_cc": null,
+   "shape_cc": 22,
+   "tone_cc": 20
+  },
+  "CH": {
+   "amount_cc": 71,
+   "name": "Closed Hi-hat",
+   "note": 42,
+   "select_cc": 72,
+   "shape_cc": 70,
+   "tone_cc": 68
+  },
+  "CP": {
+   "amount_cc": 87,
+   "name": "Hand Clap",
+   "note": 39,
+   "select_cc": null,
+   "shape_cc": 86,
+   "tone_cc": 84
+  },
+  "CY": {
+   "amount_cc": 55,
+   "name": "Cymbal",
+   "note": 51,
+   "select_cc": 56,
+   "shape_cc": 54,
+   "tone_cc": 52
+  },
+  "HT": {
+   "amount_cc": 47,
+   "name": "High Tom",
+   "note": 48,
+   "select_cc": null,
+   "shape_cc": 46,
+   "tone_cc": 44
+  },
+  "LT": {
+   "amount_cc": 39,
+   "name": "Low Tom",
+   "note": 43,
+   "select_cc": null,
+   "shape_cc": 38,
+   "tone_cc": 36
+  },
+  "OH": {
+   "amount_cc": 63,
+   "name": "Open Hi-hat",
+   "note": 46,
+   "select_cc": 64,
+   "shape_cc": 62,
+   "tone_cc": 60
+  },
+  "RS": {
+   "amount_cc": 79,
+   "name": "Rim Shot",
+   "note": 37,
+   "select_cc": null,
+   "shape_cc": 78,
+   "tone_cc": 76
+  },
+  "SD": {
+   "amount_cc": 31,
+   "name": "Snare Drum",
+   "note": 38,
+   "select_cc": null,
+   "shape_cc": 30,
+   "tone_cc": 28
+  }
+ }
+}

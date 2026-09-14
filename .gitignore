@@ -1,0 +1,9 @@
+# Backup files carry the unit's serial number - keep them out of the repo
+captures/*.tt78bak
+captures/*.tt606bak
+captures/*.syx
+captures/*.raw
+*.ORIGINAL-KEEP
+
+__pycache__/
+*.pyc

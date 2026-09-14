@@ -1,0 +1,1834 @@
+{
+ "machine": "TT-78",
+ "patterns": [
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "tone": 60
+    },
+    "HH": {
+     "tone": 64
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.....x.x.......x.......x.......x.......",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xf...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "LB": ".............................................................Xf.",
+    "LC": "...............................................................F",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Rock 1",
+   "notes": "The plain preset, given four bars of life and a conga fill.",
+   "shuffle": null,
+   "slot": 1,
+   "tempo": 120
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "amount": 30,
+     "shape": 6,
+     "tone": 72
+    }
+   },
+   "lanes": {
+    "BD": "x.......x...x...x.......x...x...x.......x...x...x.......x...x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "...................................................x.......Xx...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "LB": ".............................................................Xx.",
+    "LC": "...............................................................X",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "..............x...............x...............x...............x."
+   },
+   "name": "Rock 2",
+   "notes": "Busier hat and an extra kick before the backbeat.",
+   "shuffle": null,
+   "slot": 2,
+   "tempo": 128
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 76
+    },
+    "TB": {
+     "amount": 44,
+     "shape": 8,
+     "tone": 80
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CY": "x...............x...............x...............x...........x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x."
+   },
+   "name": "Disco 1",
+   "notes": "Tambourine on the offbeats is the whole disco trick.",
+   "shuffle": null,
+   "slot": 3,
+   "tempo": 120
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 88
+    },
+    "TB": {
+     "tone": 84
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CB": "..x.......x.......x.......x.x.....x.......x.....x.x.......x.....",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xf...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "LB": ".............................................................Xx.",
+    "LC": "...................................................x...........X",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Disco 2",
+   "notes": "Cowbell answering the tambourine.",
+   "shuffle": null,
+   "slot": 4,
+   "tempo": 124
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "amount": 60,
+     "shape": 14,
+     "tone": 48
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.........x.....x.........x.....x.........x.....x.......x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HH": "x..x..x..x..x..xx..x..r..x..x..xx..x..r..x..x..xx..x..x..x..x..r",
+    "SD": "........x...............x...............x...............x...xxxr"
+   },
+   "name": "Slow Rock",
+   "notes": "Twelve-feel ballad. Hat in threes.",
+   "shuffle": null,
+   "slot": 5,
+   "tempo": 76
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "tone": 72
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CL": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Foxtrot",
+   "notes": "Stiff ballroom four. Strict, as the original was.",
+   "shuffle": null,
+   "slot": 6,
+   "tempo": 104
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 50,
+     "shape": 12,
+     "tone": 54
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CY": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x..x..x..x..x..xx..x..r..x..x..xx..x..r..x..x..xx..x..x..x..x..x",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Swing",
+   "notes": "Ride-style cymbal in triplet feel with shuffle at 80.",
+   "shuffle": 80,
+   "slot": 7,
+   "tempo": 132
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 58
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....xx",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x."
+   },
+   "name": "Shuffle",
+   "notes": "Swung eighths, tambourine on the skips.",
+   "shuffle": 72,
+   "slot": 8,
+   "tempo": 116
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 52
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xx...",
+    "HH": "x..x..x..x..x..xx..x..x..x..x..xx..x..r..x..x..xx..x..x..x..x..x",
+    "LB": ".....................................................x.......Xf.",
+    "LC": "...............................................................X",
+    "SD": "...x.....x.....x...x.....xx....x...x.....x.....x...x.....x.....x"
+   },
+   "name": "Waltz Feel",
+   "notes": "Three-feel mapped onto 16 steps so it phases nicely over 64.",
+   "shuffle": null,
+   "slot": 9,
+   "tempo": 108
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "amount": 38,
+     "shape": 10,
+     "tone": 76
+    },
+    "MA": {
+     "amount": 26,
+     "shape": 6,
+     "tone": 60
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "CL": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "SD": "............x...............x...............x...............x..."
+   },
+   "name": "Bossa Nova",
+   "notes": "Clave over maracas sixteenths. Strict to stay authentic.",
+   "shuffle": null,
+   "slot": 10,
+   "tempo": 128
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 92
+    },
+    "LC": {
+     "amount": 48,
+     "shape": 12,
+     "tone": 40
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x....x..xx",
+    "CB": "....x.......x.......x..x....x.......x.......x......xx.......f...",
+    "GA": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "GS": "..x.......x.....x.x.......x.......x.......x.......x.......x.....",
+    "HB": "...................................................x....X.f.....",
+    "HC": "...........................................................Xx...",
+    "LB": ".............................................................Xx.",
+    "LC": "......x.x.....x.......x.x.....x.......x.x.....x.......x.x.x...xX",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx",
+    "SD": "..x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.f.x."
+   },
+   "name": "Samba",
+   "notes": "Surdo kick, caixa snare, agog\u00f4-style cowbell.",
+   "shuffle": null,
+   "slot": 11,
+   "tempo": 136
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "amount": 30,
+     "shape": 4,
+     "tone": 96
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CB": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.xxx.x.",
+    "CL": "..x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..f.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "..x.......x.......x.......x.......x.......x.......x.......xXx...",
+    "LB": ".............................................................Xf.",
+    "LC": "......x.......x.......x.......x.......x.......x.....x.x.......xX",
+    "MA": "..x...x...x...x...x...x...x...r...x...x...x...r...x...x...x...x."
+   },
+   "name": "Cha-Cha",
+   "notes": "Cowbell eighths, congas trading the offbeats.",
+   "shuffle": null,
+   "slot": 12,
+   "tempo": 124
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "tone": 70
+    },
+    "MA": {
+     "tone": 56
+    }
+   },
+   "lanes": {
+    "BD": "x.....x...x.....x.....x...x...x.x.....x...x.....x.....x...x.....",
+    "CL": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.xx..",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "........................................................X.f.....",
+    "HC": "....x.......x.......x....x..x.......x.......x.......x.....xXf...",
+    "LB": ".............................................................Xx.",
+    "LC": "......x.x.....x.......x.x.....x.......x.x.....x....x..x.x.....xX",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."
+   },
+   "name": "Rhumba",
+   "notes": "Rhumba clave with a tumbao conga underneath.",
+   "shuffle": null,
+   "slot": 13,
+   "tempo": 112
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "tone": 82
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CL": "x...x...x..x....x...x...x..x....x...x...x..x....x...x...x..x....",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "..............x...............x...............x...............x."
+   },
+   "name": "Tango",
+   "notes": "Dotted tango accent figure. Deliberately rigid.",
+   "shuffle": null,
+   "slot": 14,
+   "tempo": 116
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "MA": {
+     "amount": 34,
+     "shape": 8,
+     "tone": 52
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx",
+    "CL": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "........................................................X.f.....",
+    "HC": "....x.......x.......x.......x.......x.......x.......x......Xx..f",
+    "LB": "..x.......x.......x.......x....x..x.......x......xx.......x..Xx.",
+    "LC": "...............................................................X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr"
+   },
+   "name": "Beguine",
+   "notes": "Soft two-feel with bongo colour.",
+   "shuffle": null,
+   "slot": 15,
+   "tempo": 108
+  },
+  {
+   "family": "CR-78 heritage",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 100
+    },
+    "HC": {
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CB": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "CL": "..x.x...x..x..x...xxx...x..x..x...x.x...x..x..x...x.x...x..x..x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "..................................................x.....X.f.....",
+    "HC": "....x..x....x..x....x..x....x..x....x..x....x..x....x..x...Xx..x",
+    "LB": ".............................................................Xx.",
+    "LC": "......x.x.....x.......x.x.....x.......x.x.....x.x.....x.x.....xX",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."
+   },
+   "name": "Mambo",
+   "notes": "Bell pattern plus tumbao. The busiest of the presets.",
+   "shuffle": null,
+   "slot": 16,
+   "tempo": 140
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "LC": {
+     "amount": 52,
+     "shape": 14,
+     "tone": 38
+    },
+    "SD": {
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx",
+    "CL": "x..x..x...x.x...x..x..x...xxx...x..x..x...x.x...x..x..x...x.f...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "......................................................x.X.x.....",
+    "HC": "....x.......x.......x.......x.x.....x.......x.......x......Xx...",
+    "HH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "LB": ".............................................................Xx.",
+    "LC": "......x.x.....x.......x.x.....x.......x.x.....x.......x.x.....xX",
+    "SD": "...x.......x.......x.......x.......x.......x.......x.......xxxxr"
+   },
+   "name": "Songo",
+   "notes": "Songo's snare-and-conga conversation.",
+   "shuffle": null,
+   "slot": 17,
+   "tempo": 104
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "HC": {
+     "tone": 88
+    },
+    "LC": {
+     "tone": 36
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.....x.",
+    "CL": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "........................................................X.x.....",
+    "HC": "..x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....xXx...",
+    "LB": "....x.......x.......x.......x.......x.......x.....x.x.......xXx.",
+    "LC": "......x.x.....x.......x.x.....x.......x.x.....x.......xxx.....xX",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."
+   },
+   "name": "Guaguanco",
+   "notes": "Three congas in dialogue over clave.",
+   "shuffle": null,
+   "slot": 18,
+   "tempo": 100
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "MA": {
+     "tone": 64
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CL": "x.....x.......x.x.....x.......x.x.....x.......x.x.....x.......x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "..x.x...x..x..x...x.x..xx..x..x...x.x...x..x..x...x.x...x..Xx.x.",
+    "LB": ".....................................................x.......Xx.",
+    "LC": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x..F",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr"
+   },
+   "name": "Bomba",
+   "notes": "Sic\u00e1-flavoured bomba figure.",
+   "shuffle": null,
+   "slot": 19,
+   "tempo": 108
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "GS": {
+     "amount": 40,
+     "shape": 10,
+     "tone": 74
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.......x.....x.x.......x.....x.x.......x.....x.x.....x.",
+    "CL": "..x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..f.",
+    "GA": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "GS": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xx...",
+    "LB": ".............................................................Xf.",
+    "LC": ".........................................................x.....F",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "....x..x....x..x....x..x....x..x....x..x....x..x....x..x....fxxr"
+   },
+   "name": "Plena",
+   "notes": "Guiro on the offbeats, panderos as snare.",
+   "shuffle": null,
+   "slot": 20,
+   "tempo": 112
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "SD": {
+     "amount": 60,
+     "shape": 16,
+     "tone": 84
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CB": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "GS": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "SD": "..x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.xxxr"
+   },
+   "name": "Merengue",
+   "notes": "Fast tambora-style snare, g\u00fcira running eighths.",
+   "shuffle": null,
+   "slot": 21,
+   "tempo": 144
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "GL": {
+     "tone": 66
+    },
+    "GS": {
+     "tone": 78
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "GL": "..x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.",
+    "GS": "x..x..x..x..x..xx..x..x..xx.x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "HB": "........................................................Xxx.....",
+    "HC": "...........................................................Xxf..",
+    "LB": ".............................................................Xx.",
+    "LC": "......x.......x.......x..x....x.......x.......x.......x.......xX",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......f..."
+   },
+   "name": "Cumbia",
+   "notes": "Long and short guiro strokes doing the cumbia limp.",
+   "shuffle": null,
+   "slot": 22,
+   "tempo": 96
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 98
+    },
+    "LC": {
+     "tone": 40
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.......xx",
+    "CB": "x..x..x.x..x..x.x..x..x.x..xx.x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "CL": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GS": "..............x...............x...............x.....x.........x.",
+    "HB": "........................................................X.x.....",
+    "HC": "....x..x....x..x....x..xx...x..x....x..x....x..x....x..x...Xx..f",
+    "LB": ".............................................................Xf.",
+    "LC": "......x.x.....x.......x.x.....x.......x.x.....x.......x.x....xxX",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x."
+   },
+   "name": "Salsa",
+   "notes": "Full salsa engine: bell, clave, tumbao, maracas.",
+   "shuffle": null,
+   "slot": 23,
+   "tempo": 132
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 86
+    },
+    "HH": {
+     "tone": 70
+    }
+   },
+   "lanes": {
+    "BD": "x...x.....x.x...x...x.....x.x...x...x.....x.x...x...x.....x.x...",
+    "CB": "..x...x...x...x...x.x.x...x...x...x...x...x...x...x...x...x...x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.f.....",
+    "HC": "...........................................................Xx...",
+    "HH": "x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.rxx.xxx.xxx.xxx.xxx.xxx.xr",
+    "LB": ".............................................................Xx.",
+    "LC": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..xX",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......fxxr",
+    "TB": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Afrobeat",
+   "notes": "Tony Allen displacement \u2014 nothing lands where you expect.",
+   "shuffle": null,
+   "slot": 24,
+   "tempo": 116
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 92
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.",
+    "CB": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..f",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "..x.......x.......x.....x.x.......x.......x.......x.......xXx...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "LB": ".............................................................Xf.",
+    "LC": "...............................................................X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "....x..x....x..x....x..x....x..x....x..x....x..x....x..x....f..x"
+   },
+   "name": "Highlife",
+   "notes": "Bell in threes against the four.",
+   "shuffle": null,
+   "slot": 25,
+   "tempo": 124
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "HC": {
+     "tone": 94
+    },
+    "HH": {
+     "tone": 82
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..xxx..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "GA": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "HB": "........................................................X.x.....",
+    "HC": "..x.x.....x.x.....x.x.....x.x.x...x.x.....x.x.....x.x.....xXx..x",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "LB": "................................................x............Xx.",
+    "LC": "......x.......x.......x.......x.......x.......x.......x.....x.xX",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Soukous",
+   "notes": "Fast, bright, congas chattering.",
+   "shuffle": null,
+   "slot": 26,
+   "tempo": 140
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "amount": 32,
+     "shape": 6,
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "CB": "x..x.x.x..x.x.x.x..x.x.x..x.x.x.x..x.x.x..x.x.x.x..x.x.x..x.x.x.",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HC": "...x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x",
+    "LC": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x.",
+    "MA": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x"
+   },
+   "name": "Bembe 6/8",
+   "notes": "Standard 12/8 bell pattern. Strict \u2014 the phasing is the interest.",
+   "shuffle": null,
+   "slot": 27,
+   "tempo": 112
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "TB": {
+     "tone": 78
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....xxx.....x.x.....x.x.....x.x.....x.x.....xx",
+    "CL": "..x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x.",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "..x.......x.......x.......x.......x.......x.......x.....X.x.....",
+    "HC": "..........................................................xXx...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "LB": ".............................................................Xx.",
+    "LC": ".......................................................x.......X",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...r...x...x...x...x...x...x."
+   },
+   "name": "Calypso",
+   "notes": "Two-feel calypso with bongo accents.",
+   "shuffle": null,
+   "slot": 28,
+   "tempo": 120
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 46
+    },
+    "SD": {
+     "amount": 78,
+     "shape": 20,
+     "tone": 62
+    }
+   },
+   "lanes": {
+    "BD": "........x...............x...............x...............x.....x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "........X...............X...............X...............X.......",
+    "HH": "..x...x...x...x...x...x...x...r...x...x...r...x...x...x...x...x.",
+    "SD": "........X...............X...............X...............X...fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "One Drop",
+   "notes": "Reggae one drop: nothing on beat 1, everything on beat 3.",
+   "shuffle": null,
+   "slot": 29,
+   "tempo": 72
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "BD": {
+     "amount": 40,
+     "shape": 10,
+     "tone": 34
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "SD": "........x...............x.x.............x...............x...xxxr",
+    "TB": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x."
+   },
+   "name": "Steppers",
+   "notes": "Four-to-the-floor reggae. Kick tuned deep.",
+   "shuffle": null,
+   "slot": 30,
+   "tempo": 76
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 100,
+     "shape": 26,
+     "tone": 24
+    },
+    "SD": {
+     "amount": 96,
+     "shape": 24,
+     "tone": 44
+    }
+   },
+   "lanes": {
+    "BD": "........x...............x...............x...............x.......",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "........x...............x...............x...............x.......",
+    "HB": "............x...............x...............x...............x...",
+    "HH": "..x.......x.......x.......x.......x.......x.......x.......x.....",
+    "SD": "........x...............x...............x...............x......."
+   },
+   "name": "Dub",
+   "notes": "Almost empty, long decays. Leave room for the delay.",
+   "shuffle": null,
+   "slot": 31,
+   "tempo": 70
+  },
+  {
+   "family": "Latin & Afro",
+   "flam_time": null,
+   "kit": {
+    "HC": {
+     "tone": 84
+    },
+    "LC": {
+     "tone": 36
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.x.",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HB": "........................................................X.x.....",
+    "HC": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x.Xx..x",
+    "LB": "................................................x............Xx.",
+    "LC": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..xX",
+    "SD": "...x.....x.....x...x.....xx....x...x.....x.....x...x.....x.....x",
+    "TB": "....x.....x.........x.....x.........x.....r.........x.....x....."
+   },
+   "name": "Nyabinghi",
+   "notes": "Hand-drum three-feel, no hats at all.",
+   "shuffle": null,
+   "slot": 32,
+   "tempo": 84
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 74
+    }
+   },
+   "lanes": {
+    "BD": "x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "TB": "..............x...............x...............x...............x."
+   },
+   "name": "Motorik 78",
+   "notes": "Neu! pulse on the Beat Bot. Strict.",
+   "shuffle": null,
+   "slot": 33,
+   "tempo": 140
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 94
+    },
+    "TB": {
+     "tone": 82
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.",
+    "CB": "..........x.x.............x.x.............x.x.............x.f...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.f.....",
+    "HC": "...........................................................Xx...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "LB": "...........................................................x.Xx.",
+    "LC": "...............................................................X",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Italo 78",
+   "notes": "Cowbell answer phrase in the back half of the bar.",
+   "shuffle": null,
+   "slot": 34,
+   "tempo": 122
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "TB": {
+     "amount": 40,
+     "shape": 6,
+     "tone": 76
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.....x.x.......x.......x.......x.......",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr",
+    "TB": "....x.......x.......x.......x.......x.......x.......x.......x..."
+   },
+   "name": "Synth-Pop 78",
+   "notes": "Tambourine doubling the snare \u2014 the CR-78 pop sound.",
+   "shuffle": null,
+   "slot": 35,
+   "tempo": 118
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "amount": 36,
+     "shape": 8,
+     "tone": 68
+    }
+   },
+   "lanes": {
+    "BD": "x...x.....x.x...x...x.....x.x...x...x.....x.x...x...x.....x.x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "...................................................x....X.x.....",
+    "HC": "..........x.........x.....x...............x...............xXx...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "LB": "...........................................................x.Xx.",
+    "LC": "...............................................................X",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "City Pop",
+   "notes": "Slinky kick, a touch of shuffle, bright tambourine.",
+   "shuffle": 24,
+   "slot": 36,
+   "tempo": 112
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 90
+    }
+   },
+   "lanes": {
+    "BD": "x...x.....x.x...x...x.....x.x.x.x...x.....x.x...x...x.....x.x...",
+    "CB": "..x.......x.......x.......x.......x.......x.......x.......x.....",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x."
+   },
+   "name": "Boogie 78",
+   "notes": "Early-80s boogie with cowbell punctuation.",
+   "shuffle": 36,
+   "slot": 37,
+   "tempo": 110
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 62
+    },
+    "MA": {
+     "amount": 28,
+     "shape": 6,
+     "tone": 54
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xx...",
+    "HH": "x.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xxx.xr",
+    "LB": ".............................................................Xx.",
+    "LC": "..............................................................xF",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Nu-Disco 78",
+   "notes": "Stuttered hats plus maraca sixteenths.",
+   "shuffle": null,
+   "slot": 38,
+   "tempo": 118
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "tone": 84
+    },
+    "HH": {
+     "tone": 78
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "CL": "..............x...............x...............x...............x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "House 78",
+   "notes": "House frame using tambourine where an open hat would go.",
+   "shuffle": null,
+   "slot": 39,
+   "tempo": 124
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "amount": 56,
+     "shape": 12,
+     "tone": 44
+    },
+    "MA": {
+     "tone": 48
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "......x.....x.........x..x..x.........x.....x.........x.X.x.x...",
+    "HC": "..........................................................xXx...",
+    "HH": "x..xx..xx..xx..xx..xx..xx..xx..xx..xx..xx.xxx..xx..xx..xx..xx..r",
+    "LB": ".............................................................Xx.",
+    "LC": "...................................................x...........X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "....x...............x.....x.........x...............x..........."
+   },
+   "name": "Deep House 78",
+   "notes": "Soft and shuffly, bongo filling the gaps.",
+   "shuffle": null,
+   "slot": 40,
+   "tempo": 120
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 88,
+     "shape": 22,
+     "tone": 32
+    },
+    "HH": {
+     "tone": 52
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x...............",
+    "CY": "x...............x...............x...............x...........x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": "..........x...............x...............x............xX.x.....",
+    "HC": "...........................................................Xx..f",
+    "HH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "LB": ".............................................................Xx.",
+    "LC": "...............................................................X",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "....x.......x.......x.....x.x.......x.......x.......x.......xxxr"
+   },
+   "name": "Downtempo",
+   "notes": "Unhurried. Cymbal set long.",
+   "shuffle": null,
+   "slot": 41,
+   "tempo": 90
+  },
+  {
+   "family": "Electronic",
+   "flam_time": 40,
+   "kit": {
+    "SD": {
+     "amount": 92,
+     "shape": 24,
+     "tone": 46
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.............x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "..x...x...x...x...x...x...x...r...x...x...x...r...x...x...x...x.",
+    "SD": "....x.........x.....x.........x.....x.........x.....x.......fxxr",
+    "TB": "........x...............x...............x...............x......."
+   },
+   "name": "Trip-Hop 78",
+   "notes": "Late snare, flams in the fill bar.",
+   "shuffle": null,
+   "slot": 42,
+   "tempo": 84
+  },
+  {
+   "family": "Electronic",
+   "flam_time": 28,
+   "kit": {
+    "HH": {
+     "amount": 66,
+     "shape": 16,
+     "tone": 40
+    },
+    "SD": {
+     "amount": 74,
+     "shape": 20,
+     "tone": 50
+    }
+   },
+   "lanes": {
+    "BD": "x.....x...x.....x.....x...x...x.x.....x...x.....x.....x...x...x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.",
+    "MA": "..x...x...x...x...x...x...x...x...x...r...x...x...x...x...x...x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr"
+   },
+   "name": "Lo-Fi",
+   "notes": "Swung, soft, slightly late. Tone controls rolled down.",
+   "shuffle": 68,
+   "slot": 43,
+   "tempo": 82
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "GS": {
+     "tone": 70
+    },
+    "MA": {
+     "tone": 58
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GS": "..x.......x.......xx......x.......x.......x.......x.......f.....",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xx...",
+    "HH": "..x...x...x...x...x...x...x...x...x...x...x...r...x...x...x...x.",
+    "LB": ".............................................................Xx.",
+    "LC": "...............................................................X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "............x...............x...............x...............x..."
+   },
+   "name": "Balearic",
+   "notes": "Sunset tempo, guiro scrape as the hook.",
+   "shuffle": null,
+   "slot": 44,
+   "tempo": 106
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "amount": 40,
+     "shape": 8,
+     "tone": 96
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.",
+    "CB": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xx...",
+    "HH": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "LB": ".....................................................x.......Xf.",
+    "LC": ".................................................x.............F",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...r...x...x...x...x...x...x."
+   },
+   "name": "Cosmic Disco",
+   "notes": "Cowbell in threes over a straight four \u2014 the accent lane follows the bell.",
+   "shuffle": null,
+   "slot": 45,
+   "tempo": 116
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "MA": {
+     "tone": 62
+    }
+   },
+   "lanes": {
+    "BD": "x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.x...x.x.....x.x.",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Krautrock Shuffle",
+   "notes": "Motorik with the shuffle knob at 44 \u2014 it lopes.",
+   "shuffle": 44,
+   "slot": 46,
+   "tempo": 132
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 104,
+     "shape": 28,
+     "tone": 20
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "..........x...............x...............x...............x.....",
+    "HH": "............x...............x...............x...............x...",
+    "TB": "....x...............x...............x...............x..........."
+   },
+   "name": "Ambient Pop",
+   "notes": "Four gentle events per bar.",
+   "shuffle": null,
+   "slot": 47,
+   "tempo": 88
+  },
+  {
+   "family": "Electronic",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "tone": 80
+    },
+    "HH": {
+     "amount": 30,
+     "shape": 18,
+     "tone": 56
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CL": "......x...............x...............x...............x.........",
+    "GA": "x...............x...............x...............x...............",
+    "HH": "..x.....x.........x.....x.........x.....x.........x.....x.......",
+    "MA": "............x...............x...............x...............x..."
+   },
+   "name": "Minimal 78",
+   "notes": "Sparse to the point of rudeness. Strict.",
+   "shuffle": null,
+   "slot": 48,
+   "tempo": 126
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "HB": {
+     "tone": 100
+    },
+    "HC": {
+     "tone": 86
+    },
+    "LB": {
+     "tone": 44
+    },
+    "LC": {
+     "tone": 34
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.....x.",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "......x.......x.......x.......x.......x.......x.......x.X.x...x.",
+    "HC": "..x.x...x..x..x...x.x...x..x.xx...x.x...x..x..x...xxx...x..Xx.x.",
+    "LB": "....x.......x.......x.......x.......x.......x.......x.......xXx.",
+    "LC": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x..X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxx"
+   },
+   "name": "Conga Workout",
+   "notes": "All four hand drums, each on its own figure, tuned apart.",
+   "shuffle": null,
+   "slot": 49,
+   "tempo": 108
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "HB": {
+     "tone": 102
+    },
+    "LB": {
+     "amount": 34,
+     "shape": 8,
+     "tone": 46
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....xx",
+    "CL": "x..x..x...x.x...x..x.xx...x.x...x..x..x...x.x...x..x..x...x.x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x.X.x...x.",
+    "HC": "...........................................................Xx...",
+    "LB": "x.xx.x.xx.x.xx.xx.xx.x.xx.x.xx.xx.xx.x.xx.x.xx.xx.xx.x.xx.x.xXxx",
+    "LC": "......................................................x........X",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."
+   },
+   "name": "Bongo Cascara",
+   "notes": "Cascara on the bongos with clave underneath.",
+   "shuffle": null,
+   "slot": 50,
+   "tempo": 116
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "amount": 24,
+     "shape": 4,
+     "tone": 78
+    },
+    "MA": {
+     "amount": 28,
+     "shape": 6,
+     "tone": 56
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CL": "x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...x..x..x...x.x...",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GS": "..............x...............x...............x...............x.",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   },
+   "name": "Clave & Maracas",
+   "notes": "Two voices and a kick. A study in restraint.",
+   "shuffle": null,
+   "slot": 51,
+   "tempo": 104
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "GL": {
+     "tone": 62
+    },
+    "GS": {
+     "amount": 44,
+     "shape": 10,
+     "tone": 82
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "CB": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "GL": "..x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x.",
+    "GS": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "HB": "........................................................X.x.....",
+    "HC": "...........................................................Xx...",
+    "LB": ".............................................................Xx.",
+    "LC": "...............................................................X",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."
+   },
+   "name": "Guiro Groove",
+   "notes": "Long and short guiro traded against each other.",
+   "shuffle": null,
+   "slot": 52,
+   "tempo": 100
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "TB": {
+     "amount": 48,
+     "shape": 12,
+     "tone": 86
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.x.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HH": "..x...x...x...x...x...x...x...r...x...x...x...r...x...x...x...x.",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr",
+    "TB": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr"
+   },
+   "name": "Tambourine Pulse",
+   "notes": "Sixteenth tambourine with accents wandering by bar.",
+   "shuffle": null,
+   "slot": 53,
+   "tempo": 122
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "amount": 36,
+     "shape": 6,
+     "tone": 104
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x.x.x...x...x...x...x...x...x...x.x.",
+    "CB": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.xxx.",
+    "GA": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "HB": ".....................................................x..X.x.....",
+    "HC": "..........x.............x.x...............x...............xXx...",
+    "LB": ".............................................................Xf.",
+    "LC": ".....................................................x.........X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxrxxxxxxxxxxxxxxxxr",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......fxxr"
+   },
+   "name": "Cowbell Drive",
+   "notes": "More cowbell. Non-negotiable.",
+   "shuffle": null,
+   "slot": 54,
+   "tempo": 130
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "SD": {
+     "tone": 72
+    },
+    "TB": {
+     "tone": 80
+    }
+   },
+   "lanes": {
+    "BD": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.......xx",
+    "CB": "....x.......x.......x.......x.......x.......x.......x.......f...",
+    "GA": "x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.x.....x.",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.",
+    "SD": "...x..x....x..x....x..x....x..x....x..x....x..x....x..x....xfxxr",
+    "TB": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x."
+   },
+   "name": "Dembow 78",
+   "notes": "Dembow with the tambourine on the offbeats.",
+   "shuffle": null,
+   "slot": 55,
+   "tempo": 96
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "MA": {
+     "tone": 52
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.....x.x.......x.......x.......x.....x.",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GS": "..............x...............x...............x...............x.",
+    "HB": "....................................................x...X.f.....",
+    "HC": "....................................................x......Xx...",
+    "HH": "..x...x...x...x...x...x...x...x...x...x...r...x...x...x...x...x.",
+    "LB": "..................................................x..........Xx.",
+    "LC": "...............................................................X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "...x..x....x..x....x..x...xx..x....x..x....x..x....x..x....xxxxr"
+   },
+   "name": "Reggaeton 78",
+   "notes": "Maracas smoothing out the dembow.",
+   "shuffle": null,
+   "slot": 56,
+   "tempo": 94
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "LC": {
+     "amount": 56,
+     "shape": 14,
+     "tone": 38
+    }
+   },
+   "lanes": {
+    "BD": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..xx",
+    "GA": "x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.x..x..x.",
+    "HB": "........................................................X.x.....",
+    "HC": "......x.......x...x...x.......x.......x.......x.....x.x....Xx.f.",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.",
+    "LB": ".............................................................Xx.",
+    "LC": "..x.x...x.x.......x.x...x.x.......x.x...x.x.......x.x...x.x....X",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......f..."
+   },
+   "name": "Baile 78",
+   "notes": "Tamborz\u00e3o figure on the congas.",
+   "shuffle": null,
+   "slot": 57,
+   "tempo": 128
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 88
+    },
+    "LC": {
+     "tone": 40
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x.......x...",
+    "CB": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x.xx..x..x..x",
+    "GA": "x.....x.....x...x.....x.....x...x.....x.....x...x.....x.....x...",
+    "HB": "........................................................X.f.....",
+    "HC": "....x..x....x..x....x.xx....x..x....x..x....x..x....x..x...Xx..x",
+    "HH": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x.x.x.x.x.",
+    "LB": ".............................................................Xx.",
+    "LC": "..x..x..x..x..x...x..x.xx..x..x...x..x..x..x..x...x..x..x..xx.xF",
+    "TB": "..x.......x.......x.......x.......x.......x.......x.......x....."
+   },
+   "name": "Afro House 78",
+   "notes": "Threes stacked over a straight four.",
+   "shuffle": null,
+   "slot": 58,
+   "tempo": 122
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "HH": {
+     "tone": 72
+    }
+   },
+   "lanes": {
+    "BD": "x....x..x...x..xx....x..x...x.xxx....x..x...x..xx....x..x...x.xx",
+    "GA": "x....x..x....x..x....x..x....x..x....x..x....x..x....x..x....x..",
+    "HB": "......x...............x...............x...............x.X.x.....",
+    "HC": "...........................................................Xf...",
+    "HH": "x.x.xx.x.xx.x.x.x.x.xx.x.xx.x.x.x.x.xx.x.xr.x.x.x.x.xx.x.xx.x.x.",
+    "LB": ".............................................................Xx.",
+    "LC": "...............................................................X",
+    "MA": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxr",
+    "SD": "....x.......x.......x.......x.......x.......x.......x.......xxxr",
+    "TB": "............x...............x...............x...............x..."
+   },
+   "name": "Broken 78",
+   "notes": "Displaced kick, uneven hats.",
+   "shuffle": null,
+   "slot": 59,
+   "tempo": 126
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CB": {
+     "tone": 92
+    },
+    "MA": {
+     "tone": 60
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CB": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "CL": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "GA": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x",
+    "HC": "..x..x..x..x..x...x..x..x..x..x...x..x..x..x..x...x..x..x..x..x.",
+    "MA": "x....x....x....xx....x....x....xx....x....x....xx....x....x....x"
+   },
+   "name": "Poly 3:4",
+   "notes": "Bell in threes, maracas in fives, kick in fours. Strict so the phasing is clean.",
+   "shuffle": null,
+   "slot": 60,
+   "tempo": 118
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CL": {
+     "tone": 74
+    },
+    "LC": {
+     "tone": 42
+    }
+   },
+   "lanes": {
+    "BD": "x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...",
+    "CL": "x....x....x....xx....x....x....xx....x....x....xx....x....x....x",
+    "GA": "x....x....x....xx....x....x....xx....x....x....xx....x....x....x",
+    "HH": "..x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x.",
+    "LC": "x......x......x.x......x......x.x......x......x.x......x......x.",
+    "TB": "........x...............x...............x...............x......."
+   },
+   "name": "Poly 5",
+   "notes": "Fives against sevens against fours \u2014 a different alignment every bar.",
+   "shuffle": null,
+   "slot": 61,
+   "tempo": 120
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 108,
+     "shape": 28,
+     "tone": 18
+    },
+    "SD": {
+     "amount": 98,
+     "shape": 26,
+     "tone": 40
+    }
+   },
+   "lanes": {
+    "BD": "........x...............x...............x...............x.......",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "........x...............x...............x...............x.......",
+    "HB": "..............x...............x...............x...............x.",
+    "SD": "........x...............x...............x...............x......."
+   },
+   "name": "Sparse Dub",
+   "notes": "One drop with almost everything removed.",
+   "shuffle": null,
+   "slot": 62,
+   "tempo": 68
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": null,
+   "kit": {
+    "CY": {
+     "amount": 112,
+     "shape": 30,
+     "tone": 14
+    },
+    "MA": {
+     "tone": 44
+    }
+   },
+   "lanes": {
+    "BD": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "CL": "....x.......x.......x.......x.......x.......x.......x.......x...",
+    "CY": "x...............x...............x...............x...............",
+    "GA": "x.......x.......x.......x.......x.......x.......x.......x.......",
+    "HB": "..........x...............x...............x...............x.....",
+    "MA": "x..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..xx..x..x..x..x..x"
+   },
+   "name": "Drone Pulse 78",
+   "notes": "Slow bed for long chords.",
+   "shuffle": null,
+   "slot": 63,
+   "tempo": 72
+  },
+  {
+   "family": "Percussion & polyrhythm",
+   "flam_time": 18,
+   "kit": {
+    "HB": {
+     "tone": 104
+    },
+    "HC": {
+     "tone": 82
+    },
+    "LB": {
+     "tone": 48
+    },
+    "LC": {
+     "tone": 32
+    }
+   },
+   "lanes": {
+    "BD": "x.........x.....x.........x.....x.........x.....x.........x.....",
+    "GA": "x.........x.....x.........x.....x.........x.....x.........x.....",
+    "GS": "......x...............x...............x...............x.........",
+    "HB": "...x....x....x.x...x....x....xxx...x....x....x.x...x....X.x..x.x",
+    "HC": "....x.x.....x.......x.x.....x.......x.x.....x.......x.x..x.Xx...",
+    "LB": ".x...x....x..x...x...x....x..x...x...x....x..x...x...x....x..Xx.",
+    "LC": "..x....x..x...x...x....x..x...x...x....x..x...x.x.x....x..x...xF",
+    "MA": "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.r.x.x.x.x.x.x.x.x."
+   },
+   "name": "Free Percussion",
+   "notes": "Four hand drums interlocking with no obvious downbeat. Flams add hand-drum grace notes.",
+   "shuffle": null,
+   "slot": 64,
+   "tempo": 112
+  }
+ ],
+ "steps": 64,
+ "time_scale": "16th",
+ "voices": {
+  "BD": {
+   "amount_cc": 23,
+   "name": "Bass Drum",
+   "note": 36,
+   "select_cc": null,
+   "shape_cc": 22,
+   "tone_cc": 20
+  },
+  "CB": {
+   "amount_cc": 55,
+   "name": "Cowbell",
+   "note": 56,
+   "select_cc": null,
+   "shape_cc": 54,
+   "tone_cc": 53
+  },
+  "CL": {
+   "amount_cc": 55,
+   "name": "Clave",
+   "note": 75,
+   "select_cc": null,
+   "shape_cc": 54,
+   "tone_cc": 52
+  },
+  "CY": {
+   "amount_cc": 63,
+   "name": "Cymbal",
+   "note": 51,
+   "select_cc": null,
+   "shape_cc": 62,
+   "tone_cc": 60
+  },
+  "GL": {
+   "amount_cc": 87,
+   "name": "Guiro (long)",
+   "note": 74,
+   "select_cc": null,
+   "shape_cc": 86,
+   "tone_cc": 85
+  },
+  "GS": {
+   "amount_cc": 87,
+   "name": "Guiro (short)",
+   "note": 73,
+   "select_cc": null,
+   "shape_cc": 86,
+   "tone_cc": 85
+  },
+  "HB": {
+   "amount_cc": 47,
+   "name": "High Bongo",
+   "note": 60,
+   "select_cc": null,
+   "shape_cc": 46,
+   "tone_cc": 45
+  },
+  "HC": {
+   "amount_cc": 47,
+   "name": "High Conga",
+   "note": 63,
+   "select_cc": null,
+   "shape_cc": 46,
+   "tone_cc": 44
+  },
+  "HH": {
+   "amount_cc": 71,
+   "name": "Hi-hat",
+   "note": 42,
+   "select_cc": null,
+   "shape_cc": 70,
+   "tone_cc": 68
+  },
+  "LB": {
+   "amount_cc": 39,
+   "name": "Low Bongo",
+   "note": 61,
+   "select_cc": null,
+   "shape_cc": 38,
+   "tone_cc": 37
+  },
+  "LC": {
+   "amount_cc": 39,
+   "name": "Low Conga",
+   "note": 64,
+   "select_cc": null,
+   "shape_cc": 38,
+   "tone_cc": 36
+  },
+  "MA": {
+   "amount_cc": 79,
+   "name": "Maracas",
+   "note": 70,
+   "select_cc": null,
+   "shape_cc": 78,
+   "tone_cc": 76
+  },
+  "SD": {
+   "amount_cc": 31,
+   "name": "Snare Drum",
+   "note": 38,
+   "select_cc": null,
+   "shape_cc": 30,
+   "tone_cc": 28
+  },
+  "TB": {
+   "amount_cc": 87,
+   "name": "Tambourine",
+   "note": 54,
+   "select_cc": null,
+   "shape_cc": 86,
+   "tone_cc": 84
+  }
+ }
+}

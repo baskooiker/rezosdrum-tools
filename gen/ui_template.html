@@ -1,0 +1,1156 @@
+<title>Cyclone Pattern Book</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --panel: #dee0db;
+  --panel-2: #d2d5cf;
+  --surface: #f3f4f1;
+  --surface-2: #e8eae5;
+  --ink: #171a17;
+  --ink-2: #43483f;
+  --muted: #6d7369;
+  --line: #c3c7bf;
+  --line-soft: #d6d9d2;
+  --amber: #a8560f;
+  --pad-off: #cbcfc7;
+  --pad-off-edge: #b6bbb1;
+  --on: #d4761d;
+  --acc: #ce2f26;
+  --flam: #7b5ac6;
+  --roll: #188e7c;
+  --pg1: #ce2f26;
+  --pg2: #b6820c;
+  --pg3: #2e8b4e;
+  --pg4: #2a6db2;
+  --shadow: 0 1px 0 rgba(23,26,23,.06), 0 2px 8px rgba(23,26,23,.05);
+  --focus: #2a6db2;
+}
+:root:not([data-theme="light"]) {
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --panel: #1a1c1b;
+    --panel-2: #131514;
+    --surface: #232624;
+    --surface-2: #2c302d;
+    --ink: #e8eae5;
+    --ink-2: #b9bfb6;
+    --muted: #8b9289;
+    --line: #383d39;
+    --line-soft: #2e322f;
+    --amber: #e0913c;
+    --pad-off: #303430;
+    --pad-off-edge: #3d423d;
+    --on: #e08733;
+    --acc: #e8483d;
+    --flam: #9d80e0;
+    --roll: #2bb39c;
+    --pg1: #e8483d;
+    --pg2: #d5a223;
+    --pg3: #45ab68;
+    --pg4: #4a8fd4;
+    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 2px 10px rgba(0,0,0,.35);
+    --focus: #6ba7e8;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --panel: #1a1c1b;
+  --panel-2: #131514;
+  --surface: #232624;
+  --surface-2: #2c302d;
+  --ink: #e8eae5;
+  --ink-2: #b9bfb6;
+  --muted: #8b9289;
+  --line: #383d39;
+  --line-soft: #2e322f;
+  --amber: #e0913c;
+  --pad-off: #303430;
+  --pad-off-edge: #3d423d;
+  --on: #e08733;
+  --acc: #e8483d;
+  --flam: #9d80e0;
+  --roll: #2bb39c;
+  --pg1: #e8483d;
+  --pg2: #d5a223;
+  --pg3: #45ab68;
+  --pg4: #4a8fd4;
+  --shadow: 0 1px 0 rgba(0,0,0,.3), 0 2px 10px rgba(0,0,0,.35);
+  --focus: #6ba7e8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.eyebrow {
+  font-family: "Saira Condensed", ui-sans-serif, sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px 28px;
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+}
+.masthead h1 {
+  font-family: "Saira Condensed", ui-sans-serif, sans-serif;
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: .95;
+  text-wrap: balance;
+}
+.masthead h1 span { color: var(--amber); }
+.masthead .blurb {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+.masthead-text { display: flex; flex-direction: column; gap: 6px; }
+.stats {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.stat { display: flex; flex-direction: column; gap: 1px; }
+.stat b {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ---------- shell ---------- */
+.shell {
+  display: grid;
+  grid-template-columns: 292px minmax(0, 1fr);
+  align-items: start;
+  gap: 0;
+}
+@media (max-width: 940px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .rail { position: static; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+/* ---------- rail ---------- */
+.rail {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 18px 20px 26px;
+  border-right: 1px solid var(--line);
+  background: var(--panel-2);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.machine-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.machine-switch button {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 9px 6px 8px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.machine-switch button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--panel-2);
+  border-color: var(--ink);
+}
+.machine-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: -10px 0 0;
+}
+
+.matrix { display: flex; flex-direction: column; gap: 10px; }
+.matrix-page { display: flex; flex-direction: column; gap: 5px; }
+.matrix-page-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.slots { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+.slot {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--pad-off-edge);
+  border-radius: 2px;
+  background: var(--pad-off);
+  color: var(--ink-2);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  transition: transform .08s ease;
+}
+.slot:hover { transform: translateY(-1px); }
+.slot[aria-current="true"] {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+  color: var(--panel-2);
+  background: var(--ink);
+}
+.slot[data-done="1"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 1px 1px auto;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--roll);
+}
+.slot.dim { opacity: .28; }
+
+.rail-field { display: flex; flex-direction: column; gap: 6px; }
+.rail-field select,
+.rail-field input {
+  font: inherit;
+  font-size: 13.5px;
+  padding: 7px 8px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.legend { display: flex; flex-direction: column; gap: 6px; }
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.legend-row code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-left: auto;
+}
+.chip-pad {
+  width: 13px; height: 13px;
+  border-radius: 2px;
+  border: 1px solid var(--pad-off-edge);
+  background: var(--pad-off);
+  flex: none;
+}
+
+/* ---------- main ---------- */
+.main { padding: 22px 26px 60px; min-width: 0; }
+
+.pattern-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.pattern-slot {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .04em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  color: #fff;
+  background: var(--pg1);
+}
+.pattern-head h2 {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 44px);
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  line-height: .92;
+  margin: 0;
+  text-wrap: balance;
+}
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: auto;
+}
+.spec {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--ink-2);
+  background: var(--surface);
+  white-space: nowrap;
+}
+.spec b { color: var(--ink); font-weight: 600; }
+.note {
+  margin: 14px 0 0;
+  max-width: 64ch;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+.note em { color: var(--ink); font-style: italic; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 12px;
+}
+.toolbar .eyebrow { margin-right: 2px; }
+.tbtn {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tbtn[aria-pressed="true"] { background: var(--ink); color: var(--panel-2); border-color: var(--ink); }
+.tbtn.ghost { background: transparent; }
+.spacer { margin-left: auto; }
+
+/* ---------- step grid ---------- */
+.gridwrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 138px repeat(4, max-content);
+  gap: 0;
+  min-width: max-content;
+}
+.grid.iso { grid-template-columns: 138px repeat(4, max-content); }
+.ruler-label { border-bottom: 1px solid var(--line); }
+.ruler-group {
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line-soft);
+  padding: 7px 9px 5px;
+}
+.ruler-group .eyebrow { display: flex; align-items: center; gap: 6px; font-size: 10px; }
+.vlabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--surface-2);
+}
+.vlabel b {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .04em;
+}
+.vlabel span { font-size: 11.5px; color: var(--muted); line-height: 1.25; }
+.vlabel.is-acc b { color: var(--acc); }
+.cells {
+  display: flex;
+  gap: 3px;
+  padding: 6px 9px;
+  border-bottom: 1px solid var(--line-soft);
+  border-left: 1px solid var(--line-soft);
+}
+.pad {
+  width: 15px;
+  height: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--pad-off-edge);
+  background: var(--pad-off);
+  flex: none;
+  position: relative;
+}
+.grid.iso .pad { width: 26px; height: 40px; }
+.pad[data-beat="1"] { border-top-width: 3px; }
+.pad[data-s="x"] { background: var(--on); border-color: var(--on); }
+.pad[data-s="X"] { background: var(--acc); border-color: var(--acc); }
+.pad[data-s="f"] { background: var(--flam); border-color: var(--flam); }
+.pad[data-s="F"] { background: var(--flam); border-color: var(--acc); box-shadow: inset 0 0 0 2px var(--acc); }
+.pad[data-s="r"] { background: var(--roll); border-color: var(--roll); }
+.pad[data-s="R"] { background: var(--roll); border-color: var(--acc); box-shadow: inset 0 0 0 2px var(--acc); }
+.pad-num {
+  position: absolute;
+  inset: auto 0 -15px 0;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.grid.iso .cells { padding-bottom: 22px; }
+
+.textview {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  white-space: pre;
+}
+
+.isolate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 14px 0 0;
+}
+.vchip {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 9px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.vchip[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: #fff; }
+
+/* ---------- settings ---------- */
+.panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+  align-items: start;
+}
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  padding: 15px 17px 17px;
+}
+.panel h3 {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 11px;
+}
+table { border-collapse: collapse; width: 100%; }
+th, td {
+  text-align: left;
+  padding: 6px 8px 6px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13px;
+  vertical-align: top;
+}
+th {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+td.num, th.num {
+  font-family: "IBM Plex Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  padding-right: 0;
+}
+tr:last-child td { border-bottom: 0; }
+.kv { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
+
+.howto { margin: 0; padding-left: 1.1em; color: var(--ink-2); font-size: 14px; }
+.howto li { margin-bottom: 7px; }
+.howto b { color: var(--ink); }
+.howto kbd {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+
+.done-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 6px 11px 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink-2);
+}
+.done-toggle input { accent-color: var(--roll); width: 14px; height: 14px; margin: 0; }
+.done-toggle[data-on="1"] { border-color: var(--roll); color: var(--roll); }
+.sync {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+button:focus-visible, select:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+.foot {
+  margin: 34px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 72ch;
+}
+.foot code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+</style>
+
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="eyebrow">Cyclone Analogic &#183; RezOSDrum</p>
+    <h1>Pattern Book<br><span>Drum Drone &amp; Beat Bot</span></h1>
+    <p class="blurb">128 patterns for two empty machines. Every one is 64 steps on the
+      16th-note scale, written for the voices that machine actually has, using its own
+      accents, Global Accent lane, flam and roll modifiers.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>128</b><span class="eyebrow">Patterns</span></div>
+    <div class="stat"><b>64</b><span class="eyebrow">Steps each</span></div>
+    <div class="stat"><b id="stat-done">0</b><span class="eyebrow">Punched in</span></div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="machine-switch" role="group" aria-label="Machine">
+      <button type="button" data-machine="TT-606" aria-pressed="true">TT-606</button>
+      <button type="button" data-machine="TT-78" aria-pressed="false">TT-78</button>
+    </div>
+    <p class="machine-sub" id="machine-sub"></p>
+
+    <div class="rail-field">
+      <label class="eyebrow" for="family">Filter by family</label>
+      <select id="family"><option value="">All families</option></select>
+    </div>
+
+    <div class="matrix" id="matrix"></div>
+
+    <div class="legend" id="legend">
+      <p class="eyebrow" style="margin:0">Step colours</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="pattern-head">
+      <span class="pattern-slot" id="p-slot">P01</span>
+      <h2 id="p-name">&#8212;</h2>
+      <div class="specs" id="p-specs"></div>
+    </div>
+    <p class="note" id="p-note"></p>
+
+    <div class="toolbar">
+      <span class="eyebrow">View</span>
+      <button type="button" class="tbtn" id="view-pads" aria-pressed="true">Pads</button>
+      <button type="button" class="tbtn" id="view-text" aria-pressed="false">Text</button>
+      <span class="spacer"></span>
+      <label class="done-toggle" id="done-wrap">
+        <input type="checkbox" id="done"> Punched in
+      </label>
+      <span class="sync" id="sync"></span>
+    </div>
+
+    <div class="gridwrap" id="gridwrap"><div class="grid" id="grid"></div></div>
+    <pre class="textview" id="textview" hidden></pre>
+
+    <div class="isolate" id="isolate"></div>
+
+    <div class="panels">
+      <section class="panel" id="panel-voice">
+        <h3>Voice settings for this pattern</h3>
+        <div id="voice-settings"></div>
+      </section>
+      <section class="panel">
+        <h3>Entering it on the machine</h3>
+        <ol class="howto">
+          <li>Mode switch to <b>Pattern Write</b>, sequencer stopped. Clear the slot with
+            <kbd>CLEAR</kbd>+<kbd>#</kbd> &#8212; it resets to an empty 16-step pattern.</li>
+          <li>Set the length to 64: <kbd>FUNC</kbd>+<kbd>LENGTH</kbd>, <kbd>PAGE</kbd> to the
+            fourth page, then <kbd>16</kbd>.</li>
+          <li>Start the sequencer. Set the <b>Track/Instrument</b> switch to one voice and punch
+            its 64 steps &#8212; use <b>Isolate</b> above to show that voice alone, four groups of 16,
+            one group per <kbd>PAGE</kbd> press.</li>
+          <li>Accents: <kbd>ACCENT</kbd> then the steps. Flam and roll the same way with
+            <kbd>FLAM</kbd> and <kbd>ROLL</kbd>, or hold the modifier and press the steps.</li>
+          <li>The <b>ACC*</b> row is the Global Accent lane &#8212; <kbd>FUNC</kbd>+<kbd>ACCENT</kbd>,
+            then those steps. It accents every voice that has a hit there.</li>
+          <li>Voice settings on the left are Tone / Nuance / Inst Select positions. The CC number
+            beside each one sets it over MIDI instead.</li>
+        </ol>
+      </section>
+    </div>
+
+    <p class="foot">Note numbers and CC assignments are from the RezOSDrum v1.0 MIDI
+      implementation charts. Velocity &#8805; 112 is read as an accented strike, so these patterns
+      play with their accents intact straight from a DAW &#8212; the matching MIDI files are in
+      <code>out/midi/</code>. Twelve TT-606 and thirteen TT-78 patterns repeat all four bars
+      on purpose: motorik, EBM and the polyrhythm studies, where the phasing is the point.</p>
+  </main>
+</div>
+
+<script type="application/json" id="bank-data">__DATA__</script>
+<script>
+(function () {
+  "use strict";
+
+  var BANKS = JSON.parse(document.getElementById("bank-data").textContent);
+  var PAGE_NAMES = ["Red", "Yellow", "Green", "Blue"];
+  var PAGE_VARS = ["--pg1", "--pg2", "--pg3", "--pg4"];
+  var ON = "xXfFrR";
+  var LEGEND = [
+    ["x", "Step on", "press the step"],
+    ["X", "Accented", "ACCENT + step"],
+    ["f", "Flam", "FLAM + step"],
+    ["F", "Flam + accent", "both"],
+    ["r", "Roll", "hold ROLL + step"],
+    ["R", "Roll + accent", "both"],
+    [".", "Step off", ""]
+  ];
+  var MACHINE_SUB = {
+    "TT-606": "Nine voices \u2014 bass, snare, two toms, cymbal, open and closed hats, rim, clap.",
+    "TT-78": "Fourteen voices \u2014 bass, snare, hat, cymbal, tambourine, cowbell, clave, maracas, two guiro strokes, congas and bongos."
+  };
+
+  var state = {
+    machine: "TT-606",
+    slot: 1,
+    family: "",
+    view: "pads",
+    isolate: null,
+    done: {},
+    db: null
+  };
+
+  var el = {
+    matrix: document.getElementById("matrix"),
+    legend: document.getElementById("legend"),
+    family: document.getElementById("family"),
+    machineSub: document.getElementById("machine-sub"),
+    slot: document.getElementById("p-slot"),
+    name: document.getElementById("p-name"),
+    specs: document.getElementById("p-specs"),
+    note: document.getElementById("p-note"),
+    grid: document.getElementById("grid"),
+    gridwrap: document.getElementById("gridwrap"),
+    textview: document.getElementById("textview"),
+    isolate: document.getElementById("isolate"),
+    voiceSettings: document.getElementById("voice-settings"),
+    done: document.getElementById("done"),
+    doneWrap: document.getElementById("done-wrap"),
+    statDone: document.getElementById("stat-done"),
+    sync: document.getElementById("sync"),
+    viewPads: document.getElementById("view-pads"),
+    viewText: document.getElementById("view-text")
+  };
+
+  function bank() { return BANKS[state.machine]; }
+  function pattern() {
+    var list = bank().patterns;
+    for (var i = 0; i < list.length; i++) if (list[i].slot === state.slot) return list[i];
+    return list[0];
+  }
+  function key(machine, slot) { return machine + ":" + slot; }
+  function voiceOrder(b) { return b.order; }
+
+  /* ---------- persistence: db when the viewer has it, else this browser ---------- */
+  var LS_KEY = "cyclone-pattern-book-progress";
+
+  function readLocal() {
+    try {
+      var raw = window.localStorage.getItem(LS_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+  function writeLocal(v) {
+    try { window.localStorage.setItem(LS_KEY, JSON.stringify(v)); } catch (e) {}
+  }
+
+  function setSync(text) { el.sync.textContent = text; }
+
+  function persist() {
+    writeLocal(state.done);
+    if (state.db) {
+      state.db.doc("progress/punched").set({ slots: state.done }).then(function () {
+        setSync("saved");
+      })["catch"](function () {
+        setSync("saved in this browser only");
+      });
+    }
+  }
+
+  if (window.claude && typeof window.claude.use === "function") {
+    window.claude.use("db").then(function (db) {
+      if (!db) return;
+      state.db = db;
+      var doc = db.doc("progress/punched");
+      doc.onSnapshot(function (snap) {
+        var data = snap && (snap.data ? snap.data() : snap);
+        if (data && data.slots) {
+          state.done = data.slots;
+          writeLocal(state.done);
+          renderMatrix();
+          renderDone();
+        }
+        setSync("synced");
+      });
+    })["catch"](function () {});
+  }
+
+  /* ---------- rail ---------- */
+  function renderLegend() {
+    el.legend.innerHTML = '<p class="eyebrow" style="margin:0">Step colours</p>';
+    LEGEND.forEach(function (row) {
+      var div = document.createElement("div");
+      div.className = "legend-row";
+      var pad = document.createElement("span");
+      pad.className = "chip-pad";
+      if (row[0] !== ".") pad.setAttribute("data-s", row[0]);
+      pad.style.height = "13px";
+      var label = document.createElement("span");
+      label.textContent = row[1];
+      var how = document.createElement("code");
+      how.textContent = row[2];
+      div.appendChild(pad);
+      div.appendChild(label);
+      div.appendChild(how);
+      el.legend.appendChild(div);
+    });
+    var padStyle = document.createElement("style");
+    el.legend.querySelectorAll(".chip-pad[data-s]").forEach(function (p) {
+      var s = p.getAttribute("data-s");
+      var map = { x: "--on", X: "--acc", f: "--flam", F: "--flam", r: "--roll", R: "--roll" };
+      p.style.background = "var(" + map[s] + ")";
+      p.style.borderColor = (s === "F" || s === "R") ? "var(--acc)" : "var(" + map[s] + ")";
+      if (s === "F" || s === "R") p.style.boxShadow = "inset 0 0 0 2px var(--acc)";
+    });
+    padStyle.remove();
+  }
+
+  function renderFamilies() {
+    var seen = [];
+    bank().patterns.forEach(function (p) {
+      if (p.family && seen.indexOf(p.family) === -1) seen.push(p.family);
+    });
+    el.family.innerHTML = "";
+    var all = document.createElement("option");
+    all.value = "";
+    all.textContent = "All families (64)";
+    el.family.appendChild(all);
+    seen.forEach(function (f) {
+      var n = bank().patterns.filter(function (p) { return p.family === f; }).length;
+      var o = document.createElement("option");
+      o.value = f;
+      o.textContent = f + " (" + n + ")";
+      el.family.appendChild(o);
+    });
+    el.family.value = state.family;
+  }
+
+  function renderMatrix() {
+    el.matrix.innerHTML = "";
+    for (var page = 0; page < 4; page++) {
+      var wrap = document.createElement("div");
+      wrap.className = "matrix-page";
+      var label = document.createElement("div");
+      label.className = "matrix-page-label";
+      var dot = document.createElement("span");
+      dot.className = "dot";
+      dot.style.background = "var(" + PAGE_VARS[page] + ")";
+      label.appendChild(dot);
+      var lt = document.createElement("span");
+      lt.textContent = "Page " + (page + 1) + " \u00b7 " + PAGE_NAMES[page] +
+        " \u00b7 P" + (page * 16 + 1) + "\u2013P" + (page * 16 + 16);
+      label.appendChild(lt);
+      wrap.appendChild(label);
+
+      var slots = document.createElement("div");
+      slots.className = "slots";
+      for (var i = 1; i <= 16; i++) {
+        var n = page * 16 + i;
+        var p = bank().patterns[n - 1];
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "slot";
+        b.textContent = String(n);
+        b.title = "P" + n + " \u2014 " + p.name + " \u00b7 " + p.tempo + " BPM";
+        b.setAttribute("aria-label", "Pattern " + n + ", " + p.name);
+        b.setAttribute("data-slot", String(n));
+        if (n === state.slot) b.setAttribute("aria-current", "true");
+        if (state.done[key(state.machine, n)]) b.setAttribute("data-done", "1");
+        if (state.family && p.family !== state.family) b.className += " dim";
+        b.style.borderColor = n === state.slot ? "" : "var(" + PAGE_VARS[page] + ")";
+        slots.appendChild(b);
+      }
+      wrap.appendChild(slots);
+      el.matrix.appendChild(wrap);
+    }
+  }
+
+  /* ---------- pattern detail ---------- */
+  function renderHead() {
+    var p = pattern();
+    var page = Math.floor((p.slot - 1) / 16);
+    el.slot.textContent = "P" + (p.slot < 10 ? "0" : "") + p.slot;
+    el.slot.style.background = "var(" + PAGE_VARS[page] + ")";
+    el.name.textContent = p.name;
+
+    var specs = [
+      ["Family", p.family],
+      ["Tempo", p.tempo + " BPM"],
+      ["Length", "64 steps"],
+      ["Scale", "16th note"],
+      ["Page", (page + 1) + " \u00b7 " + PAGE_NAMES[page]]
+    ];
+    if (p.shuffle !== null && p.shuffle !== undefined) specs.push(["Shuffle", "CC18 = " + p.shuffle]);
+    if (p.flam_time !== null && p.flam_time !== undefined) specs.push(["Flam time", "CC17 = " + p.flam_time]);
+
+    el.specs.innerHTML = "";
+    specs.forEach(function (s) {
+      var d = document.createElement("span");
+      d.className = "spec";
+      d.innerHTML = s[0] + " <b></b>";
+      d.querySelector("b").textContent = s[1];
+      el.specs.appendChild(d);
+    });
+
+    el.note.textContent = p.notes || "";
+    el.machineSub.textContent = MACHINE_SUB[state.machine];
+  }
+
+  function activeVoices() {
+    var p = pattern();
+    var b = bank();
+    var keys = voiceOrder(b).filter(function (k) {
+      var lane = p.lanes[k];
+      if (!lane) return false;
+      for (var i = 0; i < lane.length; i++) if (ON.indexOf(lane[i]) > -1) return true;
+      return false;
+    });
+    if (p.lanes.GA) {
+      var ga = p.lanes.GA, has = false;
+      for (var i = 0; i < ga.length; i++) if (ON.indexOf(ga[i]) > -1) { has = true; break; }
+      if (has) keys.push("GA");
+    }
+    return keys;
+  }
+
+  function renderGrid() {
+    var p = pattern();
+    var b = bank();
+    var keys = activeVoices();
+    var shown = state.isolate ? keys.filter(function (k) { return k === state.isolate; }) : keys;
+    if (!shown.length) shown = keys;
+
+    el.grid.className = "grid" + (state.isolate ? " iso" : "");
+    el.grid.innerHTML = "";
+
+    var spacer = document.createElement("div");
+    spacer.className = "ruler-label";
+    el.grid.appendChild(spacer);
+    for (var g = 0; g < 4; g++) {
+      var rg = document.createElement("div");
+      rg.className = "ruler-group";
+      var lab = document.createElement("div");
+      lab.className = "eyebrow";
+      var dot = document.createElement("span");
+      dot.className = "dot";
+      dot.style.background = "var(" + PAGE_VARS[g] + ")";
+      lab.appendChild(dot);
+      var t = document.createElement("span");
+      t.textContent = "Bar " + (g + 1) + " \u00b7 steps " + (g * 16 + 1) + "\u2013" + (g * 16 + 16);
+      lab.appendChild(t);
+      rg.appendChild(lab);
+      el.grid.appendChild(rg);
+    }
+
+    shown.forEach(function (k) {
+      var isAcc = k === "GA";
+      var v = isAcc ? { name: "Global Accent lane", note: null } : b.voices[k];
+      var label = document.createElement("div");
+      label.className = "vlabel" + (isAcc ? " is-acc" : "");
+      var bb = document.createElement("b");
+      bb.textContent = isAcc ? "ACC*" : k;
+      var sp = document.createElement("span");
+      sp.textContent = isAcc ? "FUNC+ACCENT" : v.name + " \u00b7 note " + v.note;
+      label.appendChild(bb);
+      label.appendChild(sp);
+      el.grid.appendChild(label);
+
+      var lane = p.lanes[k];
+      for (var g2 = 0; g2 < 4; g2++) {
+        var cells = document.createElement("div");
+        cells.className = "cells";
+        for (var i = 0; i < 16; i++) {
+          var idx = g2 * 16 + i;
+          var ch = lane[idx];
+          var pad = document.createElement("span");
+          pad.className = "pad";
+          if (ON.indexOf(ch) > -1) pad.setAttribute("data-s", ch);
+          if (i % 4 === 0) pad.setAttribute("data-beat", "1");
+          pad.title = "step " + (idx + 1) + (ON.indexOf(ch) > -1 ? " \u00b7 " + ch : " \u00b7 off");
+          if (state.isolate) {
+            var num = document.createElement("span");
+            num.className = "pad-num";
+            num.textContent = String(idx + 1);
+            pad.appendChild(num);
+          }
+          cells.appendChild(pad);
+        }
+        el.grid.appendChild(cells);
+      }
+    });
+  }
+
+  function renderText() {
+    var p = pattern();
+    var keys = activeVoices();
+    var lines = [];
+    lines.push("        page 1 (1-16)    page 2 (17-32)   page 3 (33-48)   page 4 (49-64)");
+    keys.forEach(function (k) {
+      var lane = p.lanes[k];
+      var label = (k === "GA" ? "ACC*" : k);
+      while (label.length < 5) label += " ";
+      var groups = [];
+      for (var g = 0; g < 4; g++) groups.push(lane.slice(g * 16, g * 16 + 16));
+      lines.push("  " + label + " " + groups.join(" "));
+    });
+    el.textview.textContent = lines.join("\n");
+  }
+
+  function renderIsolate() {
+    var keys = activeVoices();
+    var b = bank();
+    el.isolate.innerHTML = "";
+    var lab = document.createElement("span");
+    lab.className = "eyebrow";
+    lab.style.alignSelf = "center";
+    lab.style.marginRight = "4px";
+    lab.textContent = "Isolate one voice";
+    el.isolate.appendChild(lab);
+
+    var all = document.createElement("button");
+    all.type = "button";
+    all.className = "vchip";
+    all.textContent = "All";
+    all.setAttribute("aria-pressed", state.isolate ? "false" : "true");
+    all.addEventListener("click", function () { state.isolate = null; renderBody(); });
+    el.isolate.appendChild(all);
+
+    keys.forEach(function (k) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "vchip";
+      btn.textContent = k === "GA" ? "ACC*" : k + " " + b.voices[k].name;
+      btn.setAttribute("aria-pressed", state.isolate === k ? "true" : "false");
+      btn.addEventListener("click", function () {
+        state.isolate = (state.isolate === k) ? null : k;
+        renderBody();
+      });
+      el.isolate.appendChild(btn);
+    });
+  }
+
+  function renderVoiceSettings() {
+    var p = pattern();
+    var b = bank();
+    var kit = p.kit || {};
+    var names = Object.keys(kit);
+    if (!names.length) {
+      el.voiceSettings.innerHTML =
+        '<p style="margin:0;color:var(--muted);font-size:13.5px">' +
+        'No special voice settings \u2014 leave Tone, Nuance and Inst Select where they are ' +
+        'and let the pattern speak.</p>';
+      return;
+    }
+    names.sort();
+    var rows = ['<table><thead><tr><th>Voice</th><th>Setting</th><th class="num">Value</th>' +
+                '<th class="num">CC</th></tr></thead><tbody>'];
+    names.forEach(function (k) {
+      var v = b.voices[k];
+      var spec = kit[k];
+      var fields = [
+        ["sel", "Inst Select", v.select_cc],
+        ["tone", "Tone", v.tone_cc],
+        ["shape", "Nuance Shape", v.shape_cc],
+        ["amount", "Nuance Amount", v.amount_cc]
+      ].filter(function (f) { return spec[f[0]] !== undefined && f[2]; });
+      fields.forEach(function (f, i) {
+        rows.push("<tr>" +
+          '<td class="kv">' + (i === 0 ? k + " <span style=\"color:var(--muted)\">" + v.name + "</span>" : "") + "</td>" +
+          "<td>" + f[1] + "</td>" +
+          '<td class="num">' + spec[f[0]] + "</td>" +
+          '<td class="num" style="color:var(--muted)">' + f[2] + "</td>" +
+          "</tr>");
+      });
+    });
+    rows.push("</tbody></table>");
+    el.voiceSettings.innerHTML = rows.join("");
+  }
+
+  function renderDone() {
+    var on = !!state.done[key(state.machine, state.slot)];
+    el.done.checked = on;
+    el.doneWrap.setAttribute("data-on", on ? "1" : "0");
+    var total = 0;
+    for (var k in state.done) if (state.done[k]) total++;
+    el.statDone.textContent = String(total);
+  }
+
+  function renderBody() {
+    renderHead();
+    renderGrid();
+    renderText();
+    renderIsolate();
+    renderVoiceSettings();
+    renderDone();
+    el.gridwrap.hidden = state.view !== "pads";
+    el.textview.hidden = state.view !== "text";
+    el.viewPads.setAttribute("aria-pressed", state.view === "pads" ? "true" : "false");
+    el.viewText.setAttribute("aria-pressed", state.view === "text" ? "true" : "false");
+  }
+
+  function renderAll() {
+    renderFamilies();
+    renderMatrix();
+    renderBody();
+  }
+
+  /* ---------- events ---------- */
+  document.querySelectorAll(".machine-switch button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      state.machine = btn.getAttribute("data-machine");
+      state.slot = 1;
+      state.family = "";
+      state.isolate = null;
+      document.querySelectorAll(".machine-switch button").forEach(function (b2) {
+        b2.setAttribute("aria-pressed", b2 === btn ? "true" : "false");
+      });
+      renderAll();
+    });
+  });
+
+  el.matrix.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".slot");
+    if (!b) return;
+    state.slot = parseInt(b.getAttribute("data-slot"), 10);
+    state.isolate = null;
+    renderMatrix();
+    renderBody();
+  });
+
+  el.family.addEventListener("change", function () {
+    state.family = el.family.value;
+    renderMatrix();
+  });
+
+  el.viewPads.addEventListener("click", function () { state.view = "pads"; renderBody(); });
+  el.viewText.addEventListener("click", function () { state.view = "text"; renderBody(); });
+
+  el.done.addEventListener("change", function () {
+    state.done[key(state.machine, state.slot)] = el.done.checked;
+    if (!el.done.checked) delete state.done[key(state.machine, state.slot)];
+    persist();
+    renderMatrix();
+    renderDone();
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if (ev.target.tagName === "SELECT" || ev.target.tagName === "INPUT") return;
+    if (ev.key === "ArrowRight" || ev.key === "ArrowDown") {
+      state.slot = state.slot === 64 ? 1 : state.slot + 1;
+    } else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") {
+      state.slot = state.slot === 1 ? 64 : state.slot - 1;
+    } else { return; }
+    ev.preventDefault();
+    state.isolate = null;
+    renderMatrix();
+    renderBody();
+  });
+
+  state.done = readLocal();
+  setSync("saved in this browser");
+  renderLegend();
+  renderAll();
+})();
+</script>
