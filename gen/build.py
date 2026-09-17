@@ -13,6 +13,18 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from engine import GLOBAL_ACCENT, ON, STEPS, voices_of
 from develop import develop
+from enrich import enrich
+
+
+def role_map(machine):
+    """voice key -> enrichment role, splitting toms and hand drums by pitch."""
+    out = {}
+    for key, v in voices_of(machine).items():
+        role = v.role
+        if role in ("tom", "conga"):
+            role = "tom_hi" if key[0] == "H" else "tom_lo"
+        out[key] = role
+    return out
 from export import LEGEND, chart_lines, write_bank_midi, write_pattern_midi
 from styles_tt606 import TT606_STYLES
 from styles_tt78 import TT78_STYLES
@@ -35,8 +47,10 @@ def build(outdir):
         os.makedirs(midi_dir, exist_ok=True)
 
         patterns = []
+        roles = role_map(machine)
         for i, style in enumerate(styles, start=1):
             lanes = develop(machine, i, style)
+            lanes = enrich(machine, i, style, lanes, roles)
             for key, lane in lanes.items():
                 assert len(lane) == STEPS, (machine, i, key, len(lane))
             patterns.append((i, style, lanes))
