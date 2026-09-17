@@ -13,17 +13,37 @@ cannot carry accent, flam or roll, so they are only ever switched on or off.
 
 import hashlib
 
-FULL_VOICES = ("BD", "SD", "LC", "HC", "MA", "TB", "HH", "CY")
-SIMPLE_VOICES = ("GU", "LB", "HB", "CB", "CL")
 ON = set("xXfFrR")
 
-#: voices that can carry a descending run, most to least prominent
-RUN_ORDER = ("HC", "LC", "SD", "TB", "MA")
-
-#: timekeepers - hats and shakers carry on through a fill rather than stopping
-#: dead, which is what a player would do and what keeps latin and disco grooves
-#: from dropping out at the turnaround
-TIMEKEEPERS = ("HH", "MA", "TB", "CB")
+#: Per machine: which voices can carry a descending run, which keep time
+#: through a fill rather than stopping dead, which crashes on the downbeat,
+#: and which cannot hold a modifier.
+#:
+#: Timekeepers matter more than they look. An early version cleared every voice
+#: for the last eight steps and the result was a hole in the bar rather than a
+#: fill - obvious on the latin and disco patterns, where the shaker *is* the
+#: pulse. Hats and shakers now play through.
+MACHINES = {
+    "TT-78": {
+        "run": ("HC", "LC", "SD", "TB", "MA"),
+        "timekeepers": ("HH", "MA", "TB", "CB"),
+        "hats": ("HH",),
+        "shakers": ("MA", "TB"),
+        "crash": "CY",
+        "kick": "BD",
+        "simple": ("GU", "LB", "HB", "CB", "CL"),
+    },
+    "TT-606": {
+        # the Drum Drone's fill is a tom run, which is what the machine is for
+        "run": ("HT", "LT", "SD", "CP", "RS"),
+        "timekeepers": ("CH", "OH", "RS"),
+        "hats": ("CH",),
+        "shakers": ("RS",),
+        "crash": "CY",
+        "kick": "BD",
+        "simple": (),
+    },
+}
 ACCENT_OF = {"x": "X", "f": "F", "r": "R"}
 
 
@@ -53,8 +73,13 @@ def _density(lanes):
     return hits / (64.0 * max(1, len(lanes)))
 
 
-def make_fill(lanes, slot, name=""):
+def make_fill(lanes, slot, name="", machine="TT-78"):
     """Return a Fill variant of `lanes` ({voice: 64-char string})."""
+    cfg = MACHINES[machine]
+    RUN_ORDER = cfg["run"]
+    TIMEKEEPERS = cfg["timekeepers"]
+    SIMPLE_VOICES = cfg["simple"]
+    CRASH, KICK = cfg["crash"], cfg["kick"]
     r = _rng("fill", slot, name)
     out = {v: list(l) for v, l in lanes.items()}
     present = [v for v, l in lanes.items() if any(c in ON for c in l)]
@@ -62,11 +87,13 @@ def make_fill(lanes, slot, name=""):
 
     # ---- bar 3: thicken, without changing the groove's identity -----------
     if not sparse:
-        if "HH" in out:                     # straight 16ths on the hats
-            for s in range(32, 48):
-                if out["HH"][s] == ".":
-                    out["HH"][s] = "x"
-        for shaker in ("MA", "TB"):         # a shaker on the offbeats
+        for hat in cfg["hats"]:             # straight 16ths on the hats
+            if hat in out:
+                for s in range(32, 48):
+                    if out[hat][s] == ".":
+                        out[hat][s] = "x"
+                break
+        for shaker in cfg["shakers"]:       # a shaker on the offbeats
             if shaker in out:
                 for s in range(34, 48, 4):
                     if out[shaker][s] == ".":
@@ -81,7 +108,7 @@ def make_fill(lanes, slot, name=""):
     # the cymbal and the timekeepers playing - a fill is the drums moving
     # underneath a groove that keeps running, not a hole in the bar.
     tail = range(56, 64)
-    keep = set(("BD", "CY")) | (set(TIMEKEEPERS) - set(run_voices))
+    keep = set((KICK, CRASH)) | (set(TIMEKEEPERS) - set(run_voices))
     for v in out:
         if v in keep:
             continue
@@ -110,10 +137,10 @@ def make_fill(lanes, slot, name=""):
     out[last][63] = "R"
 
     # keep the downbeat of the bar anchored, and crash if the kit has a cymbal
-    if "BD" in out:
-        out["BD"][48] = ACCENT_OF.get(out["BD"][48], "X") if out["BD"][48] in ON else "X"
-    if "CY" in out and not sparse:
-        out["CY"][48] = "X"
+    if KICK in out:
+        out[KICK][48] = ACCENT_OF.get(out[KICK][48], "X") if out[KICK][48] in ON else "X"
+    if CRASH in out and not sparse:
+        out[CRASH][48] = "X"
 
     # ---- hardware legality ------------------------------------------------
     for v in SIMPLE_VOICES:

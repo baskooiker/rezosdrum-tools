@@ -2,6 +2,7 @@
 """Write all 64 generated TT-78 patterns into a .tt78bak backup file.
 
     python3 tools/build_full_bank.py <base.tt78bak> <out.tt78bak>
+    python3 tools/build_full_bank.py --machine TT-606 <base.tt606bak> <out.tt606bak>
 
 Sections 0-3 are regenerated from out/TT-78_patterns.json; every other section
 is copied through byte-for-byte. Each pattern becomes a 64-step record: 8
@@ -25,8 +26,10 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cyclone_sysex import split_messages, unpack6
 from write_backup import build_message, checksum
-from tt78_pattern import (VOICES, SIMPLE_VOICES, write_voice, set_step_word,
-                          step_word)
+import tt78_pattern
+import tt606_pattern
+
+MACHINE_MODULES = {"TT-78": tt78_pattern, "TT-606": tt606_pattern}
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gen"))
@@ -38,13 +41,17 @@ PACKETS_PER_PATTERN = PAGES * 2
 DATA_LEN = 70
 
 # generator voice key -> machine voice key
-ALIAS = {"GS": "GU", "GL": "GU"}
+#: generator voice key -> machine voice key, per machine
+ALIASES = {"TT-78": {"GS": "GU", "GL": "GU"}, "TT-606": {}}
 PLAIN = {"X": "x", "F": "x", "R": "x", "f": "x", "r": "x", "x": "x", ".": "."}
 ACCENT_OF = {"x": "X", "f": "F", "r": "R"}
 
 
-def lanes_for(pattern):
+def lanes_for(pattern, machine="TT-78"):
     """Return {machine voice: 64-char lane}, hardware-legal."""
+    mod = MACHINE_MODULES[machine]
+    VOICES, SIMPLE_VOICES = mod.VOICES, mod.SIMPLE_VOICES
+    ALIAS = ALIASES[machine]
     ga = pattern["lanes"].get("GA", "." * 64)
     out = {v: ["."] * 64 for v in VOICES}
     stats = {"downgraded": 0, "ga_folded": 0}
@@ -72,7 +79,10 @@ def lanes_for(pattern):
     return {v: "".join(c) for v, c in out.items()}, stats
 
 
-def make_packets(serial, section, index, lanes, fill_lanes):
+def make_packets(serial, section, index, lanes, fill_lanes, machine="TT-78"):
+    mod = MACHINE_MODULES[machine]
+    VOICES, write_voice = mod.VOICES, mod.write_voice
+    step_word, set_step_word = mod.step_word, mod.set_step_word
     """Return the 8 decoded payloads for one 64-step pattern plus its Fill."""
     packets = []
     for seq in range(PACKETS_PER_PATTERN):
@@ -94,12 +104,17 @@ def make_packets(serial, section, index, lanes, fill_lanes):
 
 
 def main():
-    if len(sys.argv) != 3:
+    argv = sys.argv[1:]
+    machine = "TT-78"
+    if argv[:1] == ["--machine"]:
+        machine = argv[1]
+        argv = argv[2:]
+    if len(argv) != 2 or machine not in MACHINE_MODULES:
         print(__doc__)
         return 1
-    base_path, out_path = sys.argv[1], sys.argv[2]
+    base_path, out_path = argv
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    bank = json.load(open(os.path.join(root, "out", "TT-78_patterns.json")))
+    bank = json.load(open(os.path.join(root, "out", f"{machine}_patterns.json")))
     by_slot = {p["slot"]: p for p in bank["patterns"]}
 
     raw = open(base_path, "rb").read()
@@ -120,15 +135,17 @@ def main():
             continue                            # originals replaced wholesale
         done.add((section, index))
         slot = section * 16 + index + 1
-        lanes, stats = lanes_for(by_slot[slot])
-        fill_lanes = make_fill(lanes, slot, by_slot[slot]["name"])
+        lanes, stats = lanes_for(by_slot[slot], machine)
+        fill_lanes = make_fill(lanes, slot, by_slot[slot]["name"], machine)
         for k in totals:
             totals[k] += stats[k]
-        for dec_new in make_packets(serial, section, index, lanes, fill_lanes):
+        for dec_new in make_packets(serial, section, index, lanes,
+                                    fill_lanes, machine):
             out += build_message(m[4], m[5], dec_new)
         written += 1
 
     open(out_path, "wb").write(bytes(out))
+    print(f"machine : {machine}")
     print(f"base    : {base_path}  {len(raw)} bytes, {len(msgs)} packets")
     print(f"written : {out_path}  {len(out)} bytes")
     print(f"patterns: {written} (expect 64), {written * PACKETS_PER_PATTERN} pattern packets")

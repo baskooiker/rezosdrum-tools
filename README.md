@@ -21,7 +21,7 @@ variations.
 | SysEx frame format, 6-bit payload encoding, checksum | confirmed |
 | TT-78 pattern format, voice bit map, Fills | confirmed on hardware |
 | TT-606 voice bit map | confirmed from hardware captures |
-| TT-606 bank writing | not yet implemented |
+| TT-606 bank writing | implemented; not yet confirmed on hardware |
 | Pattern generator, step charts, MIDI export | both machines |
 
 ## The format
@@ -198,6 +198,7 @@ needs.
 
 ```bash
 python3 tools/build_full_bank.py <your-backup>.tt78bak out.tt78bak
+python3 tools/build_full_bank.py --machine TT-606 <your-backup>.tt606bak out.tt606bak
 ```
 
 The base file supplies your unit's serial number and every section this project
@@ -214,35 +215,18 @@ Z:\home\you\rezosdrum-tools\out.tt78bak
 
 It takes about half a minute and the progress bar runs to 100%.
 
-## What is not done yet: the TT-606
+## TT-606 status
 
-The TT-606 has step charts, MIDI files and a pattern book like the TT-78, so it
-plays over MIDI today. It **cannot yet be written into pattern memory**, for two
-reasons:
+The voice bit map is solved (see
+[docs/instrument_bitmap_tt606.md](docs/instrument_bitmap_tt606.md)) and
+`build_full_bank.py --machine TT-606` writes a full bank, with no restricted
+voices: all nine take accent, flam and roll.
 
-1. **No base backup.** `build_full_bank.py` needs a backup taken from the
-   machine to supply its serial number and the sections this project does not
-   generate.
-2. ~~The voice bit map is unknown.~~ **Solved** - see
-   [docs/instrument_bitmap_tt606.md](docs/instrument_bitmap_tt606.md). All nine
-   voices are mapped and all nine take accent, flam and roll. What remains is
-   the generator side: writing TT-606 lanes into a backup.
-
-Everything else should carry over unchanged: the frame format, the six-bit
-packing, the checksum, the section and index addressing and the record headers
-are properties of the firmware, which both machines share.
-
-Producing the map is mechanical. Back the machine up, then for each voice in
-turn: clear a pattern slot, add a single plain hit on step 1 with that voice,
-back up again, and diff:
-
-```bash
-python3 tools/parse_backup.py before.tt606bak after.tt606bak
-```
-
-Each diff reports one changed byte and the bit within it, which is that voice's
-position. `docs/instrument_bitmap.md` describes the procedure and the traps -
-chiefly that combining two voices in one capture makes the result ambiguous.
+What has **not** been confirmed is a TT-606 restore on hardware. The frame
+format, six-bit packing, checksum, addressing and record headers are all shared
+with the TT-78 and validate against TT-606 captures, and the page and fill
+layout is assumed to be shared too - but the TT-78 is the only machine a
+generated bank has actually been restored onto.
 
 ## Caution
 
