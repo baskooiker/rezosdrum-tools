@@ -63,6 +63,7 @@ physically cannot hold an accent or a modifier.
 | `tools/build_full_bank.py` | write a generated 64-pattern bank into a backup |
 | `tools/play_bank.py` | play the banks over MIDI (`mido`) |
 | `tools/capture_alsa.sh`, `tools/send_alsa.sh` | capture and send SysEx via ALSA |
+| `tools/run-cyclone-studio.sh` | launch Cyclone Studio under Wine with the MIDI port pre-selected |
 
 Everything is plain Python 3 with no dependencies except `play_bank.py`, which
 wants `mido`. `write_backup.py --verify <file>` re-encodes a backup from
@@ -122,39 +123,133 @@ machine's serial and the sections this project does not generate.
 
 ## Running Cyclone Studio under Wine
 
-Studio is a 32-bit Qt5 Windows application and runs under Wine, which is how
-the hardware verification here was done.
+Cyclone Studio is the only way to get a bank *into* a machine, and it is a
+32-bit Qt5 Windows application. It runs fine under Wine, which is how the
+hardware verification here was done.
 
-```
+### One-time setup
+
+```bash
 sudo dpkg --add-architecture i386 && sudo apt update
 sudo apt install -y wine wine32:i386
-export WINEPREFIX=~/.cyclone-wine WINEARCH=win32
+
+export WINEPREFIX=~/.cyclone-studio WINEARCH=win32
 export WINEDLLOVERRIDES="mscoree,mshtml="
 wineboot -i
 ```
 
-Studio opens MIDI **port index 0** at startup. On a PipeWire desktop that is a
-virtual port it cannot open, and it dies before drawing its window with only
-`MidiInWinMM::openPort: error creating Windows MM MIDI input port.` to show for
-it. Find your interface's index with
-`WINEDEBUG=+midi wine "Cyclone Studio.exe"`, then pre-select it:
+Download `CycloneStudio2.0_Windows.zip` from the Cyclone Analogic download page
+and unpack it into the prefix:
 
-```
-wine reg add "HKCU\Software\Cyclone Analogic\Cyclone Studio 2.0" \
-     /v inPort  /t REG_DWORD /d <n> /f
-wine reg add "HKCU\Software\Cyclone Analogic\Cyclone Studio 2.0" \
-     /v outPort /t REG_DWORD /d <n> /f
+```bash
+unzip CycloneStudio2.0_Windows.zip -d ~/.cyclone-studio/drive_c/CycloneStudio
 ```
 
-The machine must be in normal mode, not the TAP-held boot mode, with its rear
-MIDI Out/Thru switch set to **OUT**.
+### Launching
+
+```bash
+tools/run-cyclone-studio.sh              # picks the first MidiSport it finds
+tools/run-cyclone-studio.sh "My Iface"   # or match your interface by name
+tools/run-cyclone-studio.sh --list       # show what Wine can see
+```
+
+The script exists because of one specific trap. Studio opens **MIDI port index
+0** at startup; on a PipeWire desktop that index is a virtual port it cannot
+open, so it throws inside RtMidi and dies before drawing its window, leaving
+only this in the terminal:
+
+```
+MidiInWinMM::openPort: error creating Windows MM MIDI input port.
+```
+
+Studio stores its port choice through QSettings, which on Wine means the
+registry, so the fix is to pre-select the interface. The script enumerates the
+ports as Wine sees them, finds yours, writes the index to
+`HKCU\Software\Cyclone Analogic\Cyclone Studio 2.0`, and launches.
+
+**Do not hardcode the index.** It shifts depending on what else holds an ALSA
+sequencer client at the time - another running Wine instance is enough to move
+it. Detect it at launch, which is what the script does.
+
+### Before you connect
+
+* The machine must be in **normal mode**, not the TAP-held boot mode.
+* Its rear **MIDI Out/Thru switch must be on OUT**, not THRU. On THRU the jack
+  only echoes what arrives at MIDI In and the machine sends nothing of its own.
+* Cables both ways: machine **Out** to interface **In**, interface **Out** to
+  machine **In**.
+
+When it connects, the status line reads
+`TT-78 Beat Bot: Firmware v1.0, Serial: ...`. If it stays blank, work through
+the three points above before anything else.
+
+## Backup and restore
+
+### Backing up
+
+Click **Backup** and save the file. Do this before your first restore and keep
+it: it is the only way back, and it is also the base file the bank builder
+needs.
+
+### Building a bank
+
+```bash
+python3 tools/build_full_bank.py <your-backup>.tt78bak out.tt78bak
+```
+
+The base file supplies your unit's serial number and every section this project
+does not generate; only the pattern sections are rewritten.
+
+### Restoring
+
+Click **Restore**. Wine's file dialog has no bookmark for your home directory,
+so type the full path into the *File name* box, with `Z:` standing in for `/`:
+
+```
+Z:\home\you\rezosdrum-tools\out.tt78bak
+```
+
+It takes about half a minute and the progress bar runs to 100%.
+
+## What is not done yet: the TT-606
+
+The TT-606 has step charts, MIDI files and a pattern book like the TT-78, so it
+plays over MIDI today. It **cannot yet be written into pattern memory**, for two
+reasons:
+
+1. **No base backup.** `build_full_bank.py` needs a backup taken from the
+   machine to supply its serial number and the sections this project does not
+   generate.
+2. **The voice bit map is unknown.** `tools/tt78_pattern.py` maps which voice
+   occupies which bits of a step, and every entry in it came from diffing a
+   TT-78. The TT-606 has a different voice set - two toms, open and closed
+   hats, rim shot and hand clap in place of the congas, bongos and guiro - so it
+   needs its own map.
+
+Everything else should carry over unchanged: the frame format, the six-bit
+packing, the checksum, the section and index addressing and the record headers
+are properties of the firmware, which both machines share.
+
+Producing the map is mechanical. Back the machine up, then for each voice in
+turn: clear a pattern slot, add a single plain hit on step 1 with that voice,
+back up again, and diff:
+
+```bash
+python3 tools/parse_backup.py before.tt606bak after.tt606bak
+```
+
+Each diff reports one changed byte and the bit within it, which is that voice's
+position. `docs/instrument_bitmap.md` describes the procedure and the traps -
+chiefly that combining two voices in one capture makes the result ambiguous.
 
 ## Caution
 
 Cyclone Studio's **Restore overwrites everything**: all patterns, tracks,
 clips, kits and user settings. Take a backup before you restore anything and
-keep it. Backup files contain your unit's serial number, which is why none are
-committed here.
+keep it - it is the only way back.
+
+Backup files contain your unit's serial number, which is why none are committed
+here.
 
 ## Related
 
