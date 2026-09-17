@@ -15,6 +15,7 @@ E8 = "x.x.x.x.x.x.x.x."
 E16 = "xxxxxxxxxxxxxxxx"
 BACK = "....x.......x..."
 ONE = "x..............."
+TRES = "x..x..x.x..x..x."   # 3-3-2 tresillo at sixteenth resolution
 
 
 def S(*a, **k):
@@ -355,15 +356,6 @@ TT606_STYLES = [
        kit={"BD": {"tone": 22, "shape": 18, "amount": 60}},
        notes="Slow, stiff, heavy. Belgian tempo."),
 
-    S("Dark Pulse", 96, {
-        "BD": "x.......x.......", "CH": "....x.......x...",
-        "RS": "..x.......x.....", "CY": ONE,
-        GA: "x.......",
-    }, family="Machine rock & wave", strict=True,
-       kit={"CY": {"sel": 0, "tone": 18, "shape": 26, "amount": 96},
-            "CH": {"sel": 5, "tone": 22}},
-       notes="Barely a beat. Good bed for drones."),
-
     S("IDM Glitch", 140, {
         "BD": "x..x.....x..x...", "SD": "....x..x....x.x.",
         "CH": "x.xx..x.xx.x..xx", "RS": "..x....x..x.....",
@@ -415,15 +407,6 @@ TT606_STYLES = [
             "CY": {"sel": 3, "tone": 14}},
        notes="All extremes on the nuance settings. Abrasive by design."),
 
-    S("Power Pulse", 88, {
-        "BD": "X.......X.......", "CY": "X.......X.......",
-        "LT": "....x.......x...", "RS": "..x...x...x...x.",
-        GA: "X.......X.......",
-    }, family="Machine rock & wave", strict=True,
-       kit={"BD": {"tone": 10, "shape": 28, "amount": 120}, "CY": {"sel": 3, "tone": 10}},
-       notes="Two enormous hits per bar. Everything else is decoration."),
-
-    # ---------------- Page 4: grooves, latin & polyrhythm ----------------
     S("16th Shuffle", 108, {
         "BD": "x.....x.x.....x.", "SD": BACK, "CH": E16,
         "OH": "..x.......x.....", "RS": "......x.....x...",
@@ -527,15 +510,6 @@ TT606_STYLES = [
        kit={"CH": {"sel": 1, "tone": 60}, "CP": {"tone": 64, "shape": 4, "amount": 36}},
        notes="Disco frame, softer tone settings, stuttered hats."),
 
-    S("Ambient Sparse", 76, {
-        "BD": "x...............", "CY": "x...............",
-        "RS": "........x.......", "CH": "............x...",
-        GA: "x...............",
-    }, family="Grooves & polyrhythm", strict=True,
-       kit={"CY": {"sel": 0, "tone": 12, "shape": 24, "amount": 100},
-            "BD": {"tone": 34, "shape": 20, "amount": 44}},
-       notes="Four events per bar. Long cymbal decay does the work."),
-
     S("Polyrhythm 5", 124, {
         "BD": FOUR, "RS": "x....x....x....x", "CH": "..x...x...x...x.",
         "LT": "x......x......x.", "CY": ONE,
@@ -552,6 +526,29 @@ TT606_STYLES = [
        kit={"CY": {"sel": 1, "tone": 8, "shape": 28, "amount": 110},
             "CH": {"sel": 5, "tone": 16}},
        notes="Slowest pattern in the bank. Meant to sit under a long drone."),
+    # ---------------- tresillo & kick-driven ----------------
+    S("Tresillo", 124, {
+        "BD": TRES, "CP": BACK, "OH": OFF8, "CH": E8,
+        "RS": "......x.....x...", GA: "x..x..x.x..x..x.",
+    }, family="Tresillo & kick-driven", fills=["snare"],
+       kit={"CH": {"sel": 1, "tone": 66}, "CP": {"tone": 68, "shape": 6, "amount": 44}},
+       notes="The 3-3-2 kick, straight. Clap on the backbeat so the displacement is audible against something fixed."),
+
+    S("Tresillo Techno", 134, {
+        "BD": TRES, "CH": E16, "OH": "......x.......x.",
+        "CY": ONE, "SD": "..............X.",
+        GA: "x..x..x.x..x..x.",
+    }, family="Tresillo & kick-driven", fills=["snare", "tom"],
+       kit={"BD": {"tone": 26, "shape": 22, "amount": 76}, "CH": {"sel": 4, "tone": 98}},
+       notes="Same kick at techno tempo under relentless sixteenths. Every kick accented."),
+
+    S("Half Tresillo", 110, {
+        "BD": "x.....x.....x...", "SD": BACK, "CH": E8,
+        "OH": "..x.......x.....", "RS": "...........x....",
+        GA: "x.....x.....x...",
+    }, family="Tresillo & kick-driven", fills=["snare"],
+       kit={"CH": {"sel": 2, "tone": 58}, "BD": {"tone": 34, "shape": 10, "amount": 48}},
+       notes="The 3-3-2 stretched over the whole bar, so the kick lands three times and leaves room."),
 ]
 
 assert len(TT606_STYLES) == 64, len(TT606_STYLES)

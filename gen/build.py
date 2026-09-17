@@ -16,8 +16,10 @@ from develop import develop
 from export import LEGEND, chart_lines, write_bank_midi, write_pattern_midi
 from styles_tt606 import TT606_STYLES
 from styles_tt78 import TT78_STYLES
+from page_order import TT606_ORDER, TT78_ORDER, PAGE_TITLES, reorder
 
-BANKS = [("TT-606", TT606_STYLES), ("TT-78", TT78_STYLES)]
+BANKS = [("TT-606", reorder(TT606_STYLES, TT606_ORDER, "TT-606")),
+         ("TT-78", reorder(TT78_STYLES, TT78_ORDER, "TT-78"))]
 PAGE_COLOURS = ["Red", "Yellow", "Green", "Blue"]
 
 
@@ -72,6 +74,7 @@ def build(outdir):
             if (slot - 1) % 16 == 0:
                 doc.append("")
                 doc.append(f"## Page {page + 1} ({PAGE_COLOURS[page]}) — "
+                           f"{PAGE_TITLES[machine][page]} — "
                            f"patterns P{slot}–P{slot + 15}")
                 doc.append("")
             doc += chart_lines(machine, slot, style, lanes)

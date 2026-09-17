@@ -20,6 +20,7 @@ CLAVE32 = "x..x..x...x.x..."
 CLAVE23 = "..x.x...x..x..x."
 CASCARA = "x.xx.x.xx.x.xx.x"
 TUMBAO = "......x.x.....x."
+TRES = "x..x..x.x..x..x."   # 3-3-2 tresillo at sixteenth resolution
 
 
 def S(*a, **k):
@@ -393,14 +394,6 @@ TT78_STYLES = [
        kit={"MA": {"tone": 62}},
        notes="Motorik with the shuffle knob at 44 — it lopes."),
 
-    S("Ambient Pop", 88, {
-        "BD": "x.......x.......", "HH": "............x...",
-        "TB": "....x...........", "CY": ONE,
-        "HB": "..........x.....", GA: "x.......",
-    }, family="Electronic", strict=True,
-       kit={"CY": {"tone": 20, "shape": 28, "amount": 104}},
-       notes="Four gentle events per bar."),
-
     S("Minimal 78", 126, {
         "BD": FOUR, "HH": "..x.....x.......", "CL": "......x.........",
         "MA": "............x...", GA: "x...............",
@@ -512,23 +505,6 @@ TT78_STYLES = [
        kit={"CL": {"tone": 74}, "LC": {"tone": 42}},
        notes="Fives against sevens against fours — a different alignment every bar."),
 
-    S("Sparse Dub", 68, {
-        "BD": "........x.......", "SD": "........x.......",
-        "CY": ONE, "HB": "..............x.",
-        GA: "........x.......",
-    }, family="Percussion & polyrhythm", strict=True,
-       kit={"CY": {"tone": 18, "shape": 28, "amount": 108},
-            "SD": {"tone": 40, "shape": 26, "amount": 98}},
-       notes="One drop with almost everything removed."),
-
-    S("Drone Pulse 78", 72, {
-        "BD": TWO, "CY": ONE, "MA": "x..x..x..x..x..x",
-        "CL": "....x.......x...", "HB": "..........x.....",
-        GA: "x.......",
-    }, family="Percussion & polyrhythm", strict=True,
-       kit={"CY": {"tone": 14, "shape": 30, "amount": 112}, "MA": {"tone": 44}},
-       notes="Slow bed for long chords."),
-
     S("Free Percussion", 112, {
         "BD": "x.........x.....", "LC": "..x....x..x...x.",
         "HC": "....x.x.....x...", "LB": ".x...x....x..x..",
@@ -538,6 +514,29 @@ TT78_STYLES = [
        kit={"LC": {"tone": 32}, "HC": {"tone": 82}, "LB": {"tone": 48},
             "HB": {"tone": 104}},
        notes="Four hand drums interlocking with no obvious downbeat. Flams add hand-drum grace notes."),
+    # ---------------- tresillo & kick-driven ----------------
+    S("Tresillo", 120, {
+        "BD": TRES, "CL": CLAVE32, "MA": E16, "HH": OFF8,
+        "SD": "............x...", GA: "x..x..x.x..x..x.",
+    }, family="Tresillo & kick-driven", fills=["conga"],
+       kit={"CL": {"tone": 78, "shape": 6, "amount": 30}, "MA": {"tone": 58}},
+       notes="The 3-3-2 kick against son clave, which is where the figure comes from in the first place."),
+
+    S("Tresillo Cumbia", 100, {
+        "BD": TRES, "GS": "x..x..x..x..x..x", "GL": "..x.....x.....x.",
+        "CB": "....x.......x...", "MA": E8, "SD": "....x.......x...",
+        GA: "x..x..x.x..x..x.",
+    }, family="Tresillo & kick-driven", fills=["conga", "snare"],
+       kit={"GS": {"tone": 80, "shape": 10, "amount": 44}, "CB": {"tone": 92}},
+       notes="Tresillo kick under a guiro ostinato. The long and short scrapes pull against the kick."),
+
+    S("Half Tresillo", 96, {
+        "BD": "x.....x.....x...", "LC": TUMBAO, "HC": "....x.......x...",
+        "HH": E8, "MA": OFF8, "CL": "......x.......x.",
+        GA: "x.....x.....x...",
+    }, family="Tresillo & kick-driven", fills=["conga"],
+       kit={"LC": {"tone": 38, "shape": 12, "amount": 50}, "HC": {"tone": 88}},
+       notes="Three kicks a bar with a tumbao underneath - the most space of the tresillo set."),
 ]
 
 assert len(TT78_STYLES) == 64, len(TT78_STYLES)

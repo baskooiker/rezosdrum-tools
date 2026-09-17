@@ -71,10 +71,26 @@ byte-for-byte.
 
 ## The pattern banks
 
-`gen/` generates 64 patterns per machine, each 64 steps on the 16th-note scale,
-across four pages of sixteen: four-to-the-floor, breaks and electro, machine
-rock, and grooves and polyrhythm on the TT-606; CR-78 preset heritage, latin
-and afro, electronic reinterpretations, and percussion studies on the TT-78.
+`gen/` generates 64 patterns per machine, each 64 steps on the 16th-note scale.
+
+The four pages are arranged by **feel of the kick** rather than by genre, since
+while playing you reach for a page rather than a pattern number:
+
+| page | | contents |
+|---|---|---|
+| 1 | red | four-to-the-floor - the steadiest material, kick on every beat |
+| 2 | yellow | tresillo and kick-driven syncopation - dense kicks, displaced |
+| 3 | green | breaks, rock and song styles |
+| 4 | blue | percussion, grooves, texture and polyrhythm |
+
+So pages 1 and 2 are the kick-forward half of each machine and pages 3 and 4
+are everything else. `gen/page_order.py` holds the slot assignment and checks it
+covers every style exactly once.
+
+Every pattern carries a Fill variation: the same groove through bars 1-2, a
+thicker bar 3, and a turnaround in bar 4 with a descending run over hats and
+shakers that keep playing. Set an Auto-Fill Interval on the machine and it
+fires automatically every few bars.
 
 ```
 python3 gen/build.py        # step charts, MIDI files, JSON
