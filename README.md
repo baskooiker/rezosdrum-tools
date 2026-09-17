@@ -20,15 +20,17 @@ variations.
 |---|---|
 | SysEx frame format, 6-bit payload encoding, checksum | confirmed |
 | TT-78 pattern format, voice bit map, Fills | confirmed on hardware |
-| TT-606 pattern format | frame format shared; voice bit map not yet mapped |
+| TT-606 voice bit map | confirmed from hardware captures |
+| TT-606 bank writing | not yet implemented |
 | Pattern generator, step charts, MIDI export | both machines |
 
 ## The format
 
 Start with **[docs/PROTOCOL.md](docs/PROTOCOL.md)** for the SysEx frame, the
 backup file structure and the checksum, and
-**[docs/instrument_bitmap.md](docs/instrument_bitmap.md)** for the TT-78 voice
-bit map. Every claim in both is marked as confirmed or inferred.
+**[docs/instrument_bitmap.md](docs/instrument_bitmap.md)** and
+**[docs/instrument_bitmap_tt606.md](docs/instrument_bitmap_tt606.md)** for the
+TT-78 and TT-606 voice bit maps. Every claim in both is marked as confirmed or inferred.
 
 The short version:
 
@@ -60,6 +62,7 @@ physically cannot hold an accent or a modifier.
 | `tools/parse_backup.py` | parse and diff `.tt78bak` files |
 | `tools/write_backup.py` | rebuild backup files, recompute checksums |
 | `tools/tt78_pattern.py` | TT-78 voice bit map, step encode/decode |
+| `tools/tt606_pattern.py` | TT-606 voice bit map, step encode/decode |
 | `tools/build_full_bank.py` | write a generated 64-pattern bank into a backup |
 | `tools/play_bank.py` | play the banks over MIDI (`mido`) |
 | `tools/capture_alsa.sh`, `tools/send_alsa.sh` | capture and send SysEx via ALSA |
@@ -220,11 +223,10 @@ reasons:
 1. **No base backup.** `build_full_bank.py` needs a backup taken from the
    machine to supply its serial number and the sections this project does not
    generate.
-2. **The voice bit map is unknown.** `tools/tt78_pattern.py` maps which voice
-   occupies which bits of a step, and every entry in it came from diffing a
-   TT-78. The TT-606 has a different voice set - two toms, open and closed
-   hats, rim shot and hand clap in place of the congas, bongos and guiro - so it
-   needs its own map.
+2. ~~The voice bit map is unknown.~~ **Solved** - see
+   [docs/instrument_bitmap_tt606.md](docs/instrument_bitmap_tt606.md). All nine
+   voices are mapped and all nine take accent, flam and roll. What remains is
+   the generator side: writing TT-606 lanes into a backup.
 
 Everything else should carry over unchanged: the frame format, the six-bit
 packing, the checksum, the section and index addressing and the record headers
